@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C8839D23A6E648354BEDA8F /* Pods_QuestTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */; };
 		B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F06204C29A100414BB1 /* AppDelegate.swift */; };
 		B4B51F09204C29A100414BB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F08204C29A100414BB1 /* ViewController.swift */; };
 		B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0A204C29A100414BB1 /* Main.storyboard */; };
 		B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0D204C29A100414BB1 /* Assets.xcassets */; };
 		B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0F204C29A100414BB1 /* LaunchScreen.storyboard */; };
+		B4B51F19204C2CA800414BB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F18204C2CA800414BB1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.release.xcconfig"; sourceTree = "<group>"; };
+		865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.debug.xcconfig"; sourceTree = "<group>"; };
 		B4B51F03204C29A100414BB1 /* QuestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B51F06204C29A100414BB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4B51F08204C29A100414BB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		B4B51F0D204C29A100414BB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B51F10204C29A100414BB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4B51F12204C29A100414BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4B51F18204C2CA800414BB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8839D23A6E648354BEDA8F /* Pods_QuestTime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A93B633319EFE011E7D330B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */,
+				801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		768DBC0EFC7DDFF1BC9651EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B4B51EFA204C29A100414BB1 = {
 			isa = PBXGroup;
 			children = (
 				B4B51F05204C29A100414BB1 /* QuestTime */,
 				B4B51F04204C29A100414BB1 /* Products */,
+				3A93B633319EFE011E7D330B /* Pods */,
+				768DBC0EFC7DDFF1BC9651EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				B4B51F0D204C29A100414BB1 /* Assets.xcassets */,
 				B4B51F0F204C29A100414BB1 /* LaunchScreen.storyboard */,
 				B4B51F12204C29A100414BB1 /* Info.plist */,
+				B4B51F18204C2CA800414BB1 /* GoogleService-Info.plist */,
 			);
 			path = QuestTime;
 			sourceTree = "<group>";
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4B51F15204C29A100414BB1 /* Build configuration list for PBXNativeTarget "QuestTime" */;
 			buildPhases = (
+				23C17030B9054645B9242EB1 /* [CP] Check Pods Manifest.lock */,
 				B4B51EFF204C29A100414BB1 /* Sources */,
 				B4B51F00204C29A100414BB1 /* Frameworks */,
 				B4B51F01204C29A100414BB1 /* Resources */,
+				18C16F45E1092696C608AE67 /* [CP] Embed Pods Frameworks */,
+				0DDD76B8B10698140A567BFD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,12 +154,69 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */,
+				B4B51F19204C2CA800414BB1 /* GoogleService-Info.plist in Resources */,
 				B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */,
 				B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DDD76B8B10698140A567BFD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18C16F45E1092696C608AE67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23C17030B9054645B9242EB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QuestTime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B4B51EFF204C29A100414BB1 /* Sources */ = {
@@ -272,11 +359,13 @@
 		};
 		B4B51F16204C29A100414BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J7U5C6D83;
 				INFOPLIST_FILE = QuestTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlabLab.QuestTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,11 +376,13 @@
 		};
 		B4B51F17204C29A100414BB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J7U5C6D83;
 				INFOPLIST_FILE = QuestTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlabLab.QuestTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
