@@ -23,21 +23,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctH-C7-gJn" customClass="GradientView" customModule="QuestTime" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctH-C7-gJn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="303"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-1" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-RC-hUp">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions left today" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcm-O2-a5r" customClass="OutlineLabel" customModule="QuestTime" customModuleProvider="target">
-                                        <rect key="frame" x="65" y="182.5" width="244.5" height="25"/>
+                                        <rect key="frame" x="65" y="208" width="244.5" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Q9l-fc-EVF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Sniglet" family="Sniglet" pointSize="20"/>
-                                        <color key="textColor" red="0.32156862745098036" green="0.78431372549019607" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuestionMarks" translatesAutoresizingMaskIntoConstraints="NO" id="dAo-Pa-ias">
-                                        <rect key="frame" x="0.0" y="103" width="375" height="200"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFq-cq-EBy">
                                         <rect key="frame" x="10" y="35" width="44" height="44"/>
                                         <constraints>
@@ -55,39 +55,64 @@
                                         <state key="normal" title="Button" image="add button"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-Oc-bdj" customClass="OutlineLabel" customModule="QuestTime" customModuleProvider="target">
-                                        <rect key="frame" x="121" y="76" width="133" height="120"/>
+                                        <rect key="frame" x="121" y="101.5" width="133" height="120"/>
                                         <fontDescription key="fontDescription" name="Sniglet" family="Sniglet" pointSize="120"/>
-                                        <color key="textColor" red="0.32156862749999998" green="0.7843137255" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.7843137255" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2j-aF-tAG">
+                                        <rect key="frame" x="0.0" y="299" width="375" height="4"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="Nma-JQ-JSI"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="border" translatesAutoresizingMaskIntoConstraints="NO" id="WxM-4Y-ntb">
+                                        <rect key="frame" x="0.0" y="299" width="375" height="4"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="I6r-uW-cFV"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="dAo-Pa-ias" firstAttribute="leading" secondItem="ctH-C7-gJn" secondAttribute="leading" id="LMe-UR-uVb"/>
+                                    <constraint firstItem="K2j-aF-tAG" firstAttribute="top" secondItem="lhh-RC-hUp" secondAttribute="bottom" id="0ah-BK-NHL"/>
+                                    <constraint firstItem="K2j-aF-tAG" firstAttribute="leading" secondItem="ctH-C7-gJn" secondAttribute="leading" id="Gi8-Ae-nOO"/>
+                                    <constraint firstAttribute="trailing" secondItem="lhh-RC-hUp" secondAttribute="trailing" id="K8P-6h-qqf"/>
                                     <constraint firstItem="k0T-Ff-OxA" firstAttribute="top" secondItem="ctH-C7-gJn" secondAttribute="top" constant="35" id="Lh9-Yy-fzu"/>
+                                    <constraint firstAttribute="trailing" secondItem="WxM-4Y-ntb" secondAttribute="trailing" id="Myr-fp-wU4"/>
                                     <constraint firstItem="ZtH-Oc-bdj" firstAttribute="centerX" secondItem="ctH-C7-gJn" secondAttribute="centerX" id="QX1-1m-nxE"/>
-                                    <constraint firstItem="ZtH-Oc-bdj" firstAttribute="centerY" secondItem="ctH-C7-gJn" secondAttribute="centerY" constant="-15" id="Tly-BR-JRh"/>
+                                    <constraint firstItem="lhh-RC-hUp" firstAttribute="leading" secondItem="ctH-C7-gJn" secondAttribute="leading" id="QrH-Es-NW0"/>
+                                    <constraint firstAttribute="trailing" secondItem="K2j-aF-tAG" secondAttribute="trailing" id="SpK-WO-jSI"/>
+                                    <constraint firstItem="ZtH-Oc-bdj" firstAttribute="centerY" secondItem="ctH-C7-gJn" secondAttribute="centerY" constant="10" id="Tly-BR-JRh"/>
                                     <constraint firstItem="DFq-cq-EBy" firstAttribute="leading" secondItem="ctH-C7-gJn" secondAttribute="leading" constant="10" id="VDv-Va-ZJV"/>
                                     <constraint firstItem="Zcm-O2-a5r" firstAttribute="top" secondItem="ZtH-Oc-bdj" secondAttribute="bottom" constant="-13" id="Y12-o7-Ktq"/>
                                     <constraint firstAttribute="trailing" secondItem="k0T-Ff-OxA" secondAttribute="trailing" constant="10" id="dRT-px-piD"/>
-                                    <constraint firstAttribute="bottom" secondItem="dAo-Pa-ias" secondAttribute="bottom" id="fwA-0G-xVo"/>
-                                    <constraint firstAttribute="trailing" secondItem="dAo-Pa-ias" secondAttribute="trailing" id="jte-Nd-IsZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="K2j-aF-tAG" secondAttribute="bottom" id="eDY-9d-Zgx"/>
+                                    <constraint firstItem="lhh-RC-hUp" firstAttribute="top" secondItem="ctH-C7-gJn" secondAttribute="top" id="iwp-62-Wdg"/>
+                                    <constraint firstItem="WxM-4Y-ntb" firstAttribute="leading" secondItem="ctH-C7-gJn" secondAttribute="leading" id="p6a-sI-Vmd"/>
+                                    <constraint firstAttribute="bottom" secondItem="WxM-4Y-ntb" secondAttribute="bottom" id="sSJ-Df-kGU"/>
                                     <constraint firstItem="DFq-cq-EBy" firstAttribute="top" secondItem="ctH-C7-gJn" secondAttribute="top" constant="35" id="tzl-bh-2l1"/>
                                     <constraint firstItem="Zcm-O2-a5r" firstAttribute="centerX" secondItem="ctH-C7-gJn" secondAttribute="centerX" id="xFc-gW-OY2"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="1" green="0.88627450980392153" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" red="1" green="0.46274509803921571" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="K2j-aF-tAG"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wpF-UU-ATg">
                                 <rect key="frame" x="0.0" y="303" width="375" height="364"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-Eb-BpA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-Eb-BpA">
                                 <rect key="frame" x="0.0" y="303" width="375" height="364"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -107,7 +132,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vod-CK-DOD" customClass="OutlineLabel" customModule="QuestTime" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="10" width="109" height="37"/>
                                                             <fontDescription key="fontDescription" name="Sniglet" family="Sniglet" pointSize="17"/>
-                                                            <color key="textColor" red="0.32156862749999998" green="0.7843137255" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="users" translatesAutoresizingMaskIntoConstraints="NO" id="C9A-Hb-g87">
@@ -120,7 +145,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a10-Hs-jiB" customClass="OutlineLabel" customModule="QuestTime" customModuleProvider="target">
                                                             <rect key="frame" x="55" y="58.5" width="11" height="17"/>
                                                             <fontDescription key="fontDescription" name="Sniglet" family="Sniglet" pointSize="17"/>
-                                                            <color key="textColor" red="0.32156862749999998" green="0.7843137255" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZC9-x7-gZ3" customClass="OutlineLabel" customModule="QuestTime" customModuleProvider="target">
@@ -129,7 +154,7 @@
                                                                 <constraint firstAttribute="height" constant="20" id="ovQ-41-OZt"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Sniglet" family="Sniglet" pointSize="15"/>
-                                                            <color key="textColor" red="0.32156862749999998" green="0.7843137255" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -187,6 +212,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="borderView" destination="K2j-aF-tAG" id="Go2-Ec-zPN"/>
+                        <outlet property="headerView" destination="ctH-C7-gJn" id="3fn-sP-63y"/>
                         <outlet property="label" destination="Zcm-O2-a5r" id="0XR-uc-vt1"/>
                     </connections>
                 </viewController>
@@ -196,11 +223,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ListItem" width="692" height="177"/>
-        <image name="QuestionMarks" width="375" height="200"/>
-        <image name="add button" width="742" height="766"/>
+        <image name="ListItem" width="690" height="174"/>
+        <image name="add button" width="371" height="383"/>
         <image name="background" width="351" height="644"/>
-        <image name="profile" width="1024" height="1024"/>
-        <image name="users" width="547" height="556"/>
+        <image name="background-1" width="375" height="812"/>
+        <image name="border" width="375" height="4"/>
+        <image name="profile" width="512" height="512"/>
+        <image name="users" width="182" height="185"/>
     </resources>
 </document>

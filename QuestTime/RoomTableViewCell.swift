@@ -11,9 +11,8 @@ class RoomTableViewCell: UITableViewCell {
         backgroundColor = .clear
         
         cellView.layer.cornerRadius = 8
-        cellView.clipsToBounds = true
+        cellView.clipsToBounds = false
         cellView.backgroundColor = .clear
-
     }
 
 }

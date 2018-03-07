@@ -1,30 +1,26 @@
-//
-//  ViewController.swift
-//  QuestTime
-//
-//  Created by dominik on 04/03/2018.
-//  Copyright © 2018 BlabLab. All rights reserved.
-//
-
 import UIKit
-
-
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var headerView: GradientView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var borderView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        borderView.layer.shadowColor = UIColor.black.cgColor
+        borderView.layer.shadowOpacity = 1
+        borderView.layer.shadowOffset = CGSize.zero
+        borderView.layer.shadowRadius = 10
+        borderView.clipsToBounds = false
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
-
-
+    
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -38,6 +34,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomTableViewCell", for: indexPath) as! RoomTableViewCell
+        cell.selectionStyle = .none
         return cell
     }
 }
