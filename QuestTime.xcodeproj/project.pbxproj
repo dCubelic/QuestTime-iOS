@@ -10,6 +10,9 @@
 		4C8839D23A6E648354BEDA8F /* Pods_QuestTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */; };
 		B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4032F03205880E2007EFE96 /* LoginViewController.swift */; };
 		B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408FEDF206A8D8100E76A56 /* QTTextField.swift */; };
+		B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA01F206AE4C9008E960C /* RoomsViewController.swift */; };
+		B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */; };
+		B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */; };
 		B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C1E205941120081BB6F /* RegisterViewController.swift */; };
 		B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C20205942800081BB6F /* UIStoryboard+QT.swift */; };
 		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
@@ -20,7 +23,7 @@
 		B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0F204C29A100414BB1 /* LaunchScreen.storyboard */; };
 		B4B51F19204C2CA800414BB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F18204C2CA800414BB1 /* GoogleService-Info.plist */; };
 		B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C449F620505C6B00DFDB1D /* GradientView.swift */; };
-		B4C449F920505E9D00DFDB1D /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C449F820505E9D00DFDB1D /* RoomTableViewCell.swift */; };
+		B4C449F920505E9D00DFDB1D /* RoomTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C449F820505E9D00DFDB1D /* RoomTableViewCell2.swift */; };
 		B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.debug.xcconfig"; sourceTree = "<group>"; };
 		B4032F03205880E2007EFE96 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B408FEDF206A8D8100E76A56 /* QTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTTextField.swift; sourceTree = "<group>"; };
+		B41DA01F206AE4C9008E960C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
+		B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
 		B4656C1E205941120081BB6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B4656C20205942800081BB6F /* UIStoryboard+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+QT.swift"; sourceTree = "<group>"; };
 		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -41,7 +47,7 @@
 		B4B51F12204C29A100414BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4B51F18204C2CA800414BB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B4C449F620505C6B00DFDB1D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		B4C449F820505E9D00DFDB1D /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		B4C449F820505E9D00DFDB1D /* RoomTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell2.swift; sourceTree = "<group>"; };
 		B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineLabel.swift; sourceTree = "<group>"; };
 		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,9 +128,12 @@
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
 				B4B51F08204C29A100414BB1 /* ViewController.swift */,
+				B41DA01F206AE4C9008E960C /* RoomsViewController.swift */,
 				B4032F03205880E2007EFE96 /* LoginViewController.swift */,
 				B4656C1E205941120081BB6F /* RegisterViewController.swift */,
-				B4C449F820505E9D00DFDB1D /* RoomTableViewCell.swift */,
+				B4C449F820505E9D00DFDB1D /* RoomTableViewCell2.swift */,
+				B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */,
+				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
 				B4032F02205880D0007EFE96 /* Helper Classes */,
 				B4032F01205880B4007EFE96 /* Supporting Files */,
 			);
@@ -193,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */,
 				B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */,
 				B4B51F19204C2CA800414BB1 /* GoogleService-Info.plist in Resources */,
 				B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */,
@@ -267,9 +277,11 @@
 				B4B51F09204C29A100414BB1 /* ViewController.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
-				B4C449F920505E9D00DFDB1D /* RoomTableViewCell.swift in Sources */,
+				B4C449F920505E9D00DFDB1D /* RoomTableViewCell2.swift in Sources */,
 				B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */,
+				B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */,
 				B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */,
+				B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */,
 				B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */,
 				B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */,
 				B4656C232059428B0081BB6F /* Constants.swift in Sources */,

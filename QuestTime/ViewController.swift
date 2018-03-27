@@ -64,7 +64,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             color = .white
         }
         
-        cell.colorView.backgroundColor = color
+//        cell.colorView.backgroundColor = color
         
         return cell
     }

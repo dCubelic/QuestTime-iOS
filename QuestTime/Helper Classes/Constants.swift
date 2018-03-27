@@ -5,5 +5,6 @@ struct Constants {
         static let main = "Main"
         static let viewController = "ViewController"
         static let registerVC = "RegisterViewController"
+        static let roomsViewController = "RoomsViewController"
     }
 }

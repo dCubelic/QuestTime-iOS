@@ -15,6 +15,13 @@ class RegisterViewController: UIViewController {
         displayNameTextField.delegate = self
         passwordTextField.delegate = self
         repeatPasswordTextField.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tapAction() {
+        view.endEditing(true)
     }
 
     @IBAction func registerAction(_ sender: Any) {
