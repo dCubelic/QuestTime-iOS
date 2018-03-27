@@ -11,6 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         return true
     }
 

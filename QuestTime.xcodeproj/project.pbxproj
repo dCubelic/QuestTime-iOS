@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4C8839D23A6E648354BEDA8F /* Pods_QuestTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */; };
 		B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4032F03205880E2007EFE96 /* LoginViewController.swift */; };
+		B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408FEDF206A8D8100E76A56 /* QTTextField.swift */; };
+		B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C1E205941120081BB6F /* RegisterViewController.swift */; };
+		B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C20205942800081BB6F /* UIStoryboard+QT.swift */; };
+		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
 		B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F06204C29A100414BB1 /* AppDelegate.swift */; };
 		B4B51F09204C29A100414BB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F08204C29A100414BB1 /* ViewController.swift */; };
 		B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0A204C29A100414BB1 /* Main.storyboard */; };
@@ -24,6 +28,10 @@
 		801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.release.xcconfig"; sourceTree = "<group>"; };
 		865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.debug.xcconfig"; sourceTree = "<group>"; };
 		B4032F03205880E2007EFE96 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B408FEDF206A8D8100E76A56 /* QTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTTextField.swift; sourceTree = "<group>"; };
+		B4656C1E205941120081BB6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B4656C20205942800081BB6F /* UIStoryboard+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+QT.swift"; sourceTree = "<group>"; };
+		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4B51F03204C29A100414BB1 /* QuestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B51F06204C29A100414BB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4B51F08204C29A100414BB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +90,9 @@
 			children = (
 				B4C449F620505C6B00DFDB1D /* GradientView.swift */,
 				B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */,
+				B4656C20205942800081BB6F /* UIStoryboard+QT.swift */,
+				B4656C222059428A0081BB6F /* Constants.swift */,
+				B408FEDF206A8D8100E76A56 /* QTTextField.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -112,6 +123,7 @@
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
 				B4B51F08204C29A100414BB1 /* ViewController.swift */,
 				B4032F03205880E2007EFE96 /* LoginViewController.swift */,
+				B4656C1E205941120081BB6F /* RegisterViewController.swift */,
 				B4C449F820505E9D00DFDB1D /* RoomTableViewCell.swift */,
 				B4032F02205880D0007EFE96 /* Helper Classes */,
 				B4032F01205880B4007EFE96 /* Supporting Files */,
@@ -253,10 +265,14 @@
 			files = (
 				B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */,
 				B4B51F09204C29A100414BB1 /* ViewController.swift in Sources */,
+				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
 				B4C449F920505E9D00DFDB1D /* RoomTableViewCell.swift in Sources */,
 				B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */,
+				B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */,
 				B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */,
+				B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */,
+				B4656C232059428B0081BB6F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
