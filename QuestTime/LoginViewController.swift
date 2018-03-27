@@ -31,8 +31,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: ViewController.self, withIdentifier: Constants.Storyboard.viewController)
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: ViewController.self, withIdentifier: Constants.Storyboard.viewController)
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func forgotPasswordAction(_ sender: Any) {
