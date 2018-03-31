@@ -16,6 +16,10 @@
 		B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD96206F899400FC6662 /* RoomViewController.swift */; };
 		B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */; };
 		B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */; };
+		B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45E0665206FD02500B8950E /* CreateRoomViewController.swift */; };
+		B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */; };
+		B45E066B206FD1E000B8950E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */; };
+		B45E066C206FD1E000B8950E /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45E066A206FD1E000B8950E /* CategoryCollectionViewCell.xib */; };
 		B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C1E205941120081BB6F /* RegisterViewController.swift */; };
 		B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C20205942800081BB6F /* UIStoryboard+QT.swift */; };
 		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
@@ -40,6 +44,10 @@
 		B443AD96206F899400FC6662 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		B45E0665206FD02500B8950E /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
+		B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+QT.swift"; sourceTree = "<group>"; };
+		B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B45E066A206FD1E000B8950E /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		B4656C1E205941120081BB6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B4656C20205942800081BB6F /* UIStoryboard+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+QT.swift"; sourceTree = "<group>"; };
 		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 				B4656C222059428A0081BB6F /* Constants.swift */,
 				B408FEDF206A8D8100E76A56 /* QTTextField.swift */,
 				B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */,
+				B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -140,6 +149,9 @@
 				B443AD96206F899400FC6662 /* RoomViewController.swift */,
 				B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */,
 				B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */,
+				B45E0665206FD02500B8950E /* CreateRoomViewController.swift */,
+				B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */,
+				B45E066A206FD1E000B8950E /* CategoryCollectionViewCell.xib */,
 				B4032F02205880D0007EFE96 /* Helper Classes */,
 				B4032F01205880B4007EFE96 /* Supporting Files */,
 			);
@@ -209,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */,
+				B45E066C206FD1E000B8950E /* CategoryCollectionViewCell.xib in Resources */,
 				B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */,
 				B4B51F19204C2CA800414BB1 /* GoogleService-Info.plist in Resources */,
 				B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */,
@@ -280,9 +293,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45E066B206FD1E000B8950E /* CategoryCollectionViewCell.swift in Sources */,
 				B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */,
 				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
+				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
+				B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
 				B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */,
 				B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */,

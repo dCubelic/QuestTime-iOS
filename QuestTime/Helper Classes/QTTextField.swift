@@ -4,6 +4,7 @@ class QTTextField: UITextField {
     
     override func awakeFromNib() {
         self.borderStyle = .none
+        self.backgroundColor = .white
         
         self.layer.cornerRadius = 15
     }

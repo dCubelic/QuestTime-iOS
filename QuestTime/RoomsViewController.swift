@@ -27,6 +27,8 @@ class RoomsViewController: UIViewController {
     }
 
     @IBAction func addRoomAction(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: CreateRoomViewController.self)
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func settingsAction(_ sender: Any) {
