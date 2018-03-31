@@ -681,24 +681,33 @@
                                                         <color key="backgroundColor" red="0.074240535449653589" green="1" blue="0.43254132543162438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="12" id="N1H-54-6cJ"/>
-                                                            <constraint firstAttribute="height" constant="12" id="fNW-K5-Ox9"/>
+                                                            <constraint firstAttribute="width" secondItem="t5T-8F-niQ" secondAttribute="height" multiplier="1:1" id="zUL-Lg-OYc"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="difficultyAction:" destination="TNr-wU-qBU" eventType="touchUpInside" id="fre-fK-TeZ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="my4-YU-AyC">
                                                         <rect key="frame" x="238" y="4.5" width="12" height="12"/>
                                                         <color key="backgroundColor" red="1" green="0.57179646407859952" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="12" id="Tee-QK-EST"/>
-                                                            <constraint firstAttribute="height" constant="12" id="ygV-VX-9Fk"/>
+                                                            <constraint firstAttribute="width" secondItem="my4-YU-AyC" secondAttribute="height" multiplier="1:1" id="VKa-7R-7FC"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="difficultyAction:" destination="TNr-wU-qBU" eventType="touchUpInside" id="5gs-A5-vbg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dd-yp-XOC">
                                                         <rect key="frame" x="270" y="1" width="18" height="18"/>
                                                         <color key="backgroundColor" red="1" green="0.045690034796215473" blue="0.1959433426013929" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="18" id="VYg-Zl-b0q"/>
                                                             <constraint firstAttribute="width" constant="18" id="gEq-LT-1A4"/>
+                                                            <constraint firstAttribute="width" secondItem="4Dd-yp-XOC" secondAttribute="height" multiplier="1:1" id="rUw-ra-ghZ"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <action selector="difficultyAction:" destination="TNr-wU-qBU" eventType="touchUpInside" id="BCB-r9-h0P"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvO-8U-4PN">
                                                         <rect key="frame" x="0.0" y="61" width="49" height="21"/>
@@ -707,18 +716,24 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMu-06-Y7x">
-                                                        <rect key="frame" x="184" y="56" width="55" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                                        <rect key="frame" x="169" y="54.5" width="61" height="33"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                                         <state key="normal" title="Private">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="roomTypeAction:" destination="TNr-wU-qBU" eventType="touchUpInside" id="6iQ-Us-ot9"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbn-LG-bVH">
-                                                        <rect key="frame" x="249" y="58" width="39" height="27"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="12"/>
+                                                        <rect key="frame" x="240" y="56.5" width="48" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                                         <state key="normal" title="Public">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="roomTypeAction:" destination="TNr-wU-qBU" eventType="touchUpInside" id="7Ld-CJ-zmE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -779,7 +794,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sport" translatesAutoresizingMaskIntoConstraints="NO" id="vgd-I8-vPg">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                 </view>
@@ -863,8 +878,11 @@
                     <connections>
                         <outlet property="collectionView" destination="u95-rx-TqG" id="alZ-Ae-ONa"/>
                         <outlet property="easyButton" destination="t5T-8F-niQ" id="Utx-pt-edR"/>
+                        <outlet property="easyWidthConstraint" destination="N1H-54-6cJ" id="3A5-Vt-cmK"/>
                         <outlet property="hardButton" destination="4Dd-yp-XOC" id="f9c-BV-tJY"/>
-                        <outlet property="normalButton" destination="my4-YU-AyC" id="WAr-Y0-w2i"/>
+                        <outlet property="hardWidthConstraint" destination="gEq-LT-1A4" id="eWP-dd-kvd"/>
+                        <outlet property="mediumButton" destination="my4-YU-AyC" id="WAr-Y0-w2i"/>
+                        <outlet property="mediumWidthConstraint" destination="Tee-QK-EST" id="VNt-WG-h3X"/>
                         <outlet property="privateButton" destination="DMu-06-Y7x" id="pmD-XB-u1h"/>
                         <outlet property="publicButton" destination="mbn-LG-bVH" id="GXz-YG-Qft"/>
                         <outlet property="roomNameTextField" destination="KQL-nV-awD" id="HZQ-Hn-AFS"/>
