@@ -33,7 +33,7 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RoomTableViewCell", for: indexPath) as! RoomTableViewCell
+        let cell = tableView.dequeueReusableCell(ofType: RoomTableViewCell.self, for: indexPath)
         
         cell.roomNameLabel.text = rooms[indexPath.row]
         
@@ -43,4 +43,12 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        for cell in tableView.visibleCells as [UITableViewCell] {
+            let point = tableView.convert(cell.center, to: tableView.superview)
+            cell.alpha = ((point.y * 100) / tableView.bounds.maxY) / 100
+        }
+    }
 }
+
