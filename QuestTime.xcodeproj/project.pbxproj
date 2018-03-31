@@ -13,6 +13,9 @@
 		B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA01F206AE4C9008E960C /* RoomsViewController.swift */; };
 		B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */; };
 		B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */; };
+		B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD96206F899400FC6662 /* RoomViewController.swift */; };
+		B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */; };
+		B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */; };
 		B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C1E205941120081BB6F /* RegisterViewController.swift */; };
 		B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C20205942800081BB6F /* UIStoryboard+QT.swift */; };
 		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
@@ -34,6 +37,9 @@
 		B41DA01F206AE4C9008E960C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
+		B443AD96206F899400FC6662 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
 		B4656C1E205941120081BB6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B4656C20205942800081BB6F /* UIStoryboard+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+QT.swift"; sourceTree = "<group>"; };
 		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -131,6 +137,9 @@
 				B41DA01F206AE4C9008E960C /* RoomsViewController.swift */,
 				B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */,
 				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
+				B443AD96206F899400FC6662 /* RoomViewController.swift */,
+				B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */,
+				B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */,
 				B4032F02205880D0007EFE96 /* Helper Classes */,
 				B4032F01205880B4007EFE96 /* Supporting Files */,
 			);
@@ -202,6 +211,7 @@
 				B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */,
 				B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */,
 				B4B51F19204C2CA800414BB1 /* GoogleService-Info.plist in Resources */,
+				B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */,
 				B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */,
 				B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */,
 			);
@@ -271,8 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */,
+				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
+				B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */,
 				B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */,
 				B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */,
 				B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */,

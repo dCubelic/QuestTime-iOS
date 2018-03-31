@@ -15,6 +15,7 @@ class RoomTableViewCell: UITableViewCell {
     
     lazy var zeroWidthConstraint = unansweredView.widthAnchor.constraint(equalToConstant: 0)
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -47,6 +48,7 @@ class RoomTableViewCell: UITableViewCell {
     
     func showUnansweredView() {
         NSLayoutConstraint.deactivate([zeroWidthConstraint])
+        NSLayoutConstraint.activate([unansweredView.widthAnchor.constraint(equalToConstant: 20)])
     }
     
     func hideUnansweredView() {
