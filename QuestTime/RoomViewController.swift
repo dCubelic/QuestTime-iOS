@@ -17,6 +17,11 @@ class RoomViewController: UIViewController {
         tableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionTableViewCell")
     }
 
+    @IBAction func peopleAction(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: PeopleViewController.self)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
