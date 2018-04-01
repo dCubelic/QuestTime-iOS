@@ -26,30 +26,45 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="282"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsH-lu-eIP">
-                                                <rect key="frame" x="51.5" y="20" width="218.5" height="242.5"/>
+                                                <rect key="frame" x="51.5" y="9.5" width="218.5" height="263.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Od-pu-QqZ">
-                                                        <rect key="frame" x="51" y="0.0" width="116" height="179.5"/>
+                                                        <rect key="frame" x="51" y="0.0" width="116" height="200.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="150"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNb-mB-NJZ">
-                                                        <rect key="frame" x="0.0" y="194.5" width="218.5" height="48"/>
+                                                        <rect key="frame" x="0.0" y="215.5" width="218.5" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="oFo-9O-aHN">
+                                                        <rect key="frame" x="8.5" y="0.0" width="200" height="200.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="oFo-9O-aHN" secondAttribute="height" multiplier="1:1" id="GYi-zY-3Rd"/>
+                                                            <constraint firstAttribute="width" constant="200" id="uzS-Ur-12V"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="3Od-pu-QqZ" firstAttribute="centerX" secondItem="BsH-lu-eIP" secondAttribute="centerX" id="3XI-P1-aZT"/>
+                                                    <constraint firstItem="oFo-9O-aHN" firstAttribute="top" secondItem="BsH-lu-eIP" secondAttribute="top" id="7B0-6T-fd5"/>
+                                                    <constraint firstItem="aNb-mB-NJZ" firstAttribute="top" secondItem="oFo-9O-aHN" secondAttribute="bottom" constant="15" id="E1r-hL-qdA"/>
+                                                    <constraint firstItem="aNb-mB-NJZ" firstAttribute="top" secondItem="3Od-pu-QqZ" secondAttribute="bottom" constant="15" id="HlI-vZ-Hq0"/>
                                                     <constraint firstItem="3Od-pu-QqZ" firstAttribute="top" secondItem="BsH-lu-eIP" secondAttribute="top" id="Kh4-jf-wf2"/>
+                                                    <constraint firstItem="oFo-9O-aHN" firstAttribute="centerX" secondItem="BsH-lu-eIP" secondAttribute="centerX" id="Wm0-4o-a63"/>
                                                     <constraint firstItem="aNb-mB-NJZ" firstAttribute="leading" secondItem="BsH-lu-eIP" secondAttribute="leading" id="aB6-dw-5C3"/>
                                                     <constraint firstAttribute="trailing" secondItem="aNb-mB-NJZ" secondAttribute="trailing" id="mvi-4W-NxY"/>
-                                                    <constraint firstItem="3Od-pu-QqZ" firstAttribute="centerX" secondItem="BsH-lu-eIP" secondAttribute="centerX" id="n0u-CR-l7W"/>
                                                     <constraint firstAttribute="bottom" secondItem="aNb-mB-NJZ" secondAttribute="bottom" id="nY9-hA-ME2"/>
-                                                    <constraint firstItem="aNb-mB-NJZ" firstAttribute="top" secondItem="3Od-pu-QqZ" secondAttribute="bottom" constant="15" id="yaX-V1-e7S"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="3Od-pu-QqZ"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1070,6 +1085,7 @@
     <resources>
         <image name="add" width="25" height="25"/>
         <image name="lock" width="40" height="52"/>
+        <image name="logo" width="400" height="400"/>
         <image name="medal-bronze" width="512" height="512"/>
         <image name="medal-gold" width="512" height="512"/>
         <image name="medal-silver" width="512" height="512"/>
