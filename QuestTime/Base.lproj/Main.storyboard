@@ -95,7 +95,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSQ-uY-oqr" customClass="QTTextField" customModule="QuestTime" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="55" width="250" height="35"/>
@@ -106,7 +106,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1g-o1-8e1">
                                                         <rect key="frame" x="84.5" y="140" width="81" height="48"/>
@@ -217,17 +217,17 @@
             <objects>
                 <viewController storyboardIdentifier="RegisterViewController" id="1Ik-Do-u0P" customClass="RegisterViewController" customModule="QuestTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b2M-dE-7Tc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHp-7G-V9j" customClass="GradientView" customModule="QuestTime" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9W-gn-NrU">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="253.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="224.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OS9-iL-GmQ">
-                                                <rect key="frame" x="50.5" y="13.5" width="218.5" height="227.5"/>
+                                                <rect key="frame" x="50.5" y="8.5" width="218.5" height="208"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yw-E2-gWE">
                                                         <rect key="frame" x="51" y="0.0" width="116" height="179.5"/>
@@ -235,8 +235,15 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Axj-E6-W6u">
+                                                        <rect key="frame" x="35" y="0.5" width="150" height="150"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="0m6-9K-0uy"/>
+                                                            <constraint firstAttribute="width" secondItem="Axj-E6-W6u" secondAttribute="height" multiplier="1:1" id="HFb-L1-xft"/>
+                                                        </constraints>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vh9-Ch-PSJ">
-                                                        <rect key="frame" x="0.0" y="179.5" width="218.5" height="48"/>
+                                                        <rect key="frame" x="0.0" y="160.5" width="218.5" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -250,7 +257,15 @@
                                                     <constraint firstAttribute="bottom" secondItem="vh9-Ch-PSJ" secondAttribute="bottom" id="Wu2-WO-fGD"/>
                                                     <constraint firstItem="4yw-E2-gWE" firstAttribute="top" secondItem="OS9-iL-GmQ" secondAttribute="top" id="das-m4-Ev8"/>
                                                     <constraint firstAttribute="trailing" secondItem="vh9-Ch-PSJ" secondAttribute="trailing" id="eyF-LI-rSC"/>
+                                                    <constraint firstItem="Axj-E6-W6u" firstAttribute="top" secondItem="OS9-iL-GmQ" secondAttribute="top" id="jL2-Sj-6Tm"/>
+                                                    <constraint firstItem="Axj-E6-W6u" firstAttribute="centerX" secondItem="OS9-iL-GmQ" secondAttribute="centerX" id="q9F-Tp-tMo"/>
+                                                    <constraint firstItem="vh9-Ch-PSJ" firstAttribute="top" secondItem="Axj-E6-W6u" secondAttribute="bottom" constant="10" id="wRU-3a-wEt"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="4yw-E2-gWE"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -260,17 +275,17 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdl-Tf-adJ">
-                                        <rect key="frame" x="61.5" y="253.5" width="196.5" height="4"/>
+                                        <rect key="frame" x="61.5" y="224.5" width="196.5" height="4"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="92e-8X-Hfm"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBR-Px-FBh">
-                                        <rect key="frame" x="0.0" y="257.5" width="320" height="310.5"/>
+                                        <rect key="frame" x="0.0" y="228.5" width="320" height="275.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apm-tf-L04">
-                                                <rect key="frame" x="35" y="21.5" width="250" height="268"/>
+                                                <rect key="frame" x="35" y="4.5" width="250" height="268"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNg-S2-Gxd">
                                                         <rect key="frame" x="64" y="220.5" width="123" height="48"/>
@@ -291,7 +306,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2pz-kB-1ef" customClass="QTTextField" customModule="QuestTime" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="110.5" width="250" height="35"/>
@@ -302,7 +317,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="display name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gc-Gc-lE1" customClass="QTTextField" customModule="QuestTime" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="55.5" width="250" height="35"/>
@@ -313,7 +328,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wb-Oi-Pg9" customClass="QTTextField" customModule="QuestTime" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.5" width="250" height="35"/>
@@ -324,7 +339,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -354,7 +369,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="q9W-gn-NrU" firstAttribute="leading" secondItem="gHp-7G-V9j" secondAttribute="leading" id="7rP-EQ-hBe"/>
                                     <constraint firstItem="rdl-Tf-adJ" firstAttribute="width" secondItem="vh9-Ch-PSJ" secondAttribute="width" multiplier="0.9" id="D5K-X3-1iY"/>
@@ -387,16 +402,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vcO-pv-HjX"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="displayNameTextField" destination="7gc-Gc-lE1" id="Wzw-z6-MET"/>
                         <outlet property="emailTextField" destination="0Wb-Oi-Pg9" id="Lo6-eG-GLh"/>
+                        <outlet property="logoWidthConstraint" destination="0m6-9K-0uy" id="TMv-qM-mhL"/>
                         <outlet property="passwordTextField" destination="2pz-kB-1ef" id="wON-Oi-hsR"/>
                         <outlet property="repeatPasswordTextField" destination="ltg-4n-bRn" id="59O-Df-yeU"/>
+                        <outlet property="separatorViewCenterYConstraint" destination="zCb-LQ-ZAe" id="8C7-2u-ALE"/>
+                        <outlet property="textFieldsViewCenterYConstraint" destination="TQX-2K-1v8" id="oeO-xL-IOV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oq-VR-mF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="-1038"/>
+            <point key="canvasLocation" x="1044.375" y="-1038.3802816901409"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fR1-OW-KQ9">
