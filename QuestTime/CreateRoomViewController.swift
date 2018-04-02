@@ -29,6 +29,9 @@ class CreateRoomViewController: UIViewController {
     let cellWidth: CGFloat = 25
     let cellInset: CGFloat = 20
     
+    private let selectedDifficultyWidth: CGFloat = 24
+    private let unselectedDifficultyWidth: CGFloat = 18
+    
     var categories: [String] = ["art", "sport", "physics", "movies", "music", "science", "maths", "general", "geography"]
     
     override func viewDidLoad() {
@@ -36,35 +39,35 @@ class CreateRoomViewController: UIViewController {
 
         collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         
-        easyButton.layer.cornerRadius = 6
-        mediumButton.layer.cornerRadius = 6
-        hardButton.layer.cornerRadius = 9
+        easyButton.layer.cornerRadius = unselectedDifficultyWidth / 2
+        mediumButton.layer.cornerRadius = unselectedDifficultyWidth / 2
+        hardButton.layer.cornerRadius = selectedDifficultyWidth / 2
     }
     
     @IBAction func difficultyAction(_ sender: UIButton) {
         
-        easyWidthConstraint.constant = 12
-        mediumWidthConstraint.constant = 12
-        hardWidthConstraint.constant = 12
-        easyButton.layer.cornerRadius = 6
-        mediumButton.layer.cornerRadius = 6
-        hardButton.layer.cornerRadius = 6
+        easyWidthConstraint.constant = unselectedDifficultyWidth
+        mediumWidthConstraint.constant = unselectedDifficultyWidth
+        hardWidthConstraint.constant = unselectedDifficultyWidth
+        easyButton.layer.cornerRadius = unselectedDifficultyWidth / 2
+        mediumButton.layer.cornerRadius = unselectedDifficultyWidth / 2
+        hardButton.layer.cornerRadius = unselectedDifficultyWidth / 2
         easyButton.alpha = 0.3
         mediumButton.alpha = 0.3
         hardButton.alpha = 0.3
         
         switch sender {
         case easyButton:
-            easyWidthConstraint.constant = 18
-            easyButton.layer.cornerRadius = 9
+            easyWidthConstraint.constant = selectedDifficultyWidth
+            easyButton.layer.cornerRadius = selectedDifficultyWidth / 2
             selectedDifficulty = .easy
         case mediumButton:
-            mediumWidthConstraint.constant = 18
-            mediumButton.layer.cornerRadius = 9
+            mediumWidthConstraint.constant = selectedDifficultyWidth
+            mediumButton.layer.cornerRadius = selectedDifficultyWidth / 2
             selectedDifficulty = .medium
         case hardButton:
-            hardWidthConstraint.constant = 18
-            hardButton.layer.cornerRadius = 9
+            hardWidthConstraint.constant = selectedDifficultyWidth
+            hardButton.layer.cornerRadius = selectedDifficultyWidth / 2
             selectedDifficulty = .hard
         default:
             return

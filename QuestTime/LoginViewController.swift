@@ -7,6 +7,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var forgotButton: UIButton!
     
+    @IBOutlet weak var logoWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var textFieldsViewCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var separatorViewCenterYConstraint: NSLayoutConstraint!
+    
+    var keyboardObserver: NSObjectProtocol?
+    deinit {
+        if let keyboardObserver = keyboardObserver {
+            NotificationCenter.default.removeObserver(keyboardObserver)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +34,28 @@ class LoginViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        keyboardObserver = NotificationCenter.default.addObserver(forName: .UIKeyboardWillChangeFrame, object: nil, queue: nil, using: { (notification) in
+            if let userInfo = notification.userInfo,
+                let durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber,
+                let endFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue,
+                let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber {
+                
+                if endFrameValue.cgRectValue.minY == self.view.frame.height {
+                    self.logoWidthConstraint.constant = 200
+                    self.separatorViewCenterYConstraint.constant = 0
+                    self.textFieldsViewCenterYConstraint.constant = 0
+                } else {
+                    self.logoWidthConstraint.constant = 0
+                    self.separatorViewCenterYConstraint.constant = -200
+                    self.textFieldsViewCenterYConstraint.constant = -100
+                }
+                
+                UIView.animate(withDuration: durationValue.doubleValue, delay: 0, options: UIViewAnimationOptions(rawValue: UInt(curve.intValue << 16)), animations: {
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+            }
+        })
 
     }
     
