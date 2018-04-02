@@ -112,15 +112,72 @@
 		B4032F02205880D0007EFE96 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B445863820725E2C00C829EA /* Swift Extensions */,
 				B4C449F620505C6B00DFDB1D /* GradientView.swift */,
 				B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */,
-				B4656C20205942800081BB6F /* UIStoryboard+QT.swift */,
 				B4656C222059428A0081BB6F /* Constants.swift */,
 				B408FEDF206A8D8100E76A56 /* QTTextField.swift */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		B445863320725DDE00C829EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B4032F03205880E2007EFE96 /* LoginViewController.swift */,
+				B4656C1E205941120081BB6F /* RegisterViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B445863420725DEE00C829EA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B41DA01F206AE4C9008E960C /* RoomsViewController.swift */,
+				B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */,
+				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B445863520725DF700C829EA /* Room Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B443AD96206F899400FC6662 /* RoomViewController.swift */,
+				B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */,
+				B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */,
+			);
+			path = "Room Detail";
+			sourceTree = "<group>";
+		};
+		B445863620725E0200C829EA /* Create Room */ = {
+			isa = PBXGroup;
+			children = (
+				B45E0665206FD02500B8950E /* CreateRoomViewController.swift */,
+				B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */,
+				B45E066A206FD1E000B8950E /* CategoryCollectionViewCell.xib */,
+			);
+			path = "Create Room";
+			sourceTree = "<group>";
+		};
+		B445863720725E0A00C829EA /* People */ = {
+			isa = PBXGroup;
+			children = (
+				B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */,
+				B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */,
+				B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		B445863820725E2C00C829EA /* Swift Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4656C20205942800081BB6F /* UIStoryboard+QT.swift */,
 				B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */,
 				B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */,
 			);
-			path = "Helper Classes";
+			path = "Swift Extensions";
 			sourceTree = "<group>";
 		};
 		B4B51EFA204C29A100414BB1 = {
@@ -147,20 +204,11 @@
 				B4B51F12204C29A100414BB1 /* Info.plist */,
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
-				B4032F03205880E2007EFE96 /* LoginViewController.swift */,
-				B4656C1E205941120081BB6F /* RegisterViewController.swift */,
-				B41DA01F206AE4C9008E960C /* RoomsViewController.swift */,
-				B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */,
-				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
-				B443AD96206F899400FC6662 /* RoomViewController.swift */,
-				B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */,
-				B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */,
-				B45E0665206FD02500B8950E /* CreateRoomViewController.swift */,
-				B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */,
-				B45E066A206FD1E000B8950E /* CategoryCollectionViewCell.xib */,
-				B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */,
-				B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */,
-				B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */,
+				B445863320725DDE00C829EA /* Login */,
+				B445863420725DEE00C829EA /* Home */,
+				B445863520725DF700C829EA /* Room Detail */,
+				B445863620725E0200C829EA /* Create Room */,
+				B445863720725E0A00C829EA /* People */,
 				B4032F02205880D0007EFE96 /* Helper Classes */,
 				B4032F01205880B4007EFE96 /* Supporting Files */,
 			);

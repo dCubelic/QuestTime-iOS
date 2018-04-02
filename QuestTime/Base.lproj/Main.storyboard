@@ -524,6 +524,11 @@
                                 <color key="value" red="0.2666666667" green="0.63921568630000003" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zXN-wb-yTd"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="QuestTime" id="nsi-ML-u07">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="settings" id="swN-Id-ABy">

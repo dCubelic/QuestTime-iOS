@@ -123,6 +123,11 @@
                     <constraint firstAttribute="bottom" secondItem="Gvo-ct-nVe" secondAttribute="bottom" constant="5" id="jsy-EN-fFx"/>
                     <constraint firstItem="Gvo-ct-nVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tCk-P5-C1D"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="Gvo-ct-nVe"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

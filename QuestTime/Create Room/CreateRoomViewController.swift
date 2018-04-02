@@ -42,6 +42,15 @@ class CreateRoomViewController: UIViewController {
         easyButton.layer.cornerRadius = unselectedDifficultyWidth / 2
         mediumButton.layer.cornerRadius = unselectedDifficultyWidth / 2
         hardButton.layer.cornerRadius = selectedDifficultyWidth / 2
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        view.addGestureRecognizer(tapGesture)
+        
+        roomNameTextField.delegate = self
+    }
+    
+    @objc func tapAction() {
+        view.endEditing(true)
     }
     
     @IBAction func difficultyAction(_ sender: UIButton) {
@@ -170,4 +179,11 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
 //        return indexPath.section * maxNumberOfCellsInSection() + indexPath.row
 //    }
     
+}
+
+extension CreateRoomViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
