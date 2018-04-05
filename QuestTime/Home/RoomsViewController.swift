@@ -32,6 +32,9 @@ class RoomsViewController: UIViewController {
     }
     
     @IBAction func settingsAction(_ sender: Any) {
+        let settingsVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: SettingsViewController.self)
+        settingsVC.modalPresentationStyle = .overCurrentContext
+        present(settingsVC, animated: false, completion: nil)
     }
     
 }

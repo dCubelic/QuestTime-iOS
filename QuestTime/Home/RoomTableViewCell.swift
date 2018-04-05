@@ -2,7 +2,6 @@ import UIKit
 
 class RoomTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var roomNameLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
@@ -37,11 +36,11 @@ class RoomTableViewCell: UITableViewCell {
         secondCategoryImageView.image = UIImage(named: "music")
         thirdCategoryImageView.image = UIImage(named: "physics")
         
-        shadowView.layer.masksToBounds = false
-        shadowView.layer.shadowOffset = CGSize.zero
-        shadowView.layer.shadowColor = UIColor.black.cgColor
-        shadowView.layer.shadowOpacity = 0.23
-        shadowView.layer.shadowRadius = 4
+//        shadowView.layer.masksToBounds = false
+//        shadowView.layer.shadowOffset = CGSize.zero
+//        shadowView.layer.shadowColor = UIColor.black.cgColor
+//        shadowView.layer.shadowOpacity = 0.23
+//        shadowView.layer.shadowRadius = 4
 
         hideUnansweredView()
     }

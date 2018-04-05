@@ -23,6 +23,7 @@
 		B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C1E205941120081BB6F /* RegisterViewController.swift */; };
 		B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C20205942800081BB6F /* UIStoryboard+QT.swift */; };
 		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
+		B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */; };
 		B4B1F3DE206B9C080040A4CD /* UITableView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */; };
 		B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F06204C29A100414BB1 /* AppDelegate.swift */; };
 		B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0A204C29A100414BB1 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		B4656C1E205941120081BB6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B4656C20205942800081BB6F /* UIStoryboard+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+QT.swift"; sourceTree = "<group>"; };
 		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+QT.swift"; sourceTree = "<group>"; };
 		B4B51F03204C29A100414BB1 /* QuestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B51F06204C29A100414BB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				B4B51F12204C29A100414BB1 /* Info.plist */,
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
+				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
 				B445863520725DF700C829EA /* Room Detail */,
@@ -356,6 +359,7 @@
 				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
 				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
+				B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */,
 				B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
 				B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */,

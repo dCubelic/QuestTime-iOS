@@ -18,10 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gvo-ct-nVe">
-                        <rect key="frame" x="16" y="5" width="288" height="85.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWh-1s-Wko">
                         <rect key="frame" x="16" y="5" width="288" height="85.5"/>
                         <subviews>
@@ -116,18 +112,9 @@
                 <constraints>
                     <constraint firstItem="WWh-1s-Wko" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="46o-SK-B83"/>
                     <constraint firstAttribute="trailing" secondItem="WWh-1s-Wko" secondAttribute="trailing" constant="16" id="AVc-jW-tvj"/>
-                    <constraint firstAttribute="trailing" secondItem="Gvo-ct-nVe" secondAttribute="trailing" constant="16" id="MRe-8T-u4H"/>
                     <constraint firstAttribute="bottom" secondItem="WWh-1s-Wko" secondAttribute="bottom" constant="5" id="QAJ-xM-llH"/>
                     <constraint firstItem="WWh-1s-Wko" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Wyz-qT-Xjz"/>
-                    <constraint firstItem="Gvo-ct-nVe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ZnD-Km-97B"/>
-                    <constraint firstAttribute="bottom" secondItem="Gvo-ct-nVe" secondAttribute="bottom" constant="5" id="jsy-EN-fFx"/>
-                    <constraint firstItem="Gvo-ct-nVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tCk-P5-C1D"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="subviews">
-                        <exclude reference="Gvo-ct-nVe"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -137,7 +124,6 @@
                 <outlet property="peopleLabel" destination="ipB-YG-ZNt" id="bmm-Ha-X89"/>
                 <outlet property="roomNameLabel" destination="F9b-XP-Ep1" id="i5E-jO-4il"/>
                 <outlet property="secondCategoryImageView" destination="A8h-qJ-6Ev" id="5Sv-qH-nZ5"/>
-                <outlet property="shadowView" destination="Gvo-ct-nVe" id="uoA-7L-MJd"/>
                 <outlet property="thirdCategoryImageView" destination="eJy-ju-Fxr" id="reU-pb-ayL"/>
                 <outlet property="unansweredView" destination="ZVh-hr-YZg" id="GUv-JI-91L"/>
                 <outlet property="underlineView" destination="vK8-YC-p8a" id="K79-N3-kj3"/>
