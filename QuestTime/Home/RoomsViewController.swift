@@ -27,8 +27,10 @@ class RoomsViewController: UIViewController {
     }
 
     @IBAction func addRoomAction(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: CreateRoomViewController.self)
-        present(vc, animated: true, completion: nil)
+        let popupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: AddRoomPopupViewController.self)
+        popupVC.delegate = self
+        popupVC.modalPresentationStyle = .overCurrentContext
+        present(popupVC, animated: false, completion: nil)
     }
     
     @IBAction func settingsAction(_ sender: Any) {
@@ -73,4 +75,13 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
 //        }
 //    }
 }
+
+extension RoomsViewController: AddRoomPopupViewControllerDelegate {
+    func createNewRoomSelected() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: CreateRoomViewController.self)
+        present(vc, animated: true, completion: nil)
+    }
+}
+
+
 

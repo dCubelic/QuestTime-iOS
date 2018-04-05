@@ -35,6 +35,7 @@
 		B4CD05FE20711FD7008A9F6C /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */; };
 		B4CD06062071201E008A9F6C /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */; };
 		B4CD06072071201E008A9F6C /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */; };
+		B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
+		B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPopupViewController.swift; sourceTree = "<group>"; };
 		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,8 @@
 				B41DA01F206AE4C9008E960C /* RoomsViewController.swift */,
 				B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */,
 				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
+				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
+				B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -206,7 +210,6 @@
 				B4B51F12204C29A100414BB1 /* Info.plist */,
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
-				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
 				B445863520725DF700C829EA /* Room Detail */,
@@ -358,6 +361,7 @@
 				B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */,
 				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
+				B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */,
 				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
 				B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */,
 				B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */,

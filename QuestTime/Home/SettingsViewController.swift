@@ -14,7 +14,6 @@ class SettingsViewController: UIViewController {
         backgroundView.addGestureRecognizer(backgroundTapGesture)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        tapGesture.cancelsTouchesInView = true
         view.addGestureRecognizer(tapGesture)
     }
     
