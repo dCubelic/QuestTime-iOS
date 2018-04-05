@@ -32,6 +32,6 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func logoutAction(_ sender: Any) {
-//        dismiss(animated: false, completion: nil)
+        Window.main?.showLogin()
     }
 }

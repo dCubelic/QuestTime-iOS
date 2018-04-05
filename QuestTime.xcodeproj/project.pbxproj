@@ -36,6 +36,8 @@
 		B4CD06062071201E008A9F6C /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */; };
 		B4CD06072071201E008A9F6C /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */; };
 		B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */; };
+		B4D3A4702076D14A008278B5 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46F2076D14A008278B5 /* Window.swift */; };
+		B4D3A4722076D3F1008278B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D3A4712076D3F1008278B5 /* Login.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
 		B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPopupViewController.swift; sourceTree = "<group>"; };
+		B4D3A46F2076D14A008278B5 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		B4D3A4712076D3F1008278B5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,6 +132,7 @@
 		B445863320725DDE00C829EA /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				B4D3A4712076D3F1008278B5 /* Login.storyboard */,
 				B4032F03205880E2007EFE96 /* LoginViewController.swift */,
 				B4656C1E205941120081BB6F /* RegisterViewController.swift */,
 			);
@@ -209,6 +214,7 @@
 			children = (
 				B4B51F12204C29A100414BB1 /* Info.plist */,
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
+				B4D3A46F2076D14A008278B5 /* Window.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
@@ -291,6 +297,7 @@
 				B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */,
 				B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */,
 				B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */,
+				B4D3A4722076D3F1008278B5 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +366,7 @@
 			files = (
 				B45E066B206FD1E000B8950E /* CategoryCollectionViewCell.swift in Sources */,
 				B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */,
+				B4D3A4702076D14A008278B5 /* Window.swift in Sources */,
 				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
 				B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */,

@@ -64,16 +64,14 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginAction(_ sender: Any) {
-        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: RoomsViewController.self)
-        let navVC = UINavigationController(rootViewController: vc)
-        present(navVC, animated: true, completion: nil)
+        Window.main?.showMain()
     }
     
     @IBAction func forgotPasswordAction(_ sender: Any) {
     }
     
     @IBAction func createAccountAction(_ sender: Any) {
-        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: RegisterViewController.self, withIdentifier: Constants.Storyboard.registerVC)
+        let vc = UIStoryboard(name: Constants.Storyboard.login, bundle: nil).instantiateViewController(ofType: RegisterViewController.self, withIdentifier: Constants.Storyboard.registerVC)
         navigationController?.pushViewController(vc, animated: true)
     }
     
