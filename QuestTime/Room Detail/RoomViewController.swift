@@ -66,7 +66,6 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         present(navVC, animated: false) {
             self.shadowView.isHidden = false
         }
-//        present(navVC, animated: false, completion: nil)
         
     }
 }
