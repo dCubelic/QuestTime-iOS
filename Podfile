@@ -7,6 +7,6 @@ target 'QuestTime' do
 
   # Pods for QuestTime
 pod 'Firebase/Core'
-
+pod 'Firebase/Auth'
 
 end

@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
 
@@ -67,7 +68,15 @@ class RegisterViewController: UIViewController {
     }
 
     @IBAction func registerAction(_ sender: Any) {
+        guard let email = emailTextField.text, let password = passwordTextField.text, password == repeatPasswordTextField.text else { return }
         
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                if let user = user {
+                    Window.main?.showMain()
+                }
+            })
+        }
     }
 }
 

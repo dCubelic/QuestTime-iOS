@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 private class WindowContainerViewController: UIViewController {
     
@@ -52,7 +53,11 @@ class Window: UIWindow {
         super.init(frame: UIScreen.main.bounds)
         rootViewController = container
         
-        showLogin()
+        if let user = Auth.auth().currentUser {
+            showMain()
+        } else {
+            showLogin()
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
