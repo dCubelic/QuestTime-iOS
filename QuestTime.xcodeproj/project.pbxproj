@@ -13,6 +13,7 @@
 		B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA01F206AE4C9008E960C /* RoomsViewController.swift */; };
 		B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */; };
 		B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */; };
+		B43384662077A408004272DC /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384652077A408004272DC /* QuestionViewController.swift */; };
 		B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD96206F899400FC6662 /* RoomViewController.swift */; };
 		B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */; };
 		B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */; };
@@ -48,6 +49,7 @@
 		B41DA01F206AE4C9008E960C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
+		B43384652077A408004272DC /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		B443AD96206F899400FC6662 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4D3A46F2076D14A008278B5 /* Window.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
+				B43384652077A408004272DC /* QuestionViewController.swift */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
 				B445863520725DF700C829EA /* Room Detail */,
@@ -374,6 +377,7 @@
 				B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */,
 				B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
+				B43384662077A408004272DC /* QuestionViewController.swift in Sources */,
 				B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */,
 				B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */,
 				B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */,

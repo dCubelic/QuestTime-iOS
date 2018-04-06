@@ -3,6 +3,7 @@ import UIKit
 class RoomViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var separatorView: UIView!
     
     var questions: [String] = [
         "Question answer",
@@ -13,7 +14,10 @@ class RoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
 
+        separatorView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionTableViewCell")
     }
 
@@ -42,5 +46,14 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         cell.questionTextLabel.text = questions[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let questionVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionViewController.self)
+        
+        questionVC.questionText = questions[indexPath.row]
+        
+        questionVC.modalPresentationStyle = .overCurrentContext
+        present(questionVC, animated: false, completion: nil)
     }
 }

@@ -14,7 +14,12 @@ class RoomsViewController: UIViewController {
         
         setupNavigationBar()
         
+        underlineView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
+    }
+    
+    override func viewWillLayoutSubviews() {
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 28, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     private func setupNavigationBar() {

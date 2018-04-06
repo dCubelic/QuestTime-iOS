@@ -2,6 +2,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var emailTextField: QTTextField!
     @IBOutlet weak var displayNameTextField: QTTextField!
     @IBOutlet weak var passwordTextField: QTTextField!
@@ -11,6 +12,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var logoWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var separatorViewCenterYConstraint: NSLayoutConstraint!
+    
+    var emailText: String?
     
     var keyboardObserver: NSObjectProtocol?
     deinit {
@@ -22,10 +25,16 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        separatorView.layer.cornerRadius = 2
+        
         emailTextField.delegate = self
         displayNameTextField.delegate = self
         passwordTextField.delegate = self
         repeatPasswordTextField.delegate = self
+        
+        if let emailText = emailText {
+            emailTextField.text = emailText
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)

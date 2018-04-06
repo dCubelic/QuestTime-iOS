@@ -10,6 +10,7 @@ enum RoomType {
 
 class CreateRoomViewController: UIViewController {
     
+    @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var roomNameTextField: QTTextField!
     @IBOutlet weak var publicButton: UIButton!
@@ -36,7 +37,8 @@ class CreateRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        separatorView.layer.cornerRadius = 2
         collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         
         easyButton.layer.cornerRadius = unselectedDifficultyWidth / 2

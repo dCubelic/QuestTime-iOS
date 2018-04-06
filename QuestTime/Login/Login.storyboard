@@ -382,6 +382,7 @@
                         <outlet property="logoWidthConstraint" destination="x77-05-Wif" id="0iW-CJ-VHV"/>
                         <outlet property="passwordTextField" destination="LWw-di-UMV" id="gIn-T1-flq"/>
                         <outlet property="repeatPasswordTextField" destination="qga-H4-NQc" id="Uzj-L0-fbJ"/>
+                        <outlet property="separatorView" destination="rh6-A1-F1f" id="cPR-Qz-9rc"/>
                         <outlet property="separatorViewCenterYConstraint" destination="Mee-gP-AJx" id="alp-SB-NWE"/>
                         <outlet property="textFieldsViewCenterYConstraint" destination="Rch-J0-wUf" id="C7a-Cx-Kkz"/>
                     </connections>

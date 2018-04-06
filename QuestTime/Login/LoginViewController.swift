@@ -71,7 +71,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func createAccountAction(_ sender: Any) {
-        let vc = UIStoryboard(name: Constants.Storyboard.login, bundle: nil).instantiateViewController(ofType: RegisterViewController.self, withIdentifier: Constants.Storyboard.registerVC)
+        let vc = UIStoryboard(name: Constants.Storyboard.login, bundle: nil).instantiateViewController(ofType: RegisterViewController.self)
+        vc.emailText = emailTextField.text
         navigationController?.pushViewController(vc, animated: true)
     }
     

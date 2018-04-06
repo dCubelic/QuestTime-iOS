@@ -3,10 +3,12 @@ import UIKit
 class PeopleViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var separatorView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        separatorView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "PersonTableViewCell", bundle: nil), forCellReuseIdentifier: "PersonTableViewCell")
     }
     
