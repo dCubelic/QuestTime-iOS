@@ -4,6 +4,7 @@ class RoomViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var shadowView: UIView!
     
     var questions: [String] = [
         "Question answer",
@@ -14,6 +15,8 @@ class RoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        shadowView.isHidden = true
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
 
@@ -52,8 +55,24 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         let questionVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionViewController.self)
         
         questionVC.questionText = questions[indexPath.row]
+        questionVC.delegate = self
         
-        questionVC.modalPresentationStyle = .overCurrentContext
-        present(questionVC, animated: false, completion: nil)
+        
+        
+        let navVC = UINavigationController(rootViewController: questionVC)
+        navVC.setNavigationBarHidden(true, animated: false)
+        
+        navVC.modalPresentationStyle = .overCurrentContext
+        present(navVC, animated: false) {
+            self.shadowView.isHidden = false
+        }
+//        present(navVC, animated: false, completion: nil)
+        
+    }
+}
+
+extension RoomViewController: QuestionViewControllerDelegate {
+    func questionViewControllerWillDismiss() {
+        shadowView.isHidden = true
     }
 }

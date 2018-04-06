@@ -1,26 +1,22 @@
 import UIKit
 
-protocol QuestionViewControllerDelegate: class {
-    func questionViewControllerWillDismiss()
-}
+class QuestionDetailViewController: UIViewController {
 
-class QuestionViewController: UIViewController {
-    
     @IBOutlet weak var questionView: UIView!
+    @IBOutlet weak var correctLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var firstAnswerButton: UIButton!
     @IBOutlet weak var secondAnswerButton: UIButton!
     @IBOutlet weak var thirdAnswerButton: UIButton!
     @IBOutlet weak var fourthAnswerButton: UIButton!
     
+    @IBOutlet weak var underlineView: UIView!
+    
     weak var delegate: QuestionViewControllerDelegate?
-    var questionText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let questionText = questionText else { return }
         
         questionView.addGestureRecognizer(UITapGestureRecognizer(target: nil, action: nil))
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
@@ -32,13 +28,11 @@ class QuestionViewController: UIViewController {
         underlineView.layer.masksToBounds = true
         
         let answerButtons: [UIButton] = [firstAnswerButton, secondAnswerButton, thirdAnswerButton, fourthAnswerButton]
-
+        
         for button in answerButtons {
             button.layer.cornerRadius = 15
             button.layer.masksToBounds = true
         }
-        
-        questionLabel.text = questionText
     }
     
     @objc func tapAction() {
@@ -46,19 +40,8 @@ class QuestionViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func answerAction(_ sender: UIButton) {
-        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
-        
-        vc.delegate = delegate
-        
-        //flip transition
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.type = "flip"
-        transition.subtype = kCATransitionFromRight
-        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
-        
-        self.navigationController?.pushViewController(vc, animated: false)
+    @IBAction func closeAction(_ sender: Any) {
+        delegate?.questionViewControllerWillDismiss()
+        dismiss(animated: false, completion: nil)
     }
-
 }
