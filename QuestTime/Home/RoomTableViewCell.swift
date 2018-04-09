@@ -12,6 +12,8 @@ class RoomTableViewCell: UITableViewCell {
     @IBOutlet weak var secondCategoryImageView: UIImageView!
     @IBOutlet weak var thirdCategoryImageView: UIImageView!
     
+    
+    
     lazy var zeroWidthConstraint = unansweredView.widthAnchor.constraint(equalToConstant: 0)
     
     
@@ -52,6 +54,33 @@ class RoomTableViewCell: UITableViewCell {
     
     func hideUnansweredView() {
         NSLayoutConstraint.activate([zeroWidthConstraint])
+    }
+    
+    func setup(with room: Room) {
+        roomNameLabel.text = room.name
+        underlineView.backgroundColor = .white
+        difficultyView.backgroundColor = difficultyColor(for: room.difficulty)
+        peopleLabel.text = "\(room.people.count) people"
+        setupCategoryImageViews(for: room.categories)
+    }
+    
+    func difficultyColor(for difficulty: Difficulty) -> UIColor {
+        switch difficulty {
+        case .easy:
+            return .green
+        case .medium:
+            return .orange
+        case .hard:
+            return .red
+        }
+    }
+    
+    func setupCategoryImageViews(for categories: [Category]) {
+        let categoryImageViews = [firstCategoryImageView, secondCategoryImageView, thirdCategoryImageView]
+        
+        for (index, category) in categories.enumerated() {
+            categoryImageViews[index]?.image = UIImage(named: category.rawValue)
+        }
     }
     
 }

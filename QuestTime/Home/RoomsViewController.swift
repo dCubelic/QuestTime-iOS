@@ -7,7 +7,14 @@ class RoomsViewController: UIViewController {
     @IBOutlet weak var questionsLeftTodayLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
     
-    let rooms: [String] = ["First Room", "Second Room", "Third Room", "Fourth Room", "Fifth Room"]
+//    let rooms: [String] = ["First Room", "Second Room", "Third Room", "Fourth Room", "Fifth Room"]
+    let rooms: [Room] = [
+        Room(uid: "g45g5gwtrgsrgsd", name: "First Room", type: .publicRoom, difficulty: .medium, categories: [.maths, .art, .science]),
+        Room(uid: "g3f3v24g42g4v34", name: "Second Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .hard, categories: [.general, .art, .physics]),
+        Room(uid: "g43f34hhfsfsghf", name: "This is a third room name", type: .publicRoom, difficulty: .hard, categories: [.movies, .sport, .music]),
+        Room(uid: "gb45gbtrwtwdtgd", name: "Dummy Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .medium, categories: [.geography, .art, .science]),
+        Room(uid: "rgb54v4tg4das5g", name: "📚🏀🎨", type: .privateRoom, privateKey: "23FSG498F", difficulty: .easy, categories: [.general, .sport, .art]),
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +65,7 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(ofType: RoomTableViewCell.self, for: indexPath)
         
-        cell.roomNameLabel.text = rooms[indexPath.row]
+        cell.setup(with: rooms[indexPath.row])
         
         if indexPath.row == 0 {
             cell.showUnansweredView()

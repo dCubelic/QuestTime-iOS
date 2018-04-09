@@ -1,13 +1,5 @@
 import UIKit
 
-enum Difficulty {
-    case easy, medium, hard
-}
-
-enum RoomType {
-    case privateRoom, publicRoom
-}
-
 class CreateRoomViewController: UIViewController {
     
     @IBOutlet weak var separatorView: UIView!

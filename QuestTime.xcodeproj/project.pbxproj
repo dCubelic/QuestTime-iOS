@@ -15,6 +15,7 @@
 		B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */; };
 		B43384662077A408004272DC /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384652077A408004272DC /* QuestionViewController.swift */; };
 		B43384682077B09F004272DC /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384672077B09F004272DC /* QuestionDetailViewController.swift */; };
+		B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43ABAD2207BAD2100D7B5F8 /* Person.swift */; };
 		B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD96206F899400FC6662 /* RoomViewController.swift */; };
 		B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */; };
 		B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */; };
@@ -26,6 +27,8 @@
 		B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C20205942800081BB6F /* UIStoryboard+QT.swift */; };
 		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
 		B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */; };
+		B4AC13F3207BA93900DF8A92 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC13F2207BA93900DF8A92 /* Room.swift */; };
+		B4AC13F5207BAA5100DF8A92 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC13F4207BAA5100DF8A92 /* Question.swift */; };
 		B4B1F3DE206B9C080040A4CD /* UITableView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */; };
 		B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F06204C29A100414BB1 /* AppDelegate.swift */; };
 		B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0A204C29A100414BB1 /* Main.storyboard */; };
@@ -52,6 +55,7 @@
 		B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
 		B43384652077A408004272DC /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		B43384672077B09F004272DC /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
+		B43ABAD2207BAD2100D7B5F8 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		B443AD96206F899400FC6662 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 		B4656C20205942800081BB6F /* UIStoryboard+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+QT.swift"; sourceTree = "<group>"; };
 		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B4AC13F2207BA93900DF8A92 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		B4AC13F4207BAA5100DF8A92 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+QT.swift"; sourceTree = "<group>"; };
 		B4B51F03204C29A100414BB1 /* QuestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B51F06204C29A100414BB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
 				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
 				B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */,
+				B4AC13F2207BA93900DF8A92 /* Room.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B443AD96206F899400FC6662 /* RoomViewController.swift */,
+				B4AC13F4207BAA5100DF8A92 /* Question.swift */,
 				B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */,
 				B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */,
 			);
@@ -181,6 +189,7 @@
 				B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */,
 				B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */,
 				B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */,
+				B43ABAD2207BAD2100D7B5F8 /* Person.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -372,14 +381,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4AC13F5207BAA5100DF8A92 /* Question.swift in Sources */,
 				B45E066B206FD1E000B8950E /* CategoryCollectionViewCell.swift in Sources */,
 				B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */,
+				B4AC13F3207BA93900DF8A92 /* Room.swift in Sources */,
 				B4D3A4702076D14A008278B5 /* Window.swift in Sources */,
 				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
 				B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */,
 				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
 				B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */,
+				B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */,
 				B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
 				B43384662077A408004272DC /* QuestionViewController.swift in Sources */,

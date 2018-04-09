@@ -67,7 +67,6 @@ class LoginViewController: UIViewController {
     @IBAction func loginAction(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            print(error)
             if let user = user {
                 Window.main?.showMain()
             }
