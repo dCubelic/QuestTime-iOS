@@ -9,15 +9,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryImageView: UIImageView!
     
     let unselectedAlpha: CGFloat = 0.3
+    var categorySelected = false
     
     weak var delegate: CategoryCollectionViewCellDelegate?
-
-    var categorySelected = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.alpha = unselectedAlpha
     }
     
     func toggleSelection() {

@@ -1,4 +1,6 @@
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class RoomsViewController: UIViewController {
 
@@ -8,12 +10,12 @@ class RoomsViewController: UIViewController {
     @IBOutlet weak var underlineView: UIView!
     
 //    let rooms: [String] = ["First Room", "Second Room", "Third Room", "Fourth Room", "Fifth Room"]
-    let rooms: [Room] = [
-        Room(uid: "g45g5gwtrgsrgsd", name: "First Room", type: .publicRoom, difficulty: .medium, categories: [.maths, .art, .science]),
-        Room(uid: "g3f3v24g42g4v34", name: "Second Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .hard, categories: [.general, .art, .physics]),
-        Room(uid: "g43f34hhfsfsghf", name: "This is a third room name", type: .publicRoom, difficulty: .hard, categories: [.movies, .sport, .music]),
-        Room(uid: "gb45gbtrwtwdtgd", name: "Dummy Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .medium, categories: [.geography, .art, .science]),
-        Room(uid: "rgb54v4tg4das5g", name: "📚🏀🎨", type: .privateRoom, privateKey: "23FSG498F", difficulty: .easy, categories: [.general, .sport, .art]),
+    var rooms: [Room] = [
+//        Room(uid: "g45g5gwtrgsrgsd", name: "First Room", type: .publicRoom, difficulty: .medium, categories: [.maths, .science]),
+//        Room(uid: "g3f3v24g42g4v34", name: "Second Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .hard, categories: [.general]),
+//        Room(uid: "g43f34hhfsfsghf", name: "This is a third room name", type: .publicRoom, difficulty: .hard, categories: [.movies, .sport, .music]),
+//        Room(uid: "gb45gbtrwtwdtgd", name: "Dummy Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .medium, categories: [.geography, .art, .science]),
+//        Room(uid: "rgb54v4tg4das5g", name: "📚🏀🎨", type: .privateRoom, privateKey: "23FSG498F", difficulty: .easy, categories: [.general, .sport, .art]),
     ]
     
     override func viewDidLoad() {
@@ -23,6 +25,33 @@ class RoomsViewController: UIViewController {
         
         underlineView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
+
+        loadUserRooms()
+    }
+    
+    private func loadUserRooms() {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        let userRef = Database.database().reference(withPath: "users/\(user.uid)/rooms")
+        let roomsRef = Database.database().reference(withPath: "rooms")
+        
+        userRef.observe(.value) { (userRoomsSnapshot) in
+            if let snapshotDictionary = userRoomsSnapshot.value as? [String: Any?] {
+                self.rooms = []
+                
+                for (index, snapshot) in snapshotDictionary.enumerated() {
+                    roomsRef.child(snapshot.key).observeSingleEvent(of: .value, with: { (snapshot) in
+                        if let room = Room(with: snapshot) {
+                            self.rooms.append(room)
+                            
+                            if index == snapshotDictionary.count - 1 {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    })
+                }
+            }
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -79,12 +108,6 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        for cell in tableView.visibleCells as [UITableViewCell] {
-//            let point = tableView.convert(cell.center, to: tableView.superview)
-//            cell.alpha = ((point.y * 100) / tableView.bounds.maxY) / 100
-//        }
-//    }
 }
 
 extension RoomsViewController: AddRoomPopupViewControllerDelegate {

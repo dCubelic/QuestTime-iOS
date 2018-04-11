@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseDatabase
 
 enum Difficulty {
     case easy, medium, hard
@@ -29,5 +30,57 @@ class Room {
         self.privateKey = privateKey
         self.difficulty = difficulty
         self.categories = categories
+    }
+    
+    init?(with snapshot: DataSnapshot) {
+        guard let value = snapshot.value as? [String: Any?],
+            let roomName = value["roomName"] as? String,
+            let categoryStrings = value["categories"] as? [String],
+            let difficultyString = value["difficulty"] as? String,
+            let typeString = value["type"] as? String
+            else { return nil }
+        
+        self.uid = snapshot.key
+        self.name = roomName
+        self.categories = Room.parseCategories(categoryStrings: categoryStrings)
+        self.difficulty = Room.parseDifficulty(difficulty: difficultyString)
+        self.type = Room.parseType(typeString: typeString)
+    }
+
+    
+    private static func parseDifficulty(difficulty: String) -> Difficulty {
+        switch difficulty {
+        case "easy":
+            return .easy
+        case "medium":
+            return .medium
+        case "hard":
+            return .hard
+        default:
+            return .medium
+        }
+    }
+    
+    private static func parseCategories(categoryStrings: [String]) -> [Category] {
+        var categories: [Category] = []
+        
+        for category in categoryStrings {
+            if let c = Category.init(rawValue: category) {
+                categories.append(c)
+            }
+        }
+        
+        return categories
+    }
+    
+    private static func parseType(typeString: String) -> RoomType {
+        switch typeString {
+        case "private":
+            return .privateRoom
+        case "public":
+            return .publicRoom
+        default:
+            return .publicRoom
+        }
     }
 }

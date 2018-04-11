@@ -20,7 +20,7 @@ class CreateRoomViewController: UIViewController {
     var selectedRoomType: RoomType = .privateRoom
     
     let cellWidth: CGFloat = 25
-    let cellInset: CGFloat = 20
+    let cellInset: CGFloat = 25
     
     private let selectedDifficultyWidth: CGFloat = 24
     private let unselectedDifficultyWidth: CGFloat = 18
@@ -31,21 +31,14 @@ class CreateRoomViewController: UIViewController {
         super.viewDidLoad()
         
         separatorView.layer.cornerRadius = 2
-        collectionView.register(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCell")
         
         easyButton.layer.cornerRadius = unselectedDifficultyWidth / 2
         mediumButton.layer.cornerRadius = unselectedDifficultyWidth / 2
         hardButton.layer.cornerRadius = selectedDifficultyWidth / 2
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        view.addGestureRecognizer(tapGesture)
-        
         roomNameTextField.delegate = self
     }
-    
-    @objc func tapAction() {
-        view.endEditing(true)
-    }
+
     
     @IBAction func difficultyAction(_ sender: UIButton) {
         
@@ -77,7 +70,6 @@ class CreateRoomViewController: UIViewController {
         }
         
         sender.alpha = 1
-        
     }
     
     @IBAction func roomTypeAction(_ sender: UIButton) {
@@ -125,12 +117,12 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(ofType: CategoryCollectionViewCell.self, for: indexPath)
         
         cell.categoryImageView.image = UIImage(named: categories[indexPath.row])
+        cell.alpha = cell.unselectedAlpha
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: cellWidth, height: cellWidth)
     }
     

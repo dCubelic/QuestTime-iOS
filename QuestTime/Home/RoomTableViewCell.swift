@@ -12,10 +12,8 @@ class RoomTableViewCell: UITableViewCell {
     @IBOutlet weak var secondCategoryImageView: UIImageView!
     @IBOutlet weak var thirdCategoryImageView: UIImageView!
     
-    
-    
     lazy var zeroWidthConstraint = unansweredView.widthAnchor.constraint(equalToConstant: 0)
-    
+    lazy var categoryImageViews = [firstCategoryImageView, secondCategoryImageView, thirdCategoryImageView]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,9 +32,9 @@ class RoomTableViewCell: UITableViewCell {
         difficultyView.layer.cornerRadius = 5
         difficultyView.layer.masksToBounds = true
         
-        firstCategoryImageView.image = UIImage(named: "sport")
-        secondCategoryImageView.image = UIImage(named: "music")
-        thirdCategoryImageView.image = UIImage(named: "physics")
+        firstCategoryImageView.image = nil
+        secondCategoryImageView.image = nil
+        thirdCategoryImageView.image = nil
         
 //        shadowView.layer.masksToBounds = false
 //        shadowView.layer.shadowOffset = CGSize.zero

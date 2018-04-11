@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController {
 
@@ -15,6 +16,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var separatorViewCenterYConstraint: NSLayoutConstraint!
     
     var emailText: String?
+    
+    let usersRef = Database.database().reference(withPath: "users")
     
     var keyboardObserver: NSObjectProtocol?
     deinit {
@@ -68,14 +71,19 @@ class RegisterViewController: UIViewController {
     }
 
     @IBAction func registerAction(_ sender: Any) {
-        guard let email = emailTextField.text, let password = passwordTextField.text, password == repeatPasswordTextField.text else { return }
+        guard let email = emailTextField.text, let password = passwordTextField.text, password == repeatPasswordTextField.text, let displayName = displayNameTextField.text else { return }
         
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-                if let user = user {
-                    Window.main?.showMain()
-                }
-            })
+            if let regUser = user, error == nil {
+                
+                self.usersRef.child(regUser.uid).setValue(["displayName": displayName, "email": email])
+                
+                Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                    if user != nil {
+                        Window.main?.showMain()
+                    }
+                })
+            }
         }
     }
 }

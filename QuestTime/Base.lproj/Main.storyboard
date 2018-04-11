@@ -959,14 +959,36 @@
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells/>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCollectionViewCell" id="m8i-v9-BnS" customClass="CategoryCollectionViewCell" customModule="QuestTime" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q4K-SR-SmB">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                </view>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="q4K-SR-SmB" secondAttribute="bottom" id="OFa-9y-XqB"/>
+                                                                    <constraint firstItem="q4K-SR-SmB" firstAttribute="top" secondItem="m8i-v9-BnS" secondAttribute="top" id="YUC-yW-HZK"/>
+                                                                    <constraint firstItem="q4K-SR-SmB" firstAttribute="leading" secondItem="m8i-v9-BnS" secondAttribute="leading" id="i8l-Vu-do3"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="q4K-SR-SmB" secondAttribute="trailing" id="zYW-lq-1P6"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outlet property="categoryImageView" destination="q4K-SR-SmB" id="dsC-sE-9Vl"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="TNr-wU-qBU" id="wy3-nF-pn4"/>
-                                                            <outlet property="delegate" destination="TNr-wU-qBU" id="Fpn-2D-zhI"/>
+                                                            <outlet property="dataSource" destination="TNr-wU-qBU" id="6Rx-5X-VdB"/>
+                                                            <outlet property="delegate" destination="TNr-wU-qBU" id="Kkx-us-xfo"/>
                                                         </connections>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="u95-rx-TqG" firstAttribute="leading" secondItem="Z4A-2E-JBz" secondAttribute="leading" id="BrX-cd-04D"/>
                                                     <constraint firstAttribute="trailing" secondItem="u95-rx-TqG" secondAttribute="trailing" id="C0h-C7-iIR"/>
@@ -1037,7 +1059,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="u95-rx-TqG" id="alZ-Ae-ONa"/>
+                        <outlet property="collectionView" destination="u95-rx-TqG" id="xfK-eH-QgG"/>
                         <outlet property="easyButton" destination="t5T-8F-niQ" id="Utx-pt-edR"/>
                         <outlet property="easyWidthConstraint" destination="N1H-54-6cJ" id="3A5-Vt-cmK"/>
                         <outlet property="hardButton" destination="4Dd-yp-XOC" id="f9c-BV-tJY"/>
