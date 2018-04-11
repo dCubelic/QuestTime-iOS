@@ -1,4 +1,6 @@
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class CreateRoomViewController: UIViewController {
     
@@ -10,6 +12,7 @@ class CreateRoomViewController: UIViewController {
     @IBOutlet weak var hardButton: UIButton!
     @IBOutlet weak var mediumButton: UIButton!
     @IBOutlet weak var easyButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
     @IBOutlet weak var easyWidthConstraint: NSLayoutConstraint!
     
@@ -18,6 +21,7 @@ class CreateRoomViewController: UIViewController {
     
     var selectedDifficulty: Difficulty = .medium
     var selectedRoomType: RoomType = .privateRoom
+    var selectedCategories: [Category] = []
     
     let cellWidth: CGFloat = 25
     let cellInset: CGFloat = 25
@@ -37,8 +41,11 @@ class CreateRoomViewController: UIViewController {
         hardButton.layer.cornerRadius = selectedDifficultyWidth / 2
         
         roomNameTextField.delegate = self
+        
+        doneButton.isEnabled = false
+        doneButton.alpha = 0.3
     }
-
+    
     
     @IBAction func difficultyAction(_ sender: UIButton) {
         
@@ -96,7 +103,24 @@ class CreateRoomViewController: UIViewController {
     }
     
     @IBAction func doneAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        guard let roomName = roomNameTextField.text else { return }
+        
+        let room: Room
+        if selectedRoomType == .publicRoom {
+            room = Room(name: roomName, type: selectedRoomType, difficulty: selectedDifficulty, categories: selectedCategories)
+        } else {
+            let privateKey = String.random(length: 8)
+            room = Room(name: roomName, type: selectedRoomType, privateKey: privateKey, difficulty: selectedDifficulty, categories: selectedCategories)
+        }
+        
+        Database.database().reference(withPath: "rooms").childByAutoId().setValue(room.toJson()) { (error, ref) in
+            guard let user = Auth.auth().currentUser else { return }
+            Database.database().reference(withPath: "users/\(user.uid)/rooms").child(ref.key).setValue(true)
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        print(room.toJson())
     }
     
 }
@@ -104,12 +128,12 @@ class CreateRoomViewController: UIViewController {
 extension CreateRoomViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return numberOfSections()
+        //        return numberOfSections()
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return numberOfCellsIn(section: section)
+        //        return numberOfCellsIn(section: section)
         return categories.count
     }
     
@@ -118,6 +142,7 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
         
         cell.categoryImageView.image = UIImage(named: categories[indexPath.row])
         cell.alpha = cell.unselectedAlpha
+        cell.delegate = self
         
         return cell
     }
@@ -128,42 +153,45 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
-
-        cell.toggleSelection()
+        
+        if cell.categorySelected || selectedCategories.count < 3 {
+            cell.toggleSelection()
+        }
+        
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        if section == numberOfSections() - 1 { //last section
-//            let difNum = CGFloat((maxNumberOfCellsInSection() - numberOfCellsIn(section: section)))
-//            let inset = CGFloat((difNum * cellWidth + (difNum - 1) * cellInset) / 2)
-//
-//            return UIEdgeInsets(top: 10, left: inset, bottom: 10, right: inset)
-//        } else {
-//            return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-//        }
-//    }
-//
-//    private func numberOfSections() -> Int {
-//        return Int(ceil(Double(categories.count) / Double(maxNumberOfCellsInSection())))
-//    }
-//
-//    private func maxNumberOfCellsInSection() -> Int {
-//        return Int((collectionView.frame.width + cellInset) / (cellWidth + cellInset))
-//    }
-//
-//    private func numberOfCellsIn(section: Int) -> Int {
-//        let max = maxNumberOfCellsInSection()
-//
-//        if section * max + max < categories.count {
-//            return max
-//        } else {
-//            return categories.count - section*max
-//        }
-//    }
-//
-//    private func convertToIndex(indexPath: IndexPath) -> Int {
-//        return indexPath.section * maxNumberOfCellsInSection() + indexPath.row
-//    }
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    //        if section == numberOfSections() - 1 { //last section
+    //            let difNum = CGFloat((maxNumberOfCellsInSection() - numberOfCellsIn(section: section)))
+    //            let inset = CGFloat((difNum * cellWidth + (difNum - 1) * cellInset) / 2)
+    //
+    //            return UIEdgeInsets(top: 10, left: inset, bottom: 10, right: inset)
+    //        } else {
+    //            return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+    //        }
+    //    }
+    //
+    //    private func numberOfSections() -> Int {
+    //        return Int(ceil(Double(categories.count) / Double(maxNumberOfCellsInSection())))
+    //    }
+    //
+    //    private func maxNumberOfCellsInSection() -> Int {
+    //        return Int((collectionView.frame.width + cellInset) / (cellWidth + cellInset))
+    //    }
+    //
+    //    private func numberOfCellsIn(section: Int) -> Int {
+    //        let max = maxNumberOfCellsInSection()
+    //
+    //        if section * max + max < categories.count {
+    //            return max
+    //        } else {
+    //            return categories.count - section*max
+    //        }
+    //    }
+    //
+    //    private func convertToIndex(indexPath: IndexPath) -> Int {
+    //        return indexPath.section * maxNumberOfCellsInSection() + indexPath.row
+    //    }
     
 }
 
@@ -171,5 +199,22 @@ extension CreateRoomViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension CreateRoomViewController: CategoryCollectionViewCellDelegate {
+    func categoryCollectionViewCell(_ cell: CategoryCollectionViewCell, didChangeSelectionTo categorySelected: Bool) {
+        guard let indexPath = collectionView.indexPath(for: cell), let category = Category(rawValue: categories[indexPath.row]) else { return }
+        
+        if !categorySelected {
+            if let selectedCategoryIndex = selectedCategories.index(of: category) {
+                selectedCategories.remove(at: selectedCategoryIndex)
+            }
+        } else {
+            selectedCategories.append(category)
+        }
+        
+        doneButton.isEnabled = selectedCategories.count > 0
+        doneButton.alpha = selectedCategories.count > 0 ? 1 : 0.3
     }
 }

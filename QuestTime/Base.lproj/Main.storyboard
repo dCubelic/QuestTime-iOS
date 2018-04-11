@@ -409,7 +409,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="53,5%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqY-x4-1g0">
                                                         <rect key="frame" x="210.5" y="10" width="47.5" height="20.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="47.5" id="H89-RF-VGd"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47.5" id="H89-RF-VGd"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -444,7 +444,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiI-XY-vZS">
                                                         <rect key="frame" x="211" y="10.5" width="47" height="20.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="47" id="vIw-pX-oFC"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="vIw-pX-oFC"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -479,7 +479,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVx-1E-gf2">
                                                         <rect key="frame" x="211" y="10.5" width="47" height="20.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="47" id="fWs-eP-hka"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="fWs-eP-hka"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -514,7 +514,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWh-Vr-xs7">
                                                         <rect key="frame" x="211" y="10.5" width="47" height="20.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="47" id="ewi-Tr-wJ6"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="ewi-Tr-wJ6"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -1060,6 +1060,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="u95-rx-TqG" id="xfK-eH-QgG"/>
+                        <outlet property="doneButton" destination="69H-E5-unh" id="IJI-e5-rkJ"/>
                         <outlet property="easyButton" destination="t5T-8F-niQ" id="Utx-pt-edR"/>
                         <outlet property="easyWidthConstraint" destination="N1H-54-6cJ" id="3A5-Vt-cmK"/>
                         <outlet property="hardButton" destination="4Dd-yp-XOC" id="f9c-BV-tJY"/>

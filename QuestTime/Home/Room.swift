@@ -1,11 +1,11 @@
 import Foundation
 import FirebaseDatabase
 
-enum Difficulty {
+enum Difficulty: String {
     case easy, medium, hard
 }
 
-enum RoomType {
+enum RoomType: String {
     case privateRoom, publicRoom
 }
 
@@ -14,17 +14,16 @@ enum Category: String {
 }
 
 class Room {
-    var uid: String
     var name: String
     var difficulty: Difficulty
     var type: RoomType
     var privateKey: String?
-    var people: [String] = []
+    var people: [Person] = []
     var questions: [Question] = []
     var categories: [Category]
     
-    init(uid: String, name: String, type: RoomType, privateKey: String? = nil, difficulty: Difficulty, categories: [Category]) {
-        self.uid = uid
+    init(name: String, type: RoomType, privateKey: String? = nil, difficulty: Difficulty, categories: [Category]) {
+//        self.uid = uid
         self.name = name
         self.type = type
         self.privateKey = privateKey
@@ -40,11 +39,35 @@ class Room {
             let typeString = value["type"] as? String
             else { return nil }
         
-        self.uid = snapshot.key
+//        self.uid = snapshot.key
         self.name = roomName
         self.categories = Room.parseCategories(categoryStrings: categoryStrings)
         self.difficulty = Room.parseDifficulty(difficulty: difficultyString)
         self.type = Room.parseType(typeString: typeString)
+    }
+    
+    func add(person: Person) {
+        people.append(person)
+    }
+    
+    func toJson() -> [String: Any] {
+//        if type == .privateRoom && privateKey == nil {
+//            return [:]
+//        }
+        
+        var categoryStrings: [String] = []
+        for category in categories {
+            categoryStrings.append(category.rawValue)
+        }
+        
+        return [
+            "roomName": name,
+            "difficulty": difficulty.rawValue,
+            "type": type.rawValue,
+            "privateKey": privateKey ?? "",
+            "categories": categoryStrings,
+            "members": people
+        ]
     }
 
     

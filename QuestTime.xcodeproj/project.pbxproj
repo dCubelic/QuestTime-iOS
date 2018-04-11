@@ -42,6 +42,7 @@
 		B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */; };
 		B4D3A4702076D14A008278B5 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46F2076D14A008278B5 /* Window.swift */; };
 		B4D3A4722076D3F1008278B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D3A4712076D3F1008278B5 /* Login.storyboard */; };
+		B4E05B78207E45D40016A28B /* String+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E05B77207E45D40016A28B /* String+QT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPopupViewController.swift; sourceTree = "<group>"; };
 		B4D3A46F2076D14A008278B5 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		B4D3A4712076D3F1008278B5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B4E05B77207E45D40016A28B /* String+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QT.swift"; sourceTree = "<group>"; };
 		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 				B4656C20205942800081BB6F /* UIStoryboard+QT.swift */,
 				B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */,
 				B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */,
+				B4E05B77207E45D40016A28B /* String+QT.swift */,
 			);
 			path = "Swift Extensions";
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */,
 				B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */,
 				B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */,
+				B4E05B78207E45D40016A28B /* String+QT.swift in Sources */,
 				B4B1F3DE206B9C080040A4CD /* UITableView+QT.swift in Sources */,
 				B4656C232059428B0081BB6F /* Constants.swift in Sources */,
 			);
