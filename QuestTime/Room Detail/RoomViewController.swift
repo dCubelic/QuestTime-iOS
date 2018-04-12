@@ -6,6 +6,8 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var shadowView: UIView!
     
+    var room: Room?
+    
     var questions: [String] = [
         "Question answer",
         "This is a second question just to see how longer question appear,This is a second question just to see how longer question appear",

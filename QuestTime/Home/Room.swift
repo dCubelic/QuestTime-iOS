@@ -14,6 +14,7 @@ enum Category: String {
 }
 
 class Room {
+    var uid: String?
     var name: String
     var difficulty: Difficulty
     var type: RoomType
@@ -39,7 +40,7 @@ class Room {
             let typeString = value["type"] as? String
             else { return nil }
         
-//        self.uid = snapshot.key
+        self.uid = snapshot.key
         self.name = roomName
         self.categories = Room.parseCategories(categoryStrings: categoryStrings)
         self.difficulty = Room.parseDifficulty(difficulty: difficultyString)

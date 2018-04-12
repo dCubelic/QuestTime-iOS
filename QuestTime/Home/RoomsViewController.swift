@@ -98,6 +98,8 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell.showUnansweredView()
+        } else {
+            cell.hideUnansweredView()
         }
         
         return cell
@@ -108,12 +110,40 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .destructive, title: "Leave") { (_, _, completionHandler) in
+            
+            let room = self.rooms[indexPath.row]
+            
+            let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+                guard let user = Auth.auth().currentUser, let uid = room.uid else { return }
+                Database.database().reference(withPath: "users/\(user.uid)/rooms/\(uid)").removeValue()
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            completionHandler(false)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 }
 
 extension RoomsViewController: AddRoomPopupViewControllerDelegate {
     func createNewRoomSelected() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: CreateRoomViewController.self)
+        vc.delegate = self
         present(vc, animated: true, completion: nil)
+    }
+}
+
+extension RoomsViewController: CreateRoomViewControllerDelegate {
+    func didCreate(room: Room) {
+        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: RoomViewController.self)
+        vc.room = room
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

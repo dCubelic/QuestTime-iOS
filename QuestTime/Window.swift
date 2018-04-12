@@ -53,7 +53,7 @@ class Window: UIWindow {
         super.init(frame: UIScreen.main.bounds)
         rootViewController = container
         
-        if let user = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
             showMain()
         } else {
             showLogin()

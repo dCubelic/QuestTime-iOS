@@ -2,6 +2,10 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+protocol CreateRoomViewControllerDelegate: class {
+    func didCreate(room: Room)
+}
+
 class CreateRoomViewController: UIViewController {
     
     @IBOutlet weak var separatorView: UIView!
@@ -18,6 +22,8 @@ class CreateRoomViewController: UIViewController {
     
     @IBOutlet weak var mediumWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var hardWidthConstraint: NSLayoutConstraint!
+    
+    weak var delegate: CreateRoomViewControllerDelegate?
     
     var selectedDifficulty: Difficulty = .medium
     var selectedRoomType: RoomType = .privateRoom
@@ -105,9 +111,10 @@ class CreateRoomViewController: UIViewController {
     @IBAction func doneAction(_ sender: Any) {
         guard let roomName = roomNameTextField.text else { return }
         
+        //TODO: - add user to room
         let room: Room
         if selectedRoomType == .publicRoom {
-            room = Room(name: roomName, type: selectedRoomType, difficulty: selectedDifficulty, categories: selectedCategories)
+            room = Room(name: roomName , type: selectedRoomType, difficulty: selectedDifficulty, categories: selectedCategories)
         } else {
             let privateKey = String.random(length: 8)
             room = Room(name: roomName, type: selectedRoomType, privateKey: privateKey, difficulty: selectedDifficulty, categories: selectedCategories)
@@ -116,11 +123,12 @@ class CreateRoomViewController: UIViewController {
         Database.database().reference(withPath: "rooms").childByAutoId().setValue(room.toJson()) { (error, ref) in
             guard let user = Auth.auth().currentUser else { return }
             Database.database().reference(withPath: "users/\(user.uid)/rooms").child(ref.key).setValue(true)
-            
-            self.dismiss(animated: true, completion: nil)
+//            self.delegate?.didCreate(room: room)
+            self.dismiss(animated: true, completion: {
+                self.delegate?.didCreate(room: room)
+            })
+//            self.dismiss(animated: true, completion: nil)
         }
-        
-        print(room.toJson())
     }
     
 }
