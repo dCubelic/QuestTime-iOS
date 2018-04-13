@@ -9,7 +9,6 @@ class RoomsViewController: UIViewController {
     @IBOutlet weak var questionsLeftTodayLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
     
-//    let rooms: [String] = ["First Room", "Second Room", "Third Room", "Fourth Room", "Fifth Room"]
     var rooms: [Room] = [
 //        Room(uid: "g45g5gwtrgsrgsd", name: "First Room", type: .publicRoom, difficulty: .medium, categories: [.maths, .science]),
 //        Room(uid: "g3f3v24g42g4v34", name: "Second Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .hard, categories: [.general]),

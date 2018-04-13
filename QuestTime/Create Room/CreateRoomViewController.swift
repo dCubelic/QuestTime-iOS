@@ -123,7 +123,7 @@ class CreateRoomViewController: UIViewController {
             guard let user = Auth.auth().currentUser else { return }
             
             ref.child("members").child(user.uid).setValue(true)
-            ref.observe(.childRemoved, with: { (snapshot) in
+            ref.child("members").observe(.childRemoved, with: { (snapshot) in
                 if !snapshot.hasChildren() {
                     ref.removeValue()
                 }
