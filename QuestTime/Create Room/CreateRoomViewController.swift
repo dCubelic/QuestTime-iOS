@@ -111,7 +111,6 @@ class CreateRoomViewController: UIViewController {
     @IBAction func doneAction(_ sender: Any) {
         guard let roomName = roomNameTextField.text else { return }
         
-        //TODO: - add user to room
         let room: Room
         if selectedRoomType == .publicRoom {
             room = Room(name: roomName , type: selectedRoomType, difficulty: selectedDifficulty, categories: selectedCategories)
@@ -122,12 +121,19 @@ class CreateRoomViewController: UIViewController {
         
         Database.database().reference(withPath: "rooms").childByAutoId().setValue(room.toJson()) { (error, ref) in
             guard let user = Auth.auth().currentUser else { return }
+            
+            ref.child("members").child(user.uid).setValue(true)
+            ref.observe(.childRemoved, with: { (snapshot) in
+                if !snapshot.hasChildren() {
+                    ref.removeValue()
+                }
+            })
+            
             Database.database().reference(withPath: "users/\(user.uid)/rooms").child(ref.key).setValue(true)
-//            self.delegate?.didCreate(room: room)
+            
             self.dismiss(animated: true, completion: {
                 self.delegate?.didCreate(room: room)
             })
-//            self.dismiss(animated: true, completion: nil)
         }
     }
     

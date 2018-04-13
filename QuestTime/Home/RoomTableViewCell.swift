@@ -56,9 +56,11 @@ class RoomTableViewCell: UITableViewCell {
     
     func setup(with room: Room) {
         roomNameLabel.text = room.name
-        underlineView.backgroundColor = .white
+        if let uid = room.uid {
+            underlineView.backgroundColor = UIColor.from(hashString: uid)
+        }
         difficultyView.backgroundColor = difficultyColor(for: room.difficulty)
-        peopleLabel.text = "\(room.people.count) people"
+        peopleLabel.text = "\(room.peopleUIDs.count) people"
         setupCategoryImageViews(for: room.categories)
     }
     

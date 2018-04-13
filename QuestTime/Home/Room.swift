@@ -19,7 +19,7 @@ class Room {
     var difficulty: Difficulty
     var type: RoomType
     var privateKey: String?
-    var people: [Person] = []
+    var peopleUIDs: [String] = []
     var questions: [Question] = []
     var categories: [Category]
     
@@ -47,8 +47,8 @@ class Room {
         self.type = Room.parseType(typeString: typeString)
     }
     
-    func add(person: Person) {
-        people.append(person)
+    func add(personUID: String) {
+        peopleUIDs.append(personUID)
     }
     
     func toJson() -> [String: Any] {
@@ -67,7 +67,7 @@ class Room {
             "type": type.rawValue,
             "privateKey": privateKey ?? "",
             "categories": categoryStrings,
-            "members": people
+            "members": peopleUIDs
         ]
     }
 

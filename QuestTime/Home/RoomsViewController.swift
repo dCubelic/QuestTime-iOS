@@ -118,8 +118,9 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
             
             let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
-                guard let user = Auth.auth().currentUser, let uid = room.uid else { return }
-                Database.database().reference(withPath: "users/\(user.uid)/rooms/\(uid)").removeValue()
+                guard let user = Auth.auth().currentUser, let roomUid = room.uid else { return }
+                Database.database().reference(withPath: "users/\(user.uid)/rooms/\(roomUid)").removeValue()
+                Database.database().reference(withPath: "rooms/\(roomUid)/members/\(user.uid)").removeValue()
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             
@@ -146,6 +147,3 @@ extension RoomsViewController: CreateRoomViewControllerDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-
-
