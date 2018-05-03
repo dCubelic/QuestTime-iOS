@@ -1,15 +1,17 @@
 import UIKit
 import Firebase
+import FirebaseMessaging
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         
         window = Window()
         window?.makeKeyAndVisible()
@@ -41,20 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("here")
-        let tokenParts = deviceToken.map { (data) -> String in
-            return String(format: "%02.2hhx", data)
-        }
-        
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
-    }
+//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+//        let deviceTokenString = NSString(format: "%@", deviceToken as CVarArg) as String
+//        let pushToken = deviceTokenString.replacingOccurrences(of: "<", with: "").replacingOccurrences(of: ">", with: "").replacingOccurrences(of: " ", with: "")
+//
+//        print("PushToken: \(pushToken)")
+//    }
     
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("failed?")
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        //TODO: zapisat u userdefault i poslat na server kad se ulogira (ak nije vec)
+        print("fcm token: \(fcmToken)")
     }
-    
 
 }
 
