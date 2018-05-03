@@ -124,6 +124,8 @@ class CreateRoomViewController: UIViewController {
             
             ref.child("members").child(user.uid).setValue(true)
             ref.child("members").observe(.childRemoved, with: { (snapshot) in
+                print(snapshot)
+                print(snapshot.children)
                 if !snapshot.hasChildren() {
                     ref.removeValue()
                 }

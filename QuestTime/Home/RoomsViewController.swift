@@ -35,9 +35,9 @@ class RoomsViewController: UIViewController {
         let roomsRef = Database.database().reference(withPath: "rooms")
         
         userRef.observe(.value) { (userRoomsSnapshot) in
+            self.rooms = []
+            
             if let snapshotDictionary = userRoomsSnapshot.value as? [String: Any?] {
-                self.rooms = []
-                
                 for (index, snapshot) in snapshotDictionary.enumerated() {
                     roomsRef.child(snapshot.key).observeSingleEvent(of: .value, with: { (snapshot) in
                         if let room = Room(with: snapshot) {
@@ -49,6 +49,8 @@ class RoomsViewController: UIViewController {
                         }
                     })
                 }
+            } else {
+                self.tableView.reloadData()
             }
         }
     }

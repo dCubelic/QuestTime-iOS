@@ -71,6 +71,7 @@
 		B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B4AC13F2207BA93900DF8A92 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B4AC13F4207BAA5100DF8A92 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		B4AFA645209B6D8B00D6086E /* QuestTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuestTime.entitlements; sourceTree = "<group>"; };
 		B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+QT.swift"; sourceTree = "<group>"; };
 		B4B51F03204C29A100414BB1 /* QuestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B51F06204C29A100414BB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		B4B51F05204C29A100414BB1 /* QuestTime */ = {
 			isa = PBXGroup;
 			children = (
+				B4AFA645209B6D8B00D6086E /* QuestTime.entitlements */,
 				B4B51F12204C29A100414BB1 /* Info.plist */,
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4D3A46F2076D14A008278B5 /* Window.swift */,
@@ -281,6 +283,11 @@
 					B4B51F02204C29A100414BB1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -550,6 +557,7 @@
 			baseConfigurationReference = 865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QuestTime/QuestTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J7U5C6D83;
 				ENABLE_BITCODE = YES;
@@ -568,6 +576,7 @@
 			baseConfigurationReference = 801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QuestTime/QuestTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J7U5C6D83;
 				ENABLE_BITCODE = YES;
