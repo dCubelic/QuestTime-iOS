@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import UserNotifications
 
 private class WindowContainerViewController: UIViewController {
     
@@ -88,6 +89,28 @@ class Window: UIWindow {
         guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else { return }
         
         container.child = viewController
+        
+        registerForPushNotifications()
+    }
+    
+    private func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            print("Notification permission: \(granted)")
+            
+            guard granted else { return }
+            self.getNotificationSettigns()
+        }
+    }
+    
+    private func getNotificationSettigns() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print(settings)
+            
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
     }
 }
 
