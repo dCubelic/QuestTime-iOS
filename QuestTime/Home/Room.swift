@@ -45,6 +45,11 @@ class Room {
         self.categories = Room.parseCategories(categoryStrings: categoryStrings)
         self.difficulty = Room.parseDifficulty(difficulty: difficultyString)
         self.type = Room.parseType(typeString: typeString)
+        
+        if self.type == .privateRoom {
+            guard let privateKey = value["privateKey"] as? String else { return nil }
+            self.privateKey = privateKey
+        }
     }
     
     func add(personUID: String) {
@@ -73,23 +78,14 @@ class Room {
 
     
     private static func parseDifficulty(difficulty: String) -> Difficulty {
-        switch difficulty {
-        case "easy":
-            return .easy
-        case "medium":
-            return .medium
-        case "hard":
-            return .hard
-        default:
-            return .medium
-        }
+        return Difficulty(rawValue: difficulty) ?? .medium
     }
     
     private static func parseCategories(categoryStrings: [String]) -> [Category] {
         var categories: [Category] = []
         
         for category in categoryStrings {
-            if let c = Category.init(rawValue: category) {
+            if let c = Category(rawValue: category) {
                 categories.append(c)
             }
         }
@@ -98,13 +94,6 @@ class Room {
     }
     
     private static func parseType(typeString: String) -> RoomType {
-        switch typeString {
-        case "private":
-            return .privateRoom
-        case "public":
-            return .publicRoom
-        default:
-            return .publicRoom
-        }
+        return RoomType(rawValue: typeString) ?? .publicRoom
     }
 }

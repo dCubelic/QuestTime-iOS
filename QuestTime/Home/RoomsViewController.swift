@@ -8,14 +8,9 @@ class RoomsViewController: UIViewController {
     @IBOutlet weak var questionsLeftTodayNumberLabel: UILabel!
     @IBOutlet weak var questionsLeftTodayLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
+    @IBOutlet weak var headerView: UIView!
     
-    var rooms: [Room] = [
-//        Room(uid: "g45g5gwtrgsrgsd", name: "First Room", type: .publicRoom, difficulty: .medium, categories: [.maths, .science]),
-//        Room(uid: "g3f3v24g42g4v34", name: "Second Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .hard, categories: [.general]),
-//        Room(uid: "g43f34hhfsfsghf", name: "This is a third room name", type: .publicRoom, difficulty: .hard, categories: [.movies, .sport, .music]),
-//        Room(uid: "gb45gbtrwtwdtgd", name: "Dummy Room", type: .privateRoom, privateKey: "23FSG498F", difficulty: .medium, categories: [.geography, .art, .science]),
-//        Room(uid: "rgb54v4tg4das5g", name: "📚🏀🎨", type: .privateRoom, privateKey: "23FSG498F", difficulty: .easy, categories: [.general, .sport, .art]),
-    ]
+    var rooms: [Room] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +103,8 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: RoomViewController.self)
+        vc.room = rooms[indexPath.row]
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -121,7 +118,17 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
                 guard let user = Auth.auth().currentUser, let roomUid = room.uid else { return }
                 Database.database().reference(withPath: "users/\(user.uid)/rooms/\(roomUid)").removeValue()
-                Database.database().reference(withPath: "rooms/\(roomUid)/members/\(user.uid)").removeValue()
+                
+                let ref = Database.database().reference(withPath: "rooms/\(roomUid)")
+                ref.child("members").observe(.value, with: { (snapshot) in
+                    print(snapshot)
+                    print(snapshot.children)
+                    if !snapshot.hasChildren() {
+                        ref.removeValue()
+                    }
+                })
+                ref.child("members/\(user.uid)").removeValue()
+                
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             
@@ -131,6 +138,7 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [action])
     }
+
 }
 
 extension RoomsViewController: AddRoomPopupViewControllerDelegate {

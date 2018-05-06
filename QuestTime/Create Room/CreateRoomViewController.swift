@@ -123,13 +123,13 @@ class CreateRoomViewController: UIViewController {
             guard let user = Auth.auth().currentUser else { return }
             
             ref.child("members").child(user.uid).setValue(true)
-            ref.child("members").observe(.childRemoved, with: { (snapshot) in
-                print(snapshot)
-                print(snapshot.children)
-                if !snapshot.hasChildren() {
-                    ref.removeValue()
-                }
-            })
+//            ref.child("members").observe(.childRemoved, with: { (snapshot) in
+//                print(snapshot)
+//                print(snapshot.children)
+//                if !snapshot.hasChildren() {
+//                    ref.removeValue()
+//                }
+//            })
             
             Database.database().reference(withPath: "users/\(user.uid)/rooms").child(ref.key).setValue(true)
             

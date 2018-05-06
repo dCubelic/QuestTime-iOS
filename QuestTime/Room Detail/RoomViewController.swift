@@ -5,6 +5,10 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var privateKeyLabel: UILabel!
+    @IBOutlet weak var lockImageView: UIImageView!
+    
+    @IBOutlet weak var privateKeyViewHeightConstraint: NSLayoutConstraint!
     
     var room: Room?
     
@@ -24,6 +28,16 @@ class RoomViewController: UIViewController {
 
         separatorView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionTableViewCell")
+        
+        privateKeyViewHeightConstraint.constant = 0
+        
+        privateKeyLabel.isHidden = room?.type == .publicRoom
+        lockImageView.isHidden = room?.type == .publicRoom
+        privateKeyViewHeightConstraint.isActive = room?.type == .publicRoom
+        
+        privateKeyLabel.text = room?.privateKey
+        title = room?.name
+        
     }
 
     @IBAction func peopleAction(_ sender: Any) {
