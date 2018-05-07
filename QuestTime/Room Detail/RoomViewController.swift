@@ -26,7 +26,8 @@ class RoomViewController: UIViewController {
         shadowView.isHidden = true
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
-
+        NotificationCenter.default.addObserver(self, selector: #selector(loadQuestions), name: Notification.Name(Constants.Notifications.receivedNotification), object: nil)
+        
         separatorView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionTableViewCell")
         
@@ -42,15 +43,20 @@ class RoomViewController: UIViewController {
         loadQuestions()
     }
     
-    private func loadQuestions() {
+    @objc private func loadQuestions() {
         guard let room = room, let uid = room.uid else { return }
+        self.questions = []
         
         QTClient.shared.loadRoom(with: uid) { (room) in
+            
             for (index, roomQuestion) in room.roomQuestions.enumerated() {
-                QTClient.shared.loadQuestion(with: roomQuestion.id, category: roomQuestion.category) { (question) in
-                    self.questions.append(question)
+                QTClient.shared.loadQuestion(with: roomQuestion.id, category: roomQuestion.category, date: roomQuestion.timestamp) { (question) in
+                    if question.date < Date() {
+                        self.questions.append(question)
+                    }
                     
                     if index == room.roomQuestions.count - 1 {
+                        self.questions.sort { $0.date > $1.date }
                         self.tableView.reloadData()
                     }
                 }

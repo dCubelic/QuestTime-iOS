@@ -18,9 +18,10 @@ public class QTClient {
     let users = Database.database().reference(withPath: "users")
     let questions = Database.database().reference(withPath: "questions")
     
-    public func loadQuestion(with id: String, category: String, completion: @escaping (Question) -> Void ) {
+    public func loadQuestion(with id: String, category: String, date: Date, completion: @escaping (Question) -> Void ) {
         questions.child(category).child(id).observe(.value) { (snapshot) in
             if let question = Question(with: snapshot) {
+                question.date = date
                 completion(question)
             }
         }
@@ -55,7 +56,5 @@ public class QTClient {
             }
         }
     }
-    
-    
-    
+
 }

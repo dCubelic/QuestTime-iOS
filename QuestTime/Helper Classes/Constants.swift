@@ -8,4 +8,8 @@ struct Constants {
         static let registerVC = "RegisterViewController"
         static let roomsViewController = "RoomsViewController"
     }
+    
+    struct Notifications {
+        static let receivedNotification = "receivedNotification"
+    }
 }

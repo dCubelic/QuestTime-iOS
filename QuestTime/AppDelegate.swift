@@ -28,6 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         
         Database.database().reference(withPath: "users/\(uid)/registrationToken").setValue(fcmToken)
     }
-
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        NotificationCenter.default.post(name: Notification.Name(Constants.Notifications.receivedNotification), object: nil)
+    }
+    
 }
 
