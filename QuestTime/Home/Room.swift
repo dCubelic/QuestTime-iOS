@@ -49,6 +49,11 @@ public class Room {
             else { return nil }
         
         let questions = (value["questions"] as? [String: Any]) ?? [:]
+        let members = (value["members"] as? [String: Any]) ?? [:]
+        
+        for member in members.keys {
+            peopleUIDs.append(member)
+        }
         
         self.uid = snapshot.key
         self.name = roomName
