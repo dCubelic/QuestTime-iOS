@@ -34,5 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         NotificationCenter.default.post(name: Notification.Name(Constants.Notifications.receivedNotification), object: nil)
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
+    
 }
 
