@@ -13,14 +13,22 @@ enum Category: String {
     case art, sport, science, movies, music, general, maths, physics, geography
 }
 
-class Room {
+struct RoomQuestion {
+    var id: String
+    var category: String
+    var points: [String: Int]
+    var timestamp: Date
+}
+
+public class Room {
     var uid: String?
     var name: String
     var difficulty: Difficulty
     var type: RoomType
     var privateKey: String?
     var peopleUIDs: [String] = []
-    var questions: [Question] = []
+//    var questionIDs: [String] = []
+    var roomQuestions: [RoomQuestion] = []
     var categories: [Category]
     
     init(name: String, type: RoomType, privateKey: String? = nil, difficulty: Difficulty, categories: [Category]) {
@@ -40,11 +48,27 @@ class Room {
             let typeString = value["type"] as? String
             else { return nil }
         
+        let questions = (value["questions"] as? [String: Any]) ?? [:]
+        
         self.uid = snapshot.key
         self.name = roomName
         self.categories = Room.parseCategories(categoryStrings: categoryStrings)
         self.difficulty = Room.parseDifficulty(difficulty: difficultyString)
         self.type = Room.parseType(typeString: typeString)
+        
+        for question in questions {
+            if let values = question.value as? [String: Any],
+                let category = values["category"] as? String,
+                let timestamp = values["timestamp"] as? Double {
+                let points: [String: Int] = values["points"] as? [String: Int] ?? [:]
+                
+                roomQuestions.append(RoomQuestion(id: question.key, category: category, points: points, timestamp: Date(timeIntervalSince1970: timestamp)))
+            }
+        }
+        
+//        for questionID in questions.keys {
+//            self.questionIDs.append(questionID)
+//        }
         
         if self.type == .privateRoom {
             guard let privateKey = value["privateKey"] as? String else { return nil }

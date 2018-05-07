@@ -26,28 +26,34 @@ class RoomsViewController: UIViewController {
     private func loadUserRooms() {
         guard let user = Auth.auth().currentUser else { return }
         
-        let userRef = Database.database().reference(withPath: "users/\(user.uid)/rooms")
-        let roomsRef = Database.database().reference(withPath: "rooms")
-        
-        userRef.observe(.value) { (userRoomsSnapshot) in
-            self.rooms = []
-            
-            if let snapshotDictionary = userRoomsSnapshot.value as? [String: Any?] {
-                for (index, snapshot) in snapshotDictionary.enumerated() {
-                    roomsRef.child(snapshot.key).observeSingleEvent(of: .value, with: { (snapshot) in
-                        if let room = Room(with: snapshot) {
-                            self.rooms.append(room)
-                            
-                            if index == snapshotDictionary.count - 1 {
-                                self.tableView.reloadData()
-                            }
-                        }
-                    })
-                }
-            } else {
-                self.tableView.reloadData()
-            }
+        QTClient.shared.loadRoomsForUser(with: user.uid) { (rooms) in
+            self.rooms = rooms
+            self.tableView.reloadData()
         }
+        
+//        let userRef = Database.database().reference(withPath: "users/\(user.uid)/rooms")
+//        let roomsRef = Database.database().reference(withPath: "rooms")
+//
+//        userRef.observe(.value) { (userRoomsSnapshot) in
+//            self.rooms = []
+//
+//            if let snapshotDictionary = userRoomsSnapshot.value as? [String: Any?] {
+//                for (index, snapshot) in snapshotDictionary.enumerated() {
+//                    roomsRef.child(snapshot.key).observeSingleEvent(of: .value, with: { (snapshot) in
+//                        if let room = Room(with: snapshot) {
+//                            self.rooms.append(room)
+//
+//                            if index == snapshotDictionary.count - 1 {
+//                                self.tableView.reloadData()
+//                            }
+//                        }
+//                    })
+//
+//                }
+//            } else {
+//                self.tableView.reloadData()
+//            }
+//        }
     }
     
     override func viewWillLayoutSubviews() {

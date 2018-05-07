@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseDatabase
 
 class RoomViewController: UIViewController {
 
@@ -12,11 +13,11 @@ class RoomViewController: UIViewController {
     
     var room: Room?
     
-    var questions: [String] = [
-        "Question answer",
-        "This is a second question just to see how longer question appear,This is a second question just to see how longer question appear",
-        "This is a third question",
-        "This is a little longer fourth question"
+    var questions: [Question] = [
+//        "Question answer",
+//        "This is a second question just to see how longer question appear,This is a second question just to see how longer question appear",
+//        "This is a third question",
+//        "This is a little longer fourth question"
         ]
     
     override func viewDidLoad() {
@@ -38,7 +39,40 @@ class RoomViewController: UIViewController {
         privateKeyLabel.text = room?.privateKey
         title = room?.name
         
+        loadQuestions()
     }
+    
+    private func loadQuestions() {
+        guard let room = room, let uid = room.uid else { return }
+        
+        QTClient.shared.loadRoom(with: uid) { (room) in
+            for (index, roomQuestion) in room.roomQuestions.enumerated() {
+                QTClient.shared.loadQuestion(with: roomQuestion.id, category: roomQuestion.category) { (question) in
+                    self.questions.append(question)
+                    
+                    if index == room.roomQuestions.count - 1 {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+        
+    }
+    
+//    private func loadQuestions() {
+//        guard let room = room else { return }
+//
+//        for questionID in room.questionIDs {
+//            questions = []
+//
+//            Database.database().reference(withPath: "questions/\(questionID)").observe(.value) { (snapshot) in
+//                if let question = Question(with: snapshot) {
+//                    self.questions.append(question)
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
 
     @IBAction func peopleAction(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: PeopleViewController.self)
@@ -62,7 +96,7 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             cell.showUnansweredView()
         }
-        cell.questionTextLabel.text = questions[indexPath.row]
+        cell.questionTextLabel.text = questions[indexPath.row].question
         
         return cell
     }
@@ -70,10 +104,8 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let questionVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionViewController.self)
         
-        questionVC.questionText = questions[indexPath.row]
+        questionVC.question = questions[indexPath.row]
         questionVC.delegate = self
-        
-        
         
         let navVC = UINavigationController(rootViewController: questionVC)
         navVC.setNavigationBarHidden(true, animated: false)

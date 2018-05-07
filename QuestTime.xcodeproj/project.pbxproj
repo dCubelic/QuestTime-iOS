@@ -27,6 +27,7 @@
 		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
 		B467E4032080F92C00729729 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B467E4022080F92C00729729 /* GoogleService-Info.plist */; };
 		B46EAC992080B76500745842 /* UIColor+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46EAC982080B76500745842 /* UIColor+QT.swift */; };
+		B478162120A072A100BF88A7 /* QTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B478162020A072A000BF88A7 /* QTClient.swift */; };
 		B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */; };
 		B4AC13F3207BA93900DF8A92 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC13F2207BA93900DF8A92 /* Room.swift */; };
 		B4AC13F5207BAA5100DF8A92 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC13F4207BAA5100DF8A92 /* Question.swift */; };
@@ -68,6 +69,7 @@
 		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B467E4022080F92C00729729 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B46EAC982080B76500745842 /* UIColor+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+QT.swift"; sourceTree = "<group>"; };
+		B478162020A072A000BF88A7 /* QTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTClient.swift; sourceTree = "<group>"; };
 		B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B4AC13F2207BA93900DF8A92 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B4AC13F4207BAA5100DF8A92 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
 				B43384652077A408004272DC /* QuestionViewController.swift */,
 				B43384672077B09F004272DC /* QuestionDetailViewController.swift */,
+				B478162020A072A000BF88A7 /* QTClient.swift */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
 				B445863520725DF700C829EA /* Room Detail */,
@@ -378,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B478162120A072A100BF88A7 /* QTClient.swift in Sources */,
 				B46EAC992080B76500745842 /* UIColor+QT.swift in Sources */,
 				B4AC13F5207BAA5100DF8A92 /* Question.swift in Sources */,
 				B45E066B206FD1E000B8950E /* CategoryCollectionViewCell.swift in Sources */,
