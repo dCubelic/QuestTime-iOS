@@ -10,7 +10,10 @@ class QuestionDetailViewController: UIViewController {
     @IBOutlet weak var secondAnswerButton: UIButton!
     @IBOutlet weak var thirdAnswerButton: UIButton!
     @IBOutlet weak var fourthAnswerButton: UIButton!
-    
+    @IBOutlet weak var firstPercentageLabel: UILabel!
+    @IBOutlet weak var secondPercentageLabel: UILabel!
+    @IBOutlet weak var thirdPercentageLabel: UILabel!
+    @IBOutlet weak var fourthPercentageLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
     
     weak var delegate: QuestionViewControllerDelegate?
@@ -46,12 +49,14 @@ class QuestionDetailViewController: UIViewController {
     }
     
     private func setupUI() {
+        guard let question = question else { return }
+        
         setupLabels()
         
-        answerButtons.first { $0.title(for: .normal) == question?.myAnswer }?.backgroundColor = .red
-        answerButtons.first { $0.title(for: .normal) == question?.correctAnswer}?.backgroundColor = .green
+        answerButtons.first { $0.title(for: .normal) == question.myAnswer }?.backgroundColor = .red
+        answerButtons.first { $0.title(for: .normal) == question.correctAnswer}?.backgroundColor = .green
         
-        if question?.myAnswer == question?.correctAnswer {
+        if question.myAnswer == question.correctAnswer {
             correctLabel.textColor = .green
             correctLabel.text = "Correct!"
         } else {
@@ -59,12 +64,34 @@ class QuestionDetailViewController: UIViewController {
             correctLabel.text = "Wrong!"
         }
         
-        if let points = question?.myPoints {
+        if let points = question.myPoints {
             pointsLabel.text = String(points)
         }
         
-        //percentages
-        //people ?
+        var numberOfAnswers: [String: Int] = [:]
+        var answerCount = 0
+        question.peopleAnswers.values.forEach({ (answer) in
+            if let number = numberOfAnswers[answer] {
+                numberOfAnswers[answer] = number + 1
+            } else {
+                numberOfAnswers[answer] = 1
+            }
+            answerCount += 1
+        })
+        
+        if answerCount == 0 {
+            return
+        }
+        
+        let percentageLabels = [firstPercentageLabel, secondPercentageLabel, thirdPercentageLabel, fourthPercentageLabel]
+        
+        for index in 0...3 {
+            if let number = numberOfAnswers[question.answers[index]] {
+                percentageLabels[index]?.text = String(format: "%.1f%%", Double(number) / Double(answerCount) * 100)
+            } else {
+                percentageLabels[index]?.text = "0.0%"
+            }
+        }
     }
     
     private func setupLabels() {

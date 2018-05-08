@@ -69,7 +69,7 @@ class QuestionViewController: UIViewController {
         
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
         
-        vc.delegate = delegate
+        vc.delegate = self.delegate
         vc.question = question
         
         //flip transition
@@ -77,13 +77,13 @@ class QuestionViewController: UIViewController {
         transition.duration = 0.5
         transition.type = "flip"
         transition.subtype = kCATransitionFromRight
-        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
         
         guard let room = room, let question = question, let userUid = Auth.auth().currentUser?.uid else { return }
         
         QTClient.shared.setAnswer(for: room, question: question, userUid: userUid) {
-            self.delegate?.questionViewControllerAnsweredQuestion()
+            self.navigationController?.view.layer.add(transition, forKey: kCATransition)
             self.navigationController?.pushViewController(vc, animated: false)
+            self.delegate?.questionViewControllerAnsweredQuestion()
         }
         
     }

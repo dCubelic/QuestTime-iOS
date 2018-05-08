@@ -575,12 +575,16 @@
                     <connections>
                         <outlet property="correctLabel" destination="6EQ-r6-C41" id="UUk-Vp-8hr"/>
                         <outlet property="firstAnswerButton" destination="RZY-JZ-ofv" id="rGa-88-Z5q"/>
+                        <outlet property="firstPercentageLabel" destination="sqY-x4-1g0" id="B3A-no-WtH"/>
                         <outlet property="fourthAnswerButton" destination="9SI-el-Xd7" id="JSg-2n-y3q"/>
+                        <outlet property="fourthPercentageLabel" destination="GWh-Vr-xs7" id="dCt-Bz-hUv"/>
                         <outlet property="pointsLabel" destination="zHx-GX-pKm" id="KJB-gV-pYq"/>
                         <outlet property="questionLabel" destination="vMC-bJ-eia" id="bob-2X-7Ci"/>
                         <outlet property="questionView" destination="UOa-v6-fwm" id="3X8-dq-NOf"/>
                         <outlet property="secondAnswerButton" destination="o8c-GK-JjT" id="Lh5-6T-tVi"/>
+                        <outlet property="secondPercentageLabel" destination="ZiI-XY-vZS" id="Fmw-Kb-nmy"/>
                         <outlet property="thirdAnswerButton" destination="P9Y-8A-Gfy" id="3Lc-hU-Now"/>
+                        <outlet property="thirdPercentageLabel" destination="WVx-1E-gf2" id="p0S-b6-Tvo"/>
                         <outlet property="underlineView" destination="wxy-ZS-XVp" id="HbL-bY-pAI"/>
                     </connections>
                 </viewController>

@@ -53,10 +53,6 @@ public class Room {
         let questions = (value["questions"] as? [String: Any]) ?? [:]
         let members = (value["members"] as? [String: Double]) ?? [:]
         
-        for member in members.keys {
-            peopleUIDs.append(member)
-        }
-        
         for member in members {
             peopleUIDs.append(member.key)
             personTimeIntervalJoined[member.key] = Date(timeIntervalSince1970: member.value)

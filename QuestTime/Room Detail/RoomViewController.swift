@@ -14,12 +14,7 @@ class RoomViewController: UIViewController {
     
     var room: Room?
     
-    var questions: [Question] = [
-//        "Question answer",
-//        "This is a second question just to see how longer question appear,This is a second question just to see how longer question appear",
-//        "This is a third question",
-//        "This is a little longer fourth question"
-        ]
+    var questions: [Question] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +50,7 @@ class RoomViewController: UIViewController {
                     if question.date > room.personTimeIntervalJoined[currentUserUid] ?? Date() && question.date < Date() {
                         question.myAnswer = roomQuestion.answers[currentUserUid]
                         question.myPoints = roomQuestion.points[currentUserUid]
+                        question.peopleAnswers = roomQuestion.answers
                         self.questions.append(question)
                     }
                     

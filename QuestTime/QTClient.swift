@@ -60,18 +60,23 @@ public class QTClient {
     public func setAnswer(for room: Room, question: Question, userUid: String, completion: @escaping () -> Void) {
         guard let roomUid = room.uid, let questionUid = question.uid else { return }
         
+        question.peopleAnswers[userUid] = question.myAnswer
+        
         rooms.child("\(roomUid)/questions/\(questionUid)/answers/\(userUid)").setValue(question.myAnswer)
         
         if question.correctAnswer == question.myAnswer {
             rooms.child("\(roomUid)/questions/\(questionUid)/next_points").observeSingleEvent(of: .value) { (snapshot) in
                 
                 if let nextPoints = snapshot.value as? Int {
-                    self.rooms.child("\(roomUid)/questions/\(questionUid)/next_points").setValue(nextPoints - 1)
                     self.rooms.child("\(roomUid)/questions/\(questionUid)/points/\(userUid)").setValue(nextPoints)
                     question.myPoints = nextPoints
+                    let nextNextPoints = nextPoints - 1 < 1 ? 1 : nextPoints - 1
+                    self.rooms.child("\(roomUid)/questions/\(questionUid)/next_points").setValue(nextNextPoints)
                 } else {
-                    self.rooms.child("\(roomUid)/questions/\(questionUid)/next_points").setValue(room.peopleUIDs.count - 1)
                     self.rooms.child("\(roomUid)/questions/\(questionUid)/points/\(userUid)").setValue(room.peopleUIDs.count)
+                    question.myPoints = room.peopleUIDs.count
+                    let nextNextPoints = room.peopleUIDs.count - 1 < 1 ? 1 : room.peopleUIDs.count - 1
+                    self.rooms.child("\(roomUid)/questions/\(questionUid)/next_points").setValue(nextNextPoints)
                 }
                 
                 completion()

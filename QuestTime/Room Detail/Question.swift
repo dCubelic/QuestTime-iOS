@@ -11,6 +11,7 @@ public class Question {
     var date = Date()
     var myPoints: Int?
     var answers: [String] = []
+    var peopleAnswers: [String: String] = [:]
     
     private let dateFormatter: DateFormatter = {
         let df = DateFormatter()
