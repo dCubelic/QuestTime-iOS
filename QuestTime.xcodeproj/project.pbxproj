@@ -210,6 +210,15 @@
 			path = "Swift Extensions";
 			sourceTree = "<group>";
 		};
+		B492AD2620A1CE550014BC48 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				B43384652077A408004272DC /* QuestionViewController.swift */,
+				B43384672077B09F004272DC /* QuestionDetailViewController.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
 		B4B51EFA204C29A100414BB1 = {
 			isa = PBXGroup;
 			children = (
@@ -236,13 +245,12 @@
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4D3A46F2076D14A008278B5 /* Window.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
-				B43384652077A408004272DC /* QuestionViewController.swift */,
-				B43384672077B09F004272DC /* QuestionDetailViewController.swift */,
 				B478162020A072A000BF88A7 /* QTClient.swift */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
 				B445863520725DF700C829EA /* Room Detail */,
 				B445863620725E0200C829EA /* Create Room */,
+				B492AD2620A1CE550014BC48 /* Question */,
 				B445863720725E0A00C829EA /* People */,
 				B4032F02205880D0007EFE96 /* Helper Classes */,
 				B4032F01205880B4007EFE96 /* Supporting Files */,

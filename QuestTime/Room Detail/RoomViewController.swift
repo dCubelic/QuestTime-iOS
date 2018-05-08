@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class RoomViewController: UIViewController {
 
@@ -44,14 +45,16 @@ class RoomViewController: UIViewController {
     }
     
     @objc private func loadQuestions() {
-        guard let room = room, let uid = room.uid else { return }
+        guard let room = room, let uid = room.uid , let currentUserUid = Auth.auth().currentUser?.uid else { return }
         self.questions = []
         
         QTClient.shared.loadRoom(with: uid) { (room) in
             
             for (index, roomQuestion) in room.roomQuestions.enumerated() {
                 QTClient.shared.loadQuestion(with: roomQuestion.id, category: roomQuestion.category, date: roomQuestion.timestamp) { (question) in
-                    if question.date < Date() {
+                    if question.date > room.personTimeIntervalJoined[currentUserUid] ?? Date() && question.date < Date() {
+                        question.myAnswer = roomQuestion.answers[currentUserUid]
+                        question.myPoints = roomQuestion.points[currentUserUid]
                         self.questions.append(question)
                     }
                     
@@ -99,24 +102,32 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(ofType: QuestionTableViewCell.self, for: indexPath)
         
-        if indexPath.row == 0 {
-            cell.showUnansweredView()
-        }
-        cell.questionTextLabel.text = questions[indexPath.row].question
+        cell.setup(with: questions[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let questionVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionViewController.self)
         
+        let questionDetailVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
+        questionDetailVC.question = questions[indexPath.row]
+        questionDetailVC.delegate = self
+
+        let questionVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionViewController.self)
         questionVC.question = questions[indexPath.row]
+        questionVC.room = room
         questionVC.delegate = self
         
-        let navVC = UINavigationController(rootViewController: questionVC)
-        navVC.setNavigationBarHidden(true, animated: false)
+        let navVC: UINavigationController
+        if questions[indexPath.row].myPoints == nil {
+            navVC = UINavigationController(rootViewController: questionVC)
+        } else {
+            navVC = UINavigationController(rootViewController: questionDetailVC)
+        }
         
+        navVC.setNavigationBarHidden(true, animated: false)
         navVC.modalPresentationStyle = .overCurrentContext
+        
         present(navVC, animated: false) {
             self.shadowView.isHidden = false
         }
@@ -125,6 +136,10 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension RoomViewController: QuestionViewControllerDelegate {
+    func questionViewControllerAnsweredQuestion() {
+        loadQuestions()
+    }
+    
     func questionViewControllerWillDismiss() {
         shadowView.isHidden = true
     }

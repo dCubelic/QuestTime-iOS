@@ -402,7 +402,7 @@
                                                 <subviews>
                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZY-JZ-ofv">
                                                         <rect key="frame" x="0.0" y="0.0" width="202" height="40"/>
-                                                        <color key="backgroundColor" red="0.28412059140000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="pVA-tU-G2E"/>
                                                         </constraints>
@@ -472,7 +472,7 @@
                                                 <subviews>
                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9Y-8A-Gfy">
                                                         <rect key="frame" x="0.0" y="0.0" width="203" height="40"/>
-                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="QlM-A6-R7k"/>
                                                         </constraints>
@@ -711,23 +711,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8H-NI-f1G">
-                                <rect key="frame" x="49.5" y="231" width="221" height="106"/>
+                                <rect key="frame" x="53.5" y="231" width="213" height="106"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgx-ID-FQu">
-                                        <rect key="frame" x="30" y="15" width="161" height="76"/>
+                                        <rect key="frame" x="30" y="15" width="153" height="76"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBz-ir-RXV">
-                                                <rect key="frame" x="0.0" y="0.0" width="161" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="153" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                                <state key="normal" title="Join Existing Room">
+                                                <state key="normal" title="Join Private Room">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="joinRoomAction:" destination="QgQ-9s-BPl" eventType="touchUpInside" id="U1o-9Z-AFn"/>
+                                                    <action selector="joinPrivateRoomAction:" destination="QgQ-9s-BPl" eventType="touchUpInside" id="U1o-9Z-AFn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5u-v2-zbs">
-                                                <rect key="frame" x="0.0" y="43" width="161" height="33"/>
+                                                <rect key="frame" x="0.0" y="43" width="153" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                                 <state key="normal" title="Create New Room">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

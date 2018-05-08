@@ -1,7 +1,9 @@
 import UIKit
+import FirebaseAuth
 
 protocol QuestionViewControllerDelegate: class {
     func questionViewControllerWillDismiss()
+    func questionViewControllerAnsweredQuestion()
 }
 
 class QuestionViewController: UIViewController {
@@ -16,7 +18,9 @@ class QuestionViewController: UIViewController {
     
     weak var delegate: QuestionViewControllerDelegate?
     var answerButtons: [UIButton] = []
+//    var answers: [String] = []
     
+    var room: Room?
     var question: Question?
     
     override func viewDidLoad() {
@@ -32,14 +36,16 @@ class QuestionViewController: UIViewController {
         underlineView.layer.masksToBounds = true
         
         answerButtons = [firstAnswerButton, secondAnswerButton, thirdAnswerButton, fourthAnswerButton]
-        answerButtons.sort { _,_ in arc4random() < arc4random() }
+        setupLabels()
+        answerButtons.forEach { (button) in
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+        }
         
         for button in answerButtons {
             button.layer.cornerRadius = 15
             button.layer.masksToBounds = true
         }
-        
-        setupLabels()
+
     }
     
     private func setupLabels() {
@@ -47,10 +53,10 @@ class QuestionViewController: UIViewController {
         
         questionLabel.text = question.question
         
-        answerButtons.first?.setTitle(question.correctAnswer, for: .normal)
-        answerButtons[1].setTitle(question.incorrectAnswers[0], for: .normal)
-        answerButtons[2].setTitle(question.incorrectAnswers[1], for: .normal)
-        answerButtons[3].setTitle(question.incorrectAnswers[2], for: .normal)
+        answerButtons[0].setTitle(question.answers[0], for: .normal)
+        answerButtons[1].setTitle(question.answers[1], for: .normal)
+        answerButtons[2].setTitle(question.answers[2], for: .normal)
+        answerButtons[3].setTitle(question.answers[3], for: .normal)
     }
     
     @objc func tapAction() {
@@ -59,9 +65,12 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func answerAction(_ sender: UIButton) {
+        question?.myAnswer = sender.title(for: .normal)
+        
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
         
         vc.delegate = delegate
+        vc.question = question
         
         //flip transition
         let transition = CATransition()
@@ -70,7 +79,13 @@ class QuestionViewController: UIViewController {
         transition.subtype = kCATransitionFromRight
         self.navigationController?.view.layer.add(transition, forKey: kCATransition)
         
-        self.navigationController?.pushViewController(vc, animated: false)
+        guard let room = room, let question = question, let userUid = Auth.auth().currentUser?.uid else { return }
+        
+        QTClient.shared.setAnswer(for: room, question: question, userUid: userUid) {
+            self.delegate?.questionViewControllerAnsweredQuestion()
+            self.navigationController?.pushViewController(vc, animated: false)
+        }
+        
     }
 
 }

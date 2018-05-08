@@ -27,7 +27,7 @@ class AddRoomPopupViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func joinRoomAction(_ sender: Any) {
+    @IBAction func joinPrivateRoomAction(_ sender: Any) {
         
     }
     

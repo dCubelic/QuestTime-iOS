@@ -2,6 +2,7 @@ import Foundation
 import FirebaseDatabase
 
 public class Question {
+    var uid: String?
     var question: String
     var incorrectAnswers: [String]
     var correctAnswer: String
@@ -9,8 +10,9 @@ public class Question {
     var isAnswered: Bool = false
     var date = Date()
     var myPoints: Int?
+    var answers: [String] = []
     
-    let dateFormatter: DateFormatter = {
+    private let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return df
@@ -26,16 +28,17 @@ public class Question {
         guard let value = snapshot.value as? [String: Any?],
             let correctAnswer = value["correct_answer"] as? String,
             let question = value["question"] as? String,
-//            let timeString = value["time"] as? String,
             let incorrectAnswers = value["incorrect_answers"] as? [String]
             else { return nil }
         
+        self.uid = snapshot.key
         self.question = question
         self.correctAnswer = correctAnswer
         self.incorrectAnswers = incorrectAnswers
-//        if let date = dateFormatter.date(from: timeString) {
-//            self.date = date
-//        }
+        
+        self.answers = incorrectAnswers
+        self.answers.append(correctAnswer)
+        self.answers.sort { $0.hash < $1.hash }
     }
     
 }
