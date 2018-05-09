@@ -15,4 +15,10 @@ class PersonTableViewCell: UITableViewCell {
         contentView.backgroundColor = .clear
     }
     
+    func setup(with person: Person, forPlace place: Int) {
+        placeLabel.text = "\(place)."
+        nameLabel.text = person.displayName
+        pointsLabel.text = String(person.points)
+    }
+    
 }

@@ -32,6 +32,7 @@ public class Room {
 //    var questionIDs: [String] = []
     var roomQuestions: [RoomQuestion] = []
     var categories: [Category]
+    var points: [String: Int] = [:]
     
     init(name: String, type: RoomType, privateKey: String? = nil, difficulty: Difficulty, categories: [Category]) {
 //        self.uid = uid
@@ -71,6 +72,10 @@ public class Room {
                 
                 let points: [String: Int] = values["points"] as? [String: Int] ?? [:]
                 let answers: [String: String] = values["answers"] as? [String: String] ?? [:]
+                
+                for point in points {
+                    self.points[point.key] = (self.points[point.key] ?? 0) + point.value
+                }
                 
                 roomQuestions.append(RoomQuestion(id: question.key, category: category, points: points, timestamp: Date(timeIntervalSince1970: timestamp), answers: answers))
             }

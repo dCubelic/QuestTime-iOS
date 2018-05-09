@@ -76,7 +76,7 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let regUser = user, error == nil {
                 
-                self.usersRef.child(regUser.uid).setValue(["displayName": displayName, "email": email])
+                self.usersRef.child(regUser.uid).setValue(["username": displayName, "email": email])
                 
                 Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                     if user != nil {

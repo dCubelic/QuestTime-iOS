@@ -81,6 +81,7 @@ class RoomViewController: UIViewController {
 
     @IBAction func peopleAction(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: PeopleViewController.self)
+        vc.room = room
         
         navigationController?.pushViewController(vc, animated: true)
     }

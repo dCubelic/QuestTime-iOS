@@ -89,5 +89,13 @@ public class QTClient {
         }
 
     }
+    
+    public func displayName(for userUid: String, completion: @escaping (String) -> Void) {
+        users.child(userUid).child("username").observeSingleEvent(of: .value) { (snapshot) in
+            if let displayName = snapshot.value as? String {
+                completion(displayName)
+            }
+        }
+    }
 
 }
