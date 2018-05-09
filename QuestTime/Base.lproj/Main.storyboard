@@ -1272,11 +1272,14 @@
                     <navigationItem key="navigationItem" title="People" id="JtP-fX-h3P"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="bronzeMedal" destination="Iwa-pq-wcV" id="5MB-yC-dfM"/>
                         <outlet property="firstLabel" destination="2Uu-RF-LBJ" id="vW3-If-8xp"/>
                         <outlet property="firstPointsLabel" destination="fuM-UF-LDB" id="owz-TM-6gF"/>
+                        <outlet property="goldMedal" destination="z42-Ft-F9u" id="Z4s-cV-vcl"/>
                         <outlet property="secondLabel" destination="tBU-Dy-1bb" id="EL9-eK-k9Q"/>
                         <outlet property="secondPointsLabel" destination="yoJ-lK-f3Z" id="WMJ-6S-90m"/>
                         <outlet property="separatorView" destination="7BH-SU-hx7" id="rmW-hf-ma9"/>
+                        <outlet property="silverMedal" destination="ncp-Zb-4ne" id="iO6-zv-tmh"/>
                         <outlet property="tableView" destination="N0W-mX-pl8" id="MRJ-nN-vq8"/>
                         <outlet property="thirdLabel" destination="xbL-5i-ItR" id="Tru-cS-SAL"/>
                         <outlet property="thirdPointsLabel" destination="dYQ-cv-k4r" id="JT4-js-OiD"/>

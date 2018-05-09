@@ -10,6 +10,9 @@ class PeopleViewController: UIViewController {
     @IBOutlet weak var secondPointsLabel: UILabel!
     @IBOutlet weak var thirdLabel: UILabel!
     @IBOutlet weak var thirdPointsLabel: UILabel!
+    @IBOutlet weak var goldMedal: UIImageView!
+    @IBOutlet weak var silverMedal: UIImageView!
+    @IBOutlet weak var bronzeMedal: UIImageView!
     
     var room: Room?
     
@@ -40,20 +43,39 @@ class PeopleViewController: UIViewController {
     }
     
     private func setupFirstPlaces() {
+        goldMedal.isHidden = true
+        silverMedal.isHidden = true
+        bronzeMedal.isHidden = true
+        firstPointsLabel.isHidden = true
+        secondPointsLabel.isHidden = true
+        thirdPointsLabel.isHidden = true
+        firstLabel.isHidden = true
+        secondLabel.isHidden = true
+        thirdLabel.isHidden = true
+        
         switch users.count {
         case 0:
             break
         case _ where users.count >= 3:
             thirdPointsLabel.text = String(users[2].points)
             thirdLabel.text = users[2].displayName
+            bronzeMedal.isHidden = false
+            thirdPointsLabel.isHidden = false
+            thirdLabel.isHidden = false
             fallthrough
         case 2:
             secondPointsLabel.text = String(users[1].points)
             secondLabel.text = users[1].displayName
+            silverMedal.isHidden = false
+            secondPointsLabel.isHidden = false
+            thirdPointsLabel.isHidden = false
             fallthrough
         default:
             firstPointsLabel.text = String(users[0].points)
             firstLabel.text = users[0].displayName
+            goldMedal.isHidden = false
+            firstPointsLabel.isHidden = false
+            firstLabel.isHidden = false
         }
     }
     
