@@ -1,7 +1,7 @@
 import UIKit
 
 protocol SearchRoomTableViewCellDelegate: class {
-    func searchRoomTableViewCellDidJoinRoom(_ cell: SearchRoomTableViewCell)
+    func searchRoomTableViewCellDidPressJoinRoom(_ cell: SearchRoomTableViewCell)
 }
 
 class SearchRoomTableViewCell: UITableViewCell {
@@ -39,7 +39,7 @@ class SearchRoomTableViewCell: UITableViewCell {
     @IBAction func joinAction(_ sender: Any) {
         joinButton.isEnabled = false
         joinButton.backgroundColor = .gray
-        delegate?.searchRoomTableViewCellDidJoinRoom(self)
+        delegate?.searchRoomTableViewCellDidPressJoinRoom(self)
     }
     
     func setup(with room: Room) {

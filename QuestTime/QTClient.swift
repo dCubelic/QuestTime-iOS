@@ -1,5 +1,6 @@
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 public class QTClient {
     
@@ -15,6 +16,14 @@ public class QTClient {
             if let question = Question(with: snapshot) {
                 question.date = date
                 completion(question)
+            }
+        }
+    }
+    
+    public func loadRoom(with id: String, completion: @escaping (Room) -> Void) {
+        rooms.child(id).observeSingleEvent(of: .value) { (snapshot) in
+            if let room = Room(with: snapshot) {
+                completion(room)
             }
         }
     }
@@ -41,6 +50,30 @@ public class QTClient {
         }
     }
     
+    public func loadPublicRooms(categories: [Category], roomName: String, completion: @escaping ([Room]) -> Void) {
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        var publicRooms: [Room] = []
+        
+        self.rooms.observeSingleEvent(of: .value) { (snapshot) in
+            if let snapshotDict = snapshot.value as? [String: Any] {
+                
+                for roomSnapshot in snapshotDict {
+                    if let room = Room(with: snapshot.childSnapshot(forPath: roomSnapshot.key)) {
+                        if room.type == .publicRoom &&
+                            !room.peopleUIDs.contains(userUid) &&
+                            (roomName.isEmpty || room.name.lowercased().contains(roomName.lowercased())) &&
+                            room.categories.hasAtLeastOneSameElementAs(array: categories) {
+                            publicRooms.append(room)
+                        }
+                    }
+                }
+                
+                completion(publicRooms)
+                
+            }
+        }
+    }
+    
     public func joinPrivateRoom(userUid: String, privateKey: String, completion: @escaping () -> Void) {
         rooms.observeSingleEvent(of: .value) { (snapshot) in
             if let rooms = snapshot.value as? [String: Any] {
@@ -61,13 +94,13 @@ public class QTClient {
         }
     }
     
-    public func loadRoom(with id: String, completion: @escaping (Room) -> Void) {
-        rooms.child(id).observeSingleEvent(of: .value) { (snapshot) in
-            if let room = Room(with: snapshot) {
-                completion(room)
-            }
-        }
+    public func joinPublicRoom(userUid: String, roomUid: String, completion: @escaping () -> Void) {
+        rooms.child(roomUid).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
+        users.child(userUid).child("rooms").child(roomUid).setValue(true)
+        completion()
     }
+    
+    
     
     public func setAnswer(for room: Room, question: Question, userUid: String, completion: @escaping () -> Void) {
         guard let roomUid = room.uid, let questionUid = question.uid else { return }
@@ -110,4 +143,19 @@ public class QTClient {
         }
     }
 
+}
+
+extension Array where Element: Equatable {
+    func hasAtLeastOneSameElementAs(array: [Element]) -> Bool {
+        if array.isEmpty {
+            return true
+        }
+        
+        for element in self {
+            if array.contains(where: { $0 == element }) {
+                return true
+            }
+        }
+        return false
+    }
 }

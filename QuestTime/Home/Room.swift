@@ -9,7 +9,7 @@ enum RoomType: String {
     case privateRoom, publicRoom
 }
 
-enum Category: String {
+public enum Category: String {
     case art, sport, science, movies, music, general, maths, physics, geography
 }
 
@@ -129,6 +129,12 @@ public class Room {
     }
     
     private static func parseType(typeString: String) -> RoomType {
+        if typeString == "private" {
+            return .privateRoom
+        }
+        if typeString == "public" {
+            return .publicRoom
+        }
         return RoomType(rawValue: typeString) ?? .publicRoom
     }
 }

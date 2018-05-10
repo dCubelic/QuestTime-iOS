@@ -192,8 +192,10 @@ extension RoomsViewController: CreateRoomViewControllerDelegate {
 extension RoomsViewController: JoinPublicRoomViewControllerDelegate {
     func searchPressed(categories: [Category], roomName: String) {
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: PublicSearchViewController.self)
-        vc.rooms = rooms
         
-        navigationController?.pushViewController(vc, animated: true)
+        QTClient.shared.loadPublicRooms(categories: categories, roomName: roomName) { (rooms) in
+            vc.rooms = rooms
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
