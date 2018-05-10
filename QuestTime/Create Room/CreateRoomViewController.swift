@@ -35,8 +35,8 @@ class CreateRoomViewController: UIViewController {
     private let selectedDifficultyWidth: CGFloat = 24
     private let unselectedDifficultyWidth: CGFloat = 18
     
-    var categories: [String] = ["art", "sport", "physics", "movies", "music", "science", "maths", "general", "geography"]
-    
+    var categories: [Category] = [.art, .sport, .physics, .movies, .music, .science, .maths, .general, .geography]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -156,7 +156,7 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(ofType: CategoryCollectionViewCell.self, for: indexPath)
         
-        cell.categoryImageView.image = UIImage(named: categories[indexPath.row])
+        cell.categoryImageView.image = UIImage(named: categories[indexPath.row].rawValue)
         cell.alpha = cell.unselectedAlpha
         cell.delegate = self
         
@@ -220,7 +220,8 @@ extension CreateRoomViewController: UITextFieldDelegate {
 
 extension CreateRoomViewController: CategoryCollectionViewCellDelegate {
     func categoryCollectionViewCell(_ cell: CategoryCollectionViewCell, didChangeSelectionTo categorySelected: Bool) {
-        guard let indexPath = collectionView.indexPath(for: cell), let category = Category(rawValue: categories[indexPath.row]) else { return }
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        let category = categories[indexPath.row]
         
         if !categorySelected {
             if let selectedCategoryIndex = selectedCategories.index(of: category) {

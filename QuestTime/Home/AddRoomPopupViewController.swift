@@ -3,6 +3,7 @@ import UIKit
 protocol AddRoomPopupViewControllerDelegate: class {
     func createNewRoomSelected()
     func joinPrivateRoomSelected()
+    func joinPublicRoomSelected()
 }
 
 class AddRoomPopupViewController: UIViewController {
@@ -26,6 +27,12 @@ class AddRoomPopupViewController: UIViewController {
     
     @objc func tapAction() {
         dismiss(animated: false, completion: nil)
+    }
+    
+    @IBAction func joinPublicRoomAction(_ sender: Any) {
+        dismiss(animated: false) {
+            self.delegate?.joinPublicRoomSelected()
+        }
     }
     
     @IBAction func joinPrivateRoomAction(_ sender: Any) {

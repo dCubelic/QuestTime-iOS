@@ -45,6 +45,10 @@
 		B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */; };
 		B4D3A4702076D14A008278B5 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46F2076D14A008278B5 /* Window.swift */; };
 		B4D3A4722076D3F1008278B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D3A4712076D3F1008278B5 /* Login.storyboard */; };
+		B4D662C720A488B500A9170B /* JoinPublicRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */; };
+		B4D662C920A48F4300A9170B /* PublicSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */; };
+		B4D662CC20A4904300A9170B /* SearchRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */; };
+		B4D662CD20A4904300A9170B /* SearchRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */; };
 		B4E05B78207E45D40016A28B /* String+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E05B77207E45D40016A28B /* String+QT.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +95,10 @@
 		B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPopupViewController.swift; sourceTree = "<group>"; };
 		B4D3A46F2076D14A008278B5 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		B4D3A4712076D3F1008278B5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPublicRoomViewController.swift; sourceTree = "<group>"; };
+		B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicSearchViewController.swift; sourceTree = "<group>"; };
+		B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoomTableViewCell.swift; sourceTree = "<group>"; };
+		B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRoomTableViewCell.xib; sourceTree = "<group>"; };
 		B4E05B77207E45D40016A28B /* String+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QT.swift"; sourceTree = "<group>"; };
 		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +173,7 @@
 				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
 				B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */,
 				B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */,
+				B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */,
 				B4AC13F2207BA93900DF8A92 /* Room.swift */,
 			);
 			path = Home;
@@ -248,6 +257,9 @@
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4D3A46F2076D14A008278B5 /* Window.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
+				B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */,
+				B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */,
+				B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */,
 				B478162020A072A000BF88A7 /* QTClient.swift */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
@@ -327,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D662CD20A4904300A9170B /* SearchRoomTableViewCell.xib in Resources */,
 				B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */,
 				B4CD06072071201E008A9F6C /* PersonTableViewCell.xib in Resources */,
 				B467E4032080F92C00729729 /* GoogleService-Info.plist in Resources */,
@@ -414,13 +427,16 @@
 				B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */,
 				B4CD05FE20711FD7008A9F6C /* PeopleViewController.swift in Sources */,
 				B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */,
+				B4D662CC20A4904300A9170B /* SearchRoomTableViewCell.swift in Sources */,
 				B4CD06062071201E008A9F6C /* PersonTableViewCell.swift in Sources */,
+				B4D662C720A488B500A9170B /* JoinPublicRoomViewController.swift in Sources */,
 				B43384682077B09F004272DC /* QuestionDetailViewController.swift in Sources */,
 				B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */,
 				B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */,
 				B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */,
 				B4E05B78207E45D40016A28B /* String+QT.swift in Sources */,
 				B4B1F3DE206B9C080040A4CD /* UITableView+QT.swift in Sources */,
+				B4D662C920A48F4300A9170B /* PublicSearchViewController.swift in Sources */,
 				B4656C232059428B0081BB6F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

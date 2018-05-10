@@ -15,20 +15,9 @@ class JoinPrivateRoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backgroundTapGesture = UITapGestureRecognizer(target: nil, action: nil)
-        backgroundView.addGestureRecognizer(backgroundTapGesture)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        view.addGestureRecognizer(tapGesture)
-        
         backgroundView.layer.cornerRadius = 20
         backgroundView.layer.masksToBounds = true
     }
-    
-    @objc func tapAction() {
-        dismiss(animated: false, completion: nil)
-    }
-    
     
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: false) {
@@ -36,11 +25,13 @@ class JoinPrivateRoomViewController: UIViewController {
         }
     }
     
-    @IBAction func joinAction(_ sender: Any) {
+    @IBAction func joinPrivateRoomAction(_ sender: Any) {
         guard let userUid = Auth.auth().currentUser?.uid, let privateKey = privateKeyTextField.text else { return }
         
         QTClient.shared.joinPrivateRoom(userUid: userUid, privateKey: privateKey) {
             print(privateKey)
         }
     }
+    
+    
 }

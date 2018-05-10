@@ -151,6 +151,7 @@ extension RoomsViewController: AddRoomPopupViewControllerDelegate {
     func createNewRoomSelected() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: CreateRoomViewController.self)
         vc.delegate = self
+        
         present(vc, animated: true, completion: nil)
     }
     
@@ -158,6 +159,15 @@ extension RoomsViewController: AddRoomPopupViewControllerDelegate {
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: JoinPrivateRoomViewController.self)
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
+        
+        present(vc, animated: false, completion: nil)
+    }
+    
+    func joinPublicRoomSelected() {
+        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: JoinPublicRoomViewController.self)
+        vc.delegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        
         present(vc, animated: false, completion: nil)
     }
 }
@@ -175,6 +185,15 @@ extension RoomsViewController: CreateRoomViewControllerDelegate {
     func didCreate(room: Room) {
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: RoomViewController.self)
         vc.room = room
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension RoomsViewController: JoinPublicRoomViewControllerDelegate {
+    func searchPressed(categories: [Category], roomName: String) {
+        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: PublicSearchViewController.self)
+        vc.rooms = rooms
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }
