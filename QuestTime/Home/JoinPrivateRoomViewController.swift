@@ -29,6 +29,7 @@ class JoinPrivateRoomViewController: UIViewController {
         guard let userUid = Auth.auth().currentUser?.uid, let privateKey = privateKeyTextField.text else { return }
         
         QTClient.shared.joinPrivateRoom(userUid: userUid, privateKey: privateKey) {
+            self.dismiss(animated: false, completion: nil)
             print(privateKey)
         }
     }
