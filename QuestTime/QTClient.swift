@@ -1,11 +1,3 @@
-//
-//  QTClient.swift
-//  QuestTime
-//
-//  Created by dominik on 07/05/2018.
-//  Copyright © 2018 BlabLab. All rights reserved.
-//
-
 import Foundation
 import FirebaseDatabase
 
@@ -45,6 +37,26 @@ public class QTClient {
                 
             } else {
                 completion(rooms)
+            }
+        }
+    }
+    
+    public func joinPrivateRoom(userUid: String, privateKey: String, completion: @escaping () -> Void) {
+        rooms.observeSingleEvent(of: .value) { (snapshot) in
+            if let rooms = snapshot.value as? [String: Any] {
+                
+                for room in rooms {
+                    if let roomValues = room.value as? [String: Any],
+                        let roomPrivateKey = roomValues["privateKey"] as? String,
+                        roomPrivateKey == privateKey {
+                        
+                        self.rooms.child(room.key).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
+                        self.users.child(userUid).child("rooms").child(room.key).setValue(true)
+                        completion()
+                        break
+                    }
+                }
+                
             }
         }
     }

@@ -153,6 +153,22 @@ extension RoomsViewController: AddRoomPopupViewControllerDelegate {
         vc.delegate = self
         present(vc, animated: true, completion: nil)
     }
+    
+    func joinPrivateRoomSelected() {
+        let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: JoinPrivateRoomViewController.self)
+        vc.delegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false, completion: nil)
+    }
+}
+
+extension RoomsViewController: JoinPrivateRoomViewControllerDelegate {
+    func backPressed() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: AddRoomPopupViewController.self)
+        vc.delegate = self
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: false, completion: nil)
+    }
 }
 
 extension RoomsViewController: CreateRoomViewControllerDelegate {

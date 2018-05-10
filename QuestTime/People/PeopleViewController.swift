@@ -24,6 +24,16 @@ class PeopleViewController: UIViewController {
         separatorView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "PersonTableViewCell", bundle: nil), forCellReuseIdentifier: "PersonTableViewCell")
         
+//        goldMedal.isHidden = true
+//        silverMedal.isHidden = true
+//        bronzeMedal.isHidden = true
+        firstPointsLabel.isHidden = true
+        secondPointsLabel.isHidden = true
+        thirdPointsLabel.isHidden = true
+        firstLabel.isHidden = true
+        secondLabel.isHidden = true
+        thirdLabel.isHidden = true
+        
         loadUsers()
     }
     
@@ -43,37 +53,27 @@ class PeopleViewController: UIViewController {
     }
     
     private func setupFirstPlaces() {
-        goldMedal.isHidden = true
-        silverMedal.isHidden = true
-        bronzeMedal.isHidden = true
-        firstPointsLabel.isHidden = true
-        secondPointsLabel.isHidden = true
-        thirdPointsLabel.isHidden = true
-        firstLabel.isHidden = true
-        secondLabel.isHidden = true
-        thirdLabel.isHidden = true
-        
         switch users.count {
         case 0:
             break
         case _ where users.count >= 3:
             thirdPointsLabel.text = String(users[2].points)
             thirdLabel.text = users[2].displayName
-            bronzeMedal.isHidden = false
+//            bronzeMedal.isHidden = false
             thirdPointsLabel.isHidden = false
             thirdLabel.isHidden = false
             fallthrough
         case 2:
             secondPointsLabel.text = String(users[1].points)
             secondLabel.text = users[1].displayName
-            silverMedal.isHidden = false
+//            silverMedal.isHidden = false
             secondPointsLabel.isHidden = false
-            thirdPointsLabel.isHidden = false
+            secondLabel.isHidden = false
             fallthrough
         default:
             firstPointsLabel.text = String(users[0].points)
             firstLabel.text = users[0].displayName
-            goldMedal.isHidden = false
+//            goldMedal.isHidden = false
             firstPointsLabel.isHidden = false
             firstLabel.isHidden = false
         }

@@ -1,15 +1,16 @@
 import UIKit
+import FirebaseAuth
 
-protocol AddRoomPopupViewControllerDelegate: class {
-    func createNewRoomSelected()
-    func joinPrivateRoomSelected()
+protocol JoinPrivateRoomViewControllerDelegate: class {
+    func backPressed()
 }
 
-class AddRoomPopupViewController: UIViewController {
-
-    @IBOutlet weak var backgroundView: UIView!
+class JoinPrivateRoomViewController: UIViewController {
     
-    weak var delegate: AddRoomPopupViewControllerDelegate?
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var privateKeyTextField: UITextField!
+    
+    weak var delegate: JoinPrivateRoomViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +29,18 @@ class AddRoomPopupViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func joinPrivateRoomAction(_ sender: Any) {
+    
+    @IBAction func backAction(_ sender: Any) {
         dismiss(animated: false) {
-            self.delegate?.joinPrivateRoomSelected()
+            self.delegate?.backPressed()
         }
     }
     
-    @IBAction func createRoomAction(_ sender: Any) {
-        dismiss(animated: false) {
-            self.delegate?.createNewRoomSelected()
+    @IBAction func joinAction(_ sender: Any) {
+        guard let userUid = Auth.auth().currentUser?.uid, let privateKey = privateKeyTextField.text else { return }
+        
+        QTClient.shared.joinPrivateRoom(userUid: userUid, privateKey: privateKey) {
+            print(privateKey)
         }
     }
 }
