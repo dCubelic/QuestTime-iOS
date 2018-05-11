@@ -47,7 +47,8 @@ class CreateRoomViewController: UIViewController {
     private let selectedDifficultyWidth: CGFloat = 24
     private let unselectedDifficultyWidth: CGFloat = 18
     
-    var categories: [Category] = [.art, .sport, .physics, .movies, .music, .science, .maths, .general, .geography]
+    var categories: [Category] = [.animals, .art, .celebrities, .entertainment, .general, .geography,
+                                 .history, .mythology, .politics, .science, .sports, .vehicles]
 
     override func viewDidLoad() {
         super.viewDidLoad()

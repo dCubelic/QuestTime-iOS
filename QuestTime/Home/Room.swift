@@ -10,7 +10,7 @@ enum RoomType: String {
 }
 
 public enum Category: String {
-    case art, sport, science, movies, music, general, maths, physics, geography
+    case entertainment = "Entertainment", general = "General Knowledge", science = "Science", mythology = "Mythology", sports = "Sports", geography = "Geography", history = "History", politics = "Politics", art = "Art", celebrities = "Celebrities", animals = "Animals", vehicles = "Vehicles"
 }
 
 struct RoomQuestion {

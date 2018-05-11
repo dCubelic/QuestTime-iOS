@@ -12,7 +12,8 @@ class JoinPublicRoomViewController: UIViewController {
     @IBOutlet weak var roomNameTextField: UITextField!
     @IBOutlet weak var categoriesLabel: UILabel!
     
-    var categories: [Category] = [.art, .sport, .physics, .movies, .music, .science, .maths, .general, .geography]
+    var categories: [Category] = [.animals, .art, .celebrities, .entertainment, .general, .geography,
+                                  .history, .mythology, .politics, .science, .sports, .vehicles]
     var selectedCategories: [Category] = [] {
         didSet {
             var categoriesString = ""
