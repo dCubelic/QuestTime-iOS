@@ -6,7 +6,7 @@ enum Difficulty: String {
 }
 
 enum RoomType: String {
-    case privateRoom, publicRoom
+    case privateRoom = "private", publicRoom = "public"
 }
 
 public enum Category: String {
@@ -129,10 +129,10 @@ public class Room {
     }
     
     private static func parseType(typeString: String) -> RoomType {
-        if typeString == "private" {
+        if typeString == "privateRoom" {
             return .privateRoom
         }
-        if typeString == "public" {
+        if typeString == "publicRoom" {
             return .publicRoom
         }
         return RoomType(rawValue: typeString) ?? .publicRoom

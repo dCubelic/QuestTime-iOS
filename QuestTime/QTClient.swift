@@ -95,7 +95,7 @@ public class QTClient {
     public func leaveRoom(roomUid: String, completion: @escaping () -> Void) {
         guard let userUid = Auth.auth().currentUser?.uid else { return }
         
-        rooms.child(roomUid).observe(.childRemoved) { (snapshot) in
+        rooms.child(roomUid).child("members").observe(.value) { (snapshot) in
             if !snapshot.hasChildren() {
                 self.rooms.child(roomUid).removeValue()
             }
