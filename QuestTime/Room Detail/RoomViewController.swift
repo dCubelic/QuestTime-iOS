@@ -81,7 +81,7 @@ class RoomViewController: UIViewController {
 //    }
 
     @IBAction func peopleAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: PeopleViewController.self)
         vc.room = room
@@ -110,7 +110,7 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         let questionDetailVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
         questionDetailVC.question = questions[indexPath.row]

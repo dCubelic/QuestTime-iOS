@@ -30,20 +30,13 @@ class RoomsViewController: UIViewController {
     private func loadUserRooms() {
         guard let userUid = Auth.auth().currentUser?.uid else { return }
         
-//        QTClient.shared.loadRooms(filter: { (room) -> Bool in
-//            return room.peopleUIDs.contains(userUid)
-//        }) { (rooms) in
-//            self.rooms = rooms
-//            self.rooms.sort { $0.name.lowercased() < $1.name.lowercased() }
-//            self.tableView.reloadData()
-//        }
-        
         QTClient.shared.loadRoomsForUser(with: userUid) { (rooms) in
             self.rooms = rooms
             //TODO: - smislit bolji komparator
             self.rooms.sort { $0.name.lowercased() < $1.name.lowercased() }
             self.tableView.reloadData()
             
+            //Broj neodg. pitanja ?
             self.questionsLeftTodayNumberLabel.text = String(rooms.filter({ (room) -> Bool in
                 room.peopleUIDs.contains(userUid) &&
                     !(room.roomQuestions.sorted(by: { $0.timestamp > $1.timestamp }).first?.answers.contains(where: { (key, _) -> Bool in
@@ -55,7 +48,7 @@ class RoomsViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 28, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
     }
     
     private func setupNavigationBar() {
@@ -64,11 +57,11 @@ class RoomsViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 28, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
     }
 
     @IBAction func addRoomAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         let popupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: AddRoomPopupViewController.self)
         popupVC.delegate = self
@@ -77,7 +70,7 @@ class RoomsViewController: UIViewController {
     }
     
     @IBAction func settingsAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         let settingsVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: SettingsViewController.self)
         settingsVC.modalPresentationStyle = .overCurrentContext
@@ -107,7 +100,7 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: RoomViewController.self)
         vc.room = rooms[indexPath.row]
@@ -121,7 +114,7 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
             
             let room = self.rooms[indexPath.row]
             
-            let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'? All your progress will be lost.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
                 guard let roomUid = room.uid else { return }
                 QTClient.shared.leaveRoom(roomUid: roomUid, completion: { } )

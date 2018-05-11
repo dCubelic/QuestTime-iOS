@@ -52,12 +52,18 @@ class CreateRoomViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         separatorView.layer.cornerRadius = 2
         
+        easyWidthConstraint.constant = unselectedDifficultyWidth
+        mediumWidthConstraint.constant = selectedDifficultyWidth
+        hardWidthConstraint.constant = unselectedDifficultyWidth
         easyButton.layer.cornerRadius = unselectedDifficultyWidth / 2
-        mediumButton.layer.cornerRadius = unselectedDifficultyWidth / 2
-        hardButton.layer.cornerRadius = selectedDifficultyWidth / 2
+        mediumButton.layer.cornerRadius = selectedDifficultyWidth / 2
+        hardButton.layer.cornerRadius = unselectedDifficultyWidth / 2
+        easyButton.alpha = 0.3
+        mediumButton.alpha = 1
+        hardButton.alpha = 0.3
         
         roomNameTextField.delegate = self
         
@@ -69,7 +75,7 @@ class CreateRoomViewController: UIViewController {
     
     
     @IBAction func difficultyAction(_ sender: UIButton) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         easyWidthConstraint.constant = unselectedDifficultyWidth
         mediumWidthConstraint.constant = unselectedDifficultyWidth
@@ -102,7 +108,7 @@ class CreateRoomViewController: UIViewController {
     }
     
     @IBAction func roomTypeAction(_ sender: UIButton) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         switch sender {
         case privateButton:
@@ -123,7 +129,7 @@ class CreateRoomViewController: UIViewController {
     
     
     @IBAction func cancelAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         dismiss(animated: true, completion: nil)
     }
@@ -188,11 +194,10 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Sounds.shared.playButtonSound()
-        
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
         
         if cell.categorySelected || selectedCategories.count < 3 {
+            Sounds.shared.play(sound: .buttonClick)
             cell.toggleSelection()
         }
         
@@ -234,6 +239,16 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
 }
 
 extension CreateRoomViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentText = textField.text as NSString? else { return true }
+        let newText = currentText.replacingCharacters(in: range, with: string)
+        
+        doneButton.isEnabled = selectedCategories.count > 0 && !newText.isEmpty
+        doneButton.alpha = selectedCategories.count > 0  && !newText.isEmpty ? 1 : 0.3
+        
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -253,7 +268,7 @@ extension CreateRoomViewController: CategoryCollectionViewCellDelegate {
             selectedCategories.append(category)
         }
         
-        doneButton.isEnabled = selectedCategories.count > 0
-        doneButton.alpha = selectedCategories.count > 0 ? 1 : 0.3
+        doneButton.isEnabled = selectedCategories.count > 0 && !(roomNameTextField.text?.isEmpty == true)
+        doneButton.alpha = selectedCategories.count > 0  && !(roomNameTextField.text?.isEmpty == true) ? 1 : 0.3
     }
 }

@@ -30,7 +30,7 @@ class AddRoomPopupViewController: UIViewController {
     }
     
     @IBAction func joinPublicRoomAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         dismiss(animated: false) {
             self.delegate?.joinPublicRoomSelected()
@@ -38,7 +38,7 @@ class AddRoomPopupViewController: UIViewController {
     }
     
     @IBAction func joinPrivateRoomAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         dismiss(animated: false) {
             self.delegate?.joinPrivateRoomSelected()
@@ -46,7 +46,7 @@ class AddRoomPopupViewController: UIViewController {
     }
     
     @IBAction func createRoomAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         dismiss(animated: false) {
             self.delegate?.createNewRoomSelected()

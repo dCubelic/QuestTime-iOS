@@ -66,6 +66,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        Sounds.shared.play(sound: .buttonClick)
+        
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if user != nil {
                 Window.main?.showMain()
@@ -74,9 +77,12 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordAction(_ sender: Any) {
+        Sounds.shared.play(sound: .buttonClick)
     }
     
     @IBAction func createAccountAction(_ sender: Any) {
+        Sounds.shared.play(sound: .buttonClick)
+        
         let vc = UIStoryboard(name: Constants.Storyboard.login, bundle: nil).instantiateViewController(ofType: RegisterViewController.self)
         vc.emailText = emailTextField.text
         navigationController?.pushViewController(vc, animated: true)

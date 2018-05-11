@@ -20,7 +20,7 @@ class JoinPrivateRoomViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         dismiss(animated: false) {
             self.delegate?.backPressed()
@@ -28,7 +28,7 @@ class JoinPrivateRoomViewController: UIViewController {
     }
     
     @IBAction func joinPrivateRoomAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         guard let userUid = Auth.auth().currentUser?.uid, let privateKey = privateKeyTextField.text else { return }
         

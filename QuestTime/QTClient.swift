@@ -12,15 +12,20 @@ public class QTClient {
     let questions = Database.database().reference(withPath: "questions")
 
     public func loadQuestion(with id: String, category: String, date: Date, completion: @escaping (Question) -> Void ) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         questions.child(category).child(id).observe(.value) { (snapshot) in
             if let question = Question(with: snapshot) {
                 question.date = date
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion(question)
             }
         }
     }
     
     public func loadRooms(filter: @escaping (Room) -> Bool, completion: @escaping ([Room]) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         var rooms: [Room] = []
         
         self.rooms.observeSingleEvent(of: .value) { (snapshot) in
@@ -34,20 +39,26 @@ public class QTClient {
                     }
                 }
                 
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion(rooms)
             }
         }
     }
     
     public func loadRoom(with id: String, completion: @escaping (Room) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         rooms.child(id).observeSingleEvent(of: .value) { (snapshot) in
             if let room = Room(with: snapshot) {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion(room)
             }
         }
     }
     
     public func loadRoomsForUser(with uid: String, completion: @escaping ([Room]) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         self.rooms.observe(.value) { (snapshot) in
             var rooms: [Room] = []
             
@@ -61,12 +72,15 @@ public class QTClient {
                     }
                 }
                 
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion(rooms)
             }
         }
     }
     
     public func joinPrivateRoom(userUid: String, privateKey: String, completion: @escaping () -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         rooms.observeSingleEvent(of: .value) { (snapshot) in
             if let rooms = snapshot.value as? [String: Any] {
                 
@@ -77,7 +91,10 @@ public class QTClient {
                         
                         self.rooms.child(room.key).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
                         self.users.child(userUid).child("rooms").child(room.key).setValue(true)
+                        
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
                         completion()
+                        
                         break
                     }
                 }
@@ -89,11 +106,14 @@ public class QTClient {
     public func joinPublicRoom(userUid: String, roomUid: String, completion: @escaping () -> Void) {
         rooms.child(roomUid).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
         users.child(userUid).child("rooms").child(roomUid).setValue(true)
+    
         completion()
     }
     
     public func leaveRoom(roomUid: String, completion: @escaping () -> Void) {
         guard let userUid = Auth.auth().currentUser?.uid else { return }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         rooms.child(roomUid).child("members").observe(.value) { (snapshot) in
             if !snapshot.hasChildren() {
@@ -111,6 +131,8 @@ public class QTClient {
                 self.rooms.child("\(roomUid)/questions/\(question.key)/answers/\(userUid)").removeValue()
                 self.rooms.child("\(roomUid)/questions/\(question.key)/points/\(userUid)").removeValue()
             }
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             completion()
         }
         
@@ -118,6 +140,8 @@ public class QTClient {
     
     public func setAnswer(for room: Room, question: Question, userUid: String, completion: @escaping () -> Void) {
         guard let roomUid = room.uid, let questionUid = question.uid else { return }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         question.peopleAnswers[userUid] = question.myAnswer
         
@@ -138,20 +162,25 @@ public class QTClient {
                     self.rooms.child("\(roomUid)/questions/\(questionUid)/next_points").setValue(nextNextPoints)
                 }
                 
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion()
             }
         } else {
             rooms.child("\(roomUid)/questions/\(questionUid)/points/\(userUid)").setValue(0)
             question.myPoints = 0
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             completion()
         }
 
     }
     
     public func displayName(for userUid: String, completion: @escaping (String) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         users.child(userUid).child("username").observeSingleEvent(of: .value) { (snapshot) in
             if let displayName = snapshot.value as? String {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion(displayName)
             }
         }

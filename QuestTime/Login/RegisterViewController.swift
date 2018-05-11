@@ -73,6 +73,8 @@ class RegisterViewController: UIViewController {
     @IBAction func registerAction(_ sender: Any) {
         guard let email = emailTextField.text, let password = passwordTextField.text, password == repeatPasswordTextField.text, let displayName = displayNameTextField.text else { return }
         
+        Sounds.shared.play(sound: .buttonClick)
+        
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let regUser = user, error == nil {
                 

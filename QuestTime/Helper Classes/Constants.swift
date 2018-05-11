@@ -12,4 +12,8 @@ struct Constants {
     struct Notifications {
         static let receivedNotification = "receivedNotification"
     }
+    
+    struct UserDefaults {
+        static let sound = "sound"
+    }
 }

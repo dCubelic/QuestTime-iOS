@@ -41,7 +41,7 @@ class JoinPublicRoomViewController: UIViewController {
     }
 
     @IBAction func backAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         dismiss(animated: false) {
             self.delegate?.backPressed()
@@ -49,7 +49,7 @@ class JoinPublicRoomViewController: UIViewController {
     }
     
     @IBAction func searchAction(_ sender: Any) {
-        Sounds.shared.playButtonSound()
+        Sounds.shared.play(sound: .buttonClick)
         
         dismiss(animated: false) {
             if let roomName = self.roomNameTextField.text {
@@ -77,6 +77,8 @@ extension JoinPublicRoomViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
+        
+        Sounds.shared.play(sound: .buttonClick)
         
         cell.toggleSelection()
     }

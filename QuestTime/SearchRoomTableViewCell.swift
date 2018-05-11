@@ -48,7 +48,8 @@ class SearchRoomTableViewCell: UITableViewCell {
             underlineView.backgroundColor = UIColor.from(hashString: uid)
         }
         difficultyView.backgroundColor = difficultyColor(for: room.difficulty)
-        peopleLabel.text = "\(room.peopleUIDs.count) \(room.peopleUIDs.count == 1 ? "person" : "people")"
+        peopleLabel.text = "\(room.peopleUIDs.count)"
+//        peopleLabel.text = "\(room.peopleUIDs.count) \(room.peopleUIDs.count == 1 ? "person" : "people")"
         setupCategoryImageViews(for: room.categories)
     }
     
