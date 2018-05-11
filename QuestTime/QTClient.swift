@@ -186,6 +186,24 @@ public class QTClient {
         }
     }
     
+    public func createRoom(room: Room, completion: @escaping (Room) -> Void) {
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        rooms.childByAutoId().setValue(room.toJson()) { (error, ref) in
+            ref.child("members").child(userUid).setValue(Date().timeIntervalSince1970)
+            self.users.child(userUid).child("rooms").child(ref.key).setValue(true)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let room = Room(with: snapshot) {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    completion(room)
+                }
+            })
+        }
+    }
+    
 }
 
 extension Array where Element: Equatable {

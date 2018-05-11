@@ -49,31 +49,31 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FPr-fb-LxV">
-                                <rect key="frame" x="286" y="35" width="15" height="15"/>
+                                <rect key="frame" x="281" y="35" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="aTV-7c-cpv"/>
                                     <constraint firstAttribute="width" constant="15" id="pbr-qi-9pG"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ycK-3r-K7H">
-                                <rect key="frame" x="263" y="35" width="15" height="15"/>
+                                <rect key="frame" x="258" y="35" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="gDj-Fi-VS4"/>
                                     <constraint firstAttribute="width" constant="15" id="vfb-7h-rQG"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="36l-u5-8gE">
-                                <rect key="frame" x="240" y="35" width="15" height="15"/>
+                                <rect key="frame" x="235" y="35" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="2Ce-tm-tW5"/>
                                     <constraint firstAttribute="height" constant="15" id="x7U-Lc-Rkn"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAg-p3-oUx">
-                                <rect key="frame" x="309" y="0.0" width="50" height="85.5"/>
+                                <rect key="frame" x="304" y="0.0" width="55" height="85.5"/>
                                 <color key="backgroundColor" red="1" green="0.80807883619979715" blue="0.19942172006420411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="0s3-zz-6j7"/>
+                                    <constraint firstAttribute="width" constant="55" id="0s3-zz-6j7"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="1" maxY="0.0"/>
                                 <state key="normal" title="Join">

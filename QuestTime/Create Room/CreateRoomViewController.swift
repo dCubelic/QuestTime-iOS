@@ -145,22 +145,21 @@ class CreateRoomViewController: UIViewController {
             room = Room(name: roomName, type: selectedRoomType, privateKey: privateKey, difficulty: selectedDifficulty, categories: selectedCategories)
         }
         
-        Database.database().reference(withPath: "rooms").childByAutoId().setValue(room.toJson()) { (error, ref) in
-            guard let user = Auth.auth().currentUser else { return }
-            
-            ref.child("members").child(user.uid).setValue(true)
-//            ref.child("members").observe(.childRemoved, with: { (snapshot) in
-//                print(snapshot)
-//                print(snapshot.children)
-//                if !snapshot.hasChildren() {
-//                    ref.removeValue()
-//                }
+//        Database.database().reference(withPath: "rooms").childByAutoId().setValue(room.toJson()) { (error, ref) in
+//            guard let user = Auth.auth().currentUser else { return }
+//
+//            ref.child("members").child(user.uid).setValue(true)
+//
+//            Database.database().reference(withPath: "users/\(user.uid)/rooms").child(ref.key).setValue(true)
+//
+//            self.dismiss(animated: true, completion: {
+//                self.delegate?.didCreate(room: room)
 //            })
-            
-            Database.database().reference(withPath: "users/\(user.uid)/rooms").child(ref.key).setValue(true)
-            
+//        }
+        
+        QTClient.shared.createRoom(room: room) { (newRoom) in
             self.dismiss(animated: true, completion: {
-                self.delegate?.didCreate(room: room)
+                self.delegate?.didCreate(room: newRoom)
             })
         }
     }
@@ -169,13 +168,7 @@ class CreateRoomViewController: UIViewController {
 
 extension CreateRoomViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        //        return numberOfSections()
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        return numberOfCellsIn(section: section)
         return categories.count
     }
     
@@ -202,39 +195,6 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
         }
         
     }
-    
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    //        if section == numberOfSections() - 1 { //last section
-    //            let difNum = CGFloat((maxNumberOfCellsInSection() - numberOfCellsIn(section: section)))
-    //            let inset = CGFloat((difNum * cellWidth + (difNum - 1) * cellInset) / 2)
-    //
-    //            return UIEdgeInsets(top: 10, left: inset, bottom: 10, right: inset)
-    //        } else {
-    //            return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-    //        }
-    //    }
-    //
-    //    private func numberOfSections() -> Int {
-    //        return Int(ceil(Double(categories.count) / Double(maxNumberOfCellsInSection())))
-    //    }
-    //
-    //    private func maxNumberOfCellsInSection() -> Int {
-    //        return Int((collectionView.frame.width + cellInset) / (cellWidth + cellInset))
-    //    }
-    //
-    //    private func numberOfCellsIn(section: Int) -> Int {
-    //        let max = maxNumberOfCellsInSection()
-    //
-    //        if section * max + max < categories.count {
-    //            return max
-    //        } else {
-    //            return categories.count - section*max
-    //        }
-    //    }
-    //
-    //    private func convertToIndex(indexPath: IndexPath) -> Int {
-    //        return indexPath.section * maxNumberOfCellsInSection() + indexPath.row
-    //    }
     
 }
 

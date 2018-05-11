@@ -60,7 +60,8 @@ class RoomTableViewCell: UITableViewCell {
             underlineView.backgroundColor = UIColor.from(hashString: uid)
         }
         difficultyView.backgroundColor = difficultyColor(for: room.difficulty)
-        peopleLabel.text = "\(room.peopleUIDs.count) \(room.peopleUIDs.count == 1 ? "person" : "people")"
+        peopleLabel.text = "\(room.peopleUIDs.count)"
+//        peopleLabel.text = "\(room.peopleUIDs.count) \(room.peopleUIDs.count == 1 ? "person" : "people")"
         setupCategoryImageViews(for: room.categories)
         if room.roomQuestions.contains(where: { (roomQuestion) -> Bool in
             !roomQuestion.answers.contains(where: { (key, value) -> Bool in
