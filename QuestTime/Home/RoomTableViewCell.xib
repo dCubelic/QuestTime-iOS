@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="16" y="5" width="288" height="85.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9b-XP-Ep1">
-                                <rect key="frame" x="16" y="10" width="94" height="21"/>
+                                <rect key="frame" x="16" y="10" width="94" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vK8-YC-p8a">
-                                <rect key="frame" x="16" y="31" width="94" height="3"/>
+                                <rect key="frame" x="16" y="30.5" width="94" height="3"/>
                                 <color key="backgroundColor" red="1" green="0.46274509800000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="Waf-SB-gG1"/>
@@ -92,6 +92,7 @@
                             <constraint firstItem="Utl-1m-vQC" firstAttribute="leading" secondItem="SmF-tB-mXw" secondAttribute="trailing" constant="8" id="5vF-As-0SF"/>
                             <constraint firstItem="vK8-YC-p8a" firstAttribute="width" secondItem="F9b-XP-Ep1" secondAttribute="width" id="Cqb-AM-j2n"/>
                             <constraint firstItem="eJy-ju-Fxr" firstAttribute="centerY" secondItem="A8h-qJ-6Ev" secondAttribute="centerY" id="J6A-8t-hae"/>
+                            <constraint firstItem="eJy-ju-Fxr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F9b-XP-Ep1" secondAttribute="trailing" constant="10" id="NZr-SW-LvB"/>
                             <constraint firstItem="4Gv-jE-fqj" firstAttribute="centerY" secondItem="WWh-1s-Wko" secondAttribute="centerY" id="QVq-rS-C1X"/>
                             <constraint firstItem="F9b-XP-Ep1" firstAttribute="leading" secondItem="WWh-1s-Wko" secondAttribute="leading" constant="16" id="Shh-lA-lns"/>
                             <constraint firstItem="SmF-tB-mXw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vK8-YC-p8a" secondAttribute="bottom" constant="15" id="UGr-2y-scK"/>
@@ -108,12 +109,20 @@
                             <constraint firstItem="ipB-YG-ZNt" firstAttribute="leading" secondItem="Utl-1m-vQC" secondAttribute="trailing" constant="20" id="w0n-sz-ybE"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-qK-EeV">
+                        <rect key="frame" x="16" y="5" width="288" height="85.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="WWh-1s-Wko" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="46o-SK-B83"/>
+                    <constraint firstItem="efQ-qK-EeV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4P1-Qq-Cem"/>
                     <constraint firstAttribute="trailing" secondItem="WWh-1s-Wko" secondAttribute="trailing" constant="16" id="AVc-jW-tvj"/>
                     <constraint firstAttribute="bottom" secondItem="WWh-1s-Wko" secondAttribute="bottom" constant="5" id="QAJ-xM-llH"/>
+                    <constraint firstAttribute="bottom" secondItem="efQ-qK-EeV" secondAttribute="bottom" constant="5" id="QMN-ZE-VxK"/>
                     <constraint firstItem="WWh-1s-Wko" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Wyz-qT-Xjz"/>
+                    <constraint firstAttribute="trailing" secondItem="efQ-qK-EeV" secondAttribute="trailing" constant="16" id="jLC-Nj-axn"/>
+                    <constraint firstItem="efQ-qK-EeV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="q1R-C0-Zfj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -124,6 +133,7 @@
                 <outlet property="peopleLabel" destination="ipB-YG-ZNt" id="bmm-Ha-X89"/>
                 <outlet property="roomNameLabel" destination="F9b-XP-Ep1" id="i5E-jO-4il"/>
                 <outlet property="secondCategoryImageView" destination="A8h-qJ-6Ev" id="5Sv-qH-nZ5"/>
+                <outlet property="shadowView" destination="efQ-qK-EeV" id="6c3-s5-Lfm"/>
                 <outlet property="thirdCategoryImageView" destination="eJy-ju-Fxr" id="reU-pb-ayL"/>
                 <outlet property="unansweredView" destination="ZVh-hr-YZg" id="GUv-JI-91L"/>
                 <outlet property="underlineView" destination="vK8-YC-p8a" id="K79-N3-kj3"/>

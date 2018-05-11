@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class RoomTableViewCell: UITableViewCell {
     
@@ -8,6 +9,7 @@ class RoomTableViewCell: UITableViewCell {
     @IBOutlet weak var difficultyView: UIView!
     @IBOutlet weak var peopleLabel: UILabel!
     @IBOutlet weak var unansweredView: UIView!
+    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var firstCategoryImageView: UIImageView!
     @IBOutlet weak var secondCategoryImageView: UIImageView!
     @IBOutlet weak var thirdCategoryImageView: UIImageView!
@@ -32,10 +34,6 @@ class RoomTableViewCell: UITableViewCell {
         difficultyView.layer.cornerRadius = 5
         difficultyView.layer.masksToBounds = true
         
-        firstCategoryImageView.image = nil
-        secondCategoryImageView.image = nil
-        thirdCategoryImageView.image = nil
-        
 //        shadowView.layer.masksToBounds = false
 //        shadowView.layer.shadowOffset = CGSize.zero
 //        shadowView.layer.shadowColor = UIColor.black.cgColor
@@ -55,13 +53,24 @@ class RoomTableViewCell: UITableViewCell {
     }
     
     func setup(with room: Room) {
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        
         roomNameLabel.text = room.name
         if let uid = room.uid {
             underlineView.backgroundColor = UIColor.from(hashString: uid)
         }
         difficultyView.backgroundColor = difficultyColor(for: room.difficulty)
-        peopleLabel.text = "\(room.peopleUIDs.count) people"
+        peopleLabel.text = "\(room.peopleUIDs.count) \(room.peopleUIDs.count == 1 ? "person" : "people")"
         setupCategoryImageViews(for: room.categories)
+        if room.roomQuestions.contains(where: { (roomQuestion) -> Bool in
+            !roomQuestion.answers.contains(where: { (key, value) -> Bool in
+                return key == userUid
+            })
+        }) {
+            showUnansweredView()
+        } else {
+            hideUnansweredView()
+        }
     }
     
     func difficultyColor(for difficulty: Difficulty) -> UIColor {
@@ -76,6 +85,10 @@ class RoomTableViewCell: UITableViewCell {
     }
     
     func setupCategoryImageViews(for categories: [Category]) {
+        firstCategoryImageView.image = nil
+        secondCategoryImageView.image = nil
+        thirdCategoryImageView.image = nil
+        
         let categoryImageViews = [firstCategoryImageView, secondCategoryImageView, thirdCategoryImageView]
         
         for (index, category) in categories.enumerated() {

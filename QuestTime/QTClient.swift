@@ -11,6 +11,11 @@ public class QTClient {
     let users = Database.database().reference(withPath: "users")
     let questions = Database.database().reference(withPath: "questions")
     
+    public func numberOfQuestionsLeft(completion: @escaping (Int) -> Void) {
+        
+        completion(2)
+    }
+    
     public func loadQuestion(with id: String, category: String, date: Date, completion: @escaping (Question) -> Void ) {
         questions.child(category).child(id).observe(.value) { (snapshot) in
             if let question = Question(with: snapshot) {
@@ -38,9 +43,9 @@ public class QTClient {
                     self.loadRoom(with: roomID, completion: { (room) in
                         rooms.append(room)
                         
-                        if index == snapshotDict.keys.count - 1 {
+//                        if index == snapshotDict.keys.count - 1 {
                             completion(rooms)
-                        }
+//                        }
                     })
                 }
                 
@@ -69,7 +74,6 @@ public class QTClient {
                 }
                 
                 completion(publicRooms)
-                
             }
         }
     }
@@ -164,7 +168,7 @@ public class QTClient {
             }
         }
     }
-
+    
 }
 
 extension Array where Element: Equatable {
