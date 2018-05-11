@@ -17,6 +17,7 @@ class CreateRoomViewController: UIViewController {
     @IBOutlet weak var mediumButton: UIButton!
     @IBOutlet weak var easyButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var categoriesLabel: UILabel!
     
     @IBOutlet weak var easyWidthConstraint: NSLayoutConstraint!
     
@@ -27,7 +28,18 @@ class CreateRoomViewController: UIViewController {
     
     var selectedDifficulty: Difficulty = .medium
     var selectedRoomType: RoomType = .privateRoom
-    var selectedCategories: [Category] = []
+    var selectedCategories: [Category] = [] {
+        didSet {
+            var categoriesString = ""
+            for (index, c) in selectedCategories.enumerated() {
+                categoriesString += c.rawValue
+                if index != selectedCategories.count - 1 {
+                    categoriesString += ", "
+                }
+            }
+            categoriesLabel.text = categoriesString
+        }
+    }
     
     let cellWidth: CGFloat = 25
     let cellInset: CGFloat = 25
@@ -50,6 +62,8 @@ class CreateRoomViewController: UIViewController {
         
         doneButton.isEnabled = false
         doneButton.alpha = 0.3
+        
+        categoriesLabel.text = ""
     }
     
     

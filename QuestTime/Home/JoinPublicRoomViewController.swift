@@ -10,9 +10,21 @@ class JoinPublicRoomViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var roomNameTextField: UITextField!
+    @IBOutlet weak var categoriesLabel: UILabel!
     
     var categories: [Category] = [.art, .sport, .physics, .movies, .music, .science, .maths, .general, .geography]
-    var selectedCategories: [Category] = []
+    var selectedCategories: [Category] = [] {
+        didSet {
+            var categoriesString = ""
+            for (index, c) in selectedCategories.enumerated() {
+                categoriesString += c.rawValue
+                if index != selectedCategories.count - 1 {
+                    categoriesString += ", "
+                }
+            }
+            categoriesLabel.text = categoriesString
+        }
+    }
     
     weak var delegate: JoinPublicRoomViewControllerDelegate?
     
@@ -23,6 +35,8 @@ class JoinPublicRoomViewController: UIViewController {
         backgroundView.layer.masksToBounds = true
         
         roomNameTextField.delegate = self
+        
+        categoriesLabel.text = ""
     }
 
     @IBAction func backAction(_ sender: Any) {

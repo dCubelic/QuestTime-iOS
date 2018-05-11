@@ -31,29 +31,6 @@ class RoomsViewController: UIViewController {
             self.tableView.reloadData()
         }
         
-//        let userRef = Database.database().reference(withPath: "users/\(user.uid)/rooms")
-//        let roomsRef = Database.database().reference(withPath: "rooms")
-//
-//        userRef.observe(.value) { (userRoomsSnapshot) in
-//            self.rooms = []
-//
-//            if let snapshotDictionary = userRoomsSnapshot.value as? [String: Any?] {
-//                for (index, snapshot) in snapshotDictionary.enumerated() {
-//                    roomsRef.child(snapshot.key).observeSingleEvent(of: .value, with: { (snapshot) in
-//                        if let room = Room(with: snapshot) {
-//                            self.rooms.append(room)
-//
-//                            if index == snapshotDictionary.count - 1 {
-//                                self.tableView.reloadData()
-//                            }
-//                        }
-//                    })
-//
-//                }
-//            } else {
-//                self.tableView.reloadData()
-//            }
-//        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -122,19 +99,8 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
             
             let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
-                guard let user = Auth.auth().currentUser, let roomUid = room.uid else { return }
-                Database.database().reference(withPath: "users/\(user.uid)/rooms/\(roomUid)").removeValue()
-                
-                let ref = Database.database().reference(withPath: "rooms/\(roomUid)")
-                ref.child("members").observe(.value, with: { (snapshot) in
-                    print(snapshot)
-                    print(snapshot.children)
-                    if !snapshot.hasChildren() {
-                        ref.removeValue()
-                    }
-                })
-                ref.child("members/\(user.uid)").removeValue()
-                
+                guard let roomUid = room.uid else { return }
+                QTClient.shared.leaveRoom(roomUid: roomUid, completion: { } )
             }))
             alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
             

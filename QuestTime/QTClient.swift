@@ -100,7 +100,29 @@ public class QTClient {
         completion()
     }
     
-    
+    public func leaveRoom(roomUid: String, completion: @escaping () -> Void) {
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        
+        rooms.child(roomUid).observe(.childRemoved) { (snapshot) in
+            if !snapshot.hasChildren() {
+                self.rooms.child(roomUid).removeValue()
+            }
+        }
+        
+        users.child("\(userUid)/rooms/\(roomUid)").removeValue()
+        rooms.child(roomUid).child("members").child(userUid).removeValue()
+        
+        rooms.child(roomUid).child("questions").observeSingleEvent(of: .value) { (snapshot) in
+            guard let questionsDict = snapshot.value as? [String: Any] else { return }
+            
+            for question in questionsDict {
+                self.rooms.child("\(roomUid)/questions/\(question.key)/answers/\(userUid)").removeValue()
+                self.rooms.child("\(roomUid)/questions/\(question.key)/points/\(userUid)").removeValue()
+            }
+            completion()
+        }
+        
+    }
     
     public func setAnswer(for room: Room, question: Question, userUid: String, completion: @escaping () -> Void) {
         guard let roomUid = room.uid, let questionUid = question.uid else { return }
