@@ -10,17 +10,31 @@ public class QTClient {
     let rooms = Database.database().reference(withPath: "rooms")
     let users = Database.database().reference(withPath: "users")
     let questions = Database.database().reference(withPath: "questions")
-    
-    public func numberOfQuestionsLeft(completion: @escaping (Int) -> Void) {
-        
-        completion(2)
-    }
-    
+
     public func loadQuestion(with id: String, category: String, date: Date, completion: @escaping (Question) -> Void ) {
         questions.child(category).child(id).observe(.value) { (snapshot) in
             if let question = Question(with: snapshot) {
                 question.date = date
                 completion(question)
+            }
+        }
+    }
+    
+    public func loadRooms(filter: @escaping (Room) -> Bool, completion: @escaping ([Room]) -> Void) {
+        var rooms: [Room] = []
+        
+        self.rooms.observeSingleEvent(of: .value) { (snapshot) in
+            if let snapshotDict = snapshot.value as? [String: Any] {
+                
+                for roomSnapshot in snapshotDict {
+                    if let room = Room(with: snapshot.childSnapshot(forPath: roomSnapshot.key)) {
+                        if filter(room) {
+                            rooms.append(room)
+                        }
+                    }
+                }
+                
+                completion(rooms)
             }
         }
     }
@@ -34,46 +48,20 @@ public class QTClient {
     }
     
     public func loadRoomsForUser(with uid: String, completion: @escaping ([Room]) -> Void) {
-        users.child(uid).child("rooms").observe(.value) { (snapshot) in
+        self.rooms.observe(.value) { (snapshot) in
             var rooms: [Room] = []
             
             if let snapshotDict = snapshot.value as? [String: Any] {
                 
-                for (index, roomID) in snapshotDict.keys.enumerated() {
-                    self.loadRoom(with: roomID, completion: { (room) in
-                        rooms.append(room)
-                        
-//                        if index == snapshotDict.keys.count - 1 {
-                            completion(rooms)
-//                        }
-                    })
-                }
-                
-            } else {
-                completion(rooms)
-            }
-        }
-    }
-    
-    public func loadPublicRooms(categories: [Category], roomName: String, completion: @escaping ([Room]) -> Void) {
-        guard let userUid = Auth.auth().currentUser?.uid else { return }
-        var publicRooms: [Room] = []
-        
-        self.rooms.observeSingleEvent(of: .value) { (snapshot) in
-            if let snapshotDict = snapshot.value as? [String: Any] {
-                
                 for roomSnapshot in snapshotDict {
                     if let room = Room(with: snapshot.childSnapshot(forPath: roomSnapshot.key)) {
-                        if room.type == .publicRoom &&
-                            !room.peopleUIDs.contains(userUid) &&
-                            (roomName.isEmpty || room.name.lowercased().contains(roomName.lowercased())) &&
-                            room.categories.hasAtLeastOneSameElementAs(array: categories) {
-                            publicRooms.append(room)
+                        if room.peopleUIDs.contains(uid) {
+                            rooms.append(room)
                         }
                     }
                 }
                 
-                completion(publicRooms)
+                completion(rooms)
             }
         }
     }

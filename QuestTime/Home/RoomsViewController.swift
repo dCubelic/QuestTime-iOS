@@ -21,20 +21,31 @@ class RoomsViewController: UIViewController {
         tableView.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
 
         loadUserRooms()
-        
-        QTClient.shared.numberOfQuestionsLeft { (number) in
-            self.questionsLeftTodayNumberLabel.text = "\(number)"
-        }
     }
     
     private func loadUserRooms() {
-        guard let user = Auth.auth().currentUser else { return }
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
         
-        QTClient.shared.loadRoomsForUser(with: user.uid) { (rooms) in
+//        QTClient.shared.loadRooms(filter: { (room) -> Bool in
+//            return room.peopleUIDs.contains(userUid)
+//        }) { (rooms) in
+//            self.rooms = rooms
+//            self.rooms.sort { $0.name.lowercased() < $1.name.lowercased() }
+//            self.tableView.reloadData()
+//        }
+        
+        QTClient.shared.loadRoomsForUser(with: userUid) { (rooms) in
             self.rooms = rooms
             //TODO: - smislit bolji komparator
             self.rooms.sort { $0.name.lowercased() < $1.name.lowercased() }
             self.tableView.reloadData()
+            
+            self.questionsLeftTodayNumberLabel.text = String(rooms.filter({ (room) -> Bool in
+                room.peopleUIDs.contains(userUid) &&
+                    !(room.roomQuestions.sorted(by: { $0.timestamp > $1.timestamp }).first?.answers.contains(where: { (key, _) -> Bool in
+                        key == userUid
+                    }) ?? false)
+            }).count)
         }
         
     }
@@ -157,9 +168,16 @@ extension RoomsViewController: CreateRoomViewControllerDelegate {
 
 extension RoomsViewController: JoinPublicRoomViewControllerDelegate {
     func searchPressed(categories: [Category], roomName: String) {
+        guard let userUid = Auth.auth().currentUser?.uid else { return }
+        
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: PublicSearchViewController.self)
         
-        QTClient.shared.loadPublicRooms(categories: categories, roomName: roomName) { (rooms) in
+        QTClient.shared.loadRooms(filter: { (room) -> Bool in
+            return room.type == .publicRoom &&
+                !room.peopleUIDs.contains(userUid) &&
+                (roomName.isEmpty || room.name.lowercased().contains(roomName.lowercased())) &&
+                room.categories.hasAtLeastOneSameElementAs(array: categories)
+        }) { (rooms) in
             vc.rooms = rooms
             self.navigationController?.pushViewController(vc, animated: true)
         }
