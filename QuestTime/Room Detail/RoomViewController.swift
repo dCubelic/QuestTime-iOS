@@ -90,13 +90,13 @@ class RoomViewController: UIViewController {
 
 extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if true {
+        if questions.count == 0 {
             emptyTableViewLabel.isHidden = false
         } else {
             emptyTableViewLabel.isHidden = true
         }
         
-        return 0
+        return questions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
