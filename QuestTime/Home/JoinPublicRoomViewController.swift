@@ -41,12 +41,16 @@ class JoinPublicRoomViewController: UIViewController {
     }
 
     @IBAction func backAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: false) {
             self.delegate?.backPressed()
         }
     }
     
     @IBAction func searchAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: false) {
             if let roomName = self.roomNameTextField.text {
                 self.delegate?.searchPressed(categories: self.selectedCategories, roomName: roomName)

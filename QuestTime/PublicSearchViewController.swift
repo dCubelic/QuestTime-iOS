@@ -37,6 +37,8 @@ extension PublicSearchViewController: SearchRoomTableViewCellDelegate {
             let roomUid = rooms[indexPath.row].uid
         else { return }
         
+        Sounds.shared.playButtonSound()
+        
         QTClient.shared.joinPublicRoom(userUid: userUid, roomUid: roomUid) {
             cell.joinButton.setTitle("Joined", for: .normal)
         }

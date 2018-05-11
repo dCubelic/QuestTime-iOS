@@ -29,10 +29,14 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: false, completion: nil)
     }
     
     @IBAction func logoutAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         do {
             try Auth.auth().signOut()
             Window.main?.showLogin()

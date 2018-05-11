@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 import FirebaseDatabase
 import FirebaseAuth
 
@@ -13,6 +14,8 @@ class RoomsViewController: UIViewController {
     
     var rooms: [Room] = []
     
+    var audioPlayer: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +23,7 @@ class RoomsViewController: UIViewController {
         
         underlineView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
-
+        
         loadUserRooms()
     }
     
@@ -65,6 +68,8 @@ class RoomsViewController: UIViewController {
     }
 
     @IBAction func addRoomAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         let popupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: AddRoomPopupViewController.self)
         popupVC.delegate = self
         popupVC.modalPresentationStyle = .overCurrentContext
@@ -72,6 +77,8 @@ class RoomsViewController: UIViewController {
     }
     
     @IBAction func settingsAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         let settingsVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: SettingsViewController.self)
         settingsVC.modalPresentationStyle = .overCurrentContext
         present(settingsVC, animated: false, completion: nil)
@@ -100,6 +107,8 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Sounds.shared.playButtonSound()
+        
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: RoomViewController.self)
         vc.room = rooms[indexPath.row]
         

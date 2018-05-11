@@ -50,6 +50,8 @@
 		B4D662CC20A4904300A9170B /* SearchRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */; };
 		B4D662CD20A4904300A9170B /* SearchRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */; };
 		B4E05B78207E45D40016A28B /* String+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E05B77207E45D40016A28B /* String+QT.swift */; };
+		B4F0FA3620A5E309005E4E79 /* buttonClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B4F0FA3520A5E308005E4E79 /* buttonClick.mp3 */; };
+		B4F0FA3920A5E575005E4E79 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0FA3820A5E575005E4E79 /* Sounds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoomTableViewCell.swift; sourceTree = "<group>"; };
 		B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRoomTableViewCell.xib; sourceTree = "<group>"; };
 		B4E05B77207E45D40016A28B /* String+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QT.swift"; sourceTree = "<group>"; };
+		B4F0FA3520A5E308005E4E79 /* buttonClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClick.mp3; sourceTree = "<group>"; };
+		B4F0FA3820A5E575005E4E79 /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
 		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +154,7 @@
 				B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */,
 				B4656C222059428A0081BB6F /* Constants.swift */,
 				B408FEDF206A8D8100E76A56 /* QTTextField.swift */,
+				B4F0FA3820A5E575005E4E79 /* Sounds.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -268,9 +273,18 @@
 				B492AD2620A1CE550014BC48 /* Question */,
 				B445863720725E0A00C829EA /* People */,
 				B4032F02205880D0007EFE96 /* Helper Classes */,
+				B4F0FA3720A5E30E005E4E79 /* Resources */,
 				B4032F01205880B4007EFE96 /* Supporting Files */,
 			);
 			path = QuestTime;
+			sourceTree = "<group>";
+		};
+		B4F0FA3720A5E30E005E4E79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4F0FA3520A5E308005E4E79 /* buttonClick.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +362,7 @@
 				B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */,
 				B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */,
 				B4D3A4722076D3F1008278B5 /* Login.storyboard in Resources */,
+				B4F0FA3620A5E309005E4E79 /* buttonClick.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +431,7 @@
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
 				B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */,
 				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
+				B4F0FA3920A5E575005E4E79 /* Sounds.swift in Sources */,
 				B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */,
 				B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */,
 				B4A4D77920A3365C00D51FBC /* JoinPrivateRoomViewController.swift in Sources */,

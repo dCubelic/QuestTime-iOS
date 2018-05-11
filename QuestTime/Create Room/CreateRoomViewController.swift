@@ -69,6 +69,7 @@ class CreateRoomViewController: UIViewController {
     
     
     @IBAction func difficultyAction(_ sender: UIButton) {
+        Sounds.shared.playButtonSound()
         
         easyWidthConstraint.constant = unselectedDifficultyWidth
         mediumWidthConstraint.constant = unselectedDifficultyWidth
@@ -101,6 +102,8 @@ class CreateRoomViewController: UIViewController {
     }
     
     @IBAction func roomTypeAction(_ sender: UIButton) {
+        Sounds.shared.playButtonSound()
+        
         switch sender {
         case privateButton:
             publicButton.alpha = 0.6
@@ -120,6 +123,8 @@ class CreateRoomViewController: UIViewController {
     
     
     @IBAction func cancelAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -183,6 +188,8 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Sounds.shared.playButtonSound()
+        
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
         
         if cell.categorySelected || selectedCategories.count < 3 {

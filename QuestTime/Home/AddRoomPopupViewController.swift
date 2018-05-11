@@ -30,18 +30,24 @@ class AddRoomPopupViewController: UIViewController {
     }
     
     @IBAction func joinPublicRoomAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: false) {
             self.delegate?.joinPublicRoomSelected()
         }
     }
     
     @IBAction func joinPrivateRoomAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: false) {
             self.delegate?.joinPrivateRoomSelected()
         }
     }
     
     @IBAction func createRoomAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: false) {
             self.delegate?.createNewRoomSelected()
         }

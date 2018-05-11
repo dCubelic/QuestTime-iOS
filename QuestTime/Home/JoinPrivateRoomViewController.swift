@@ -20,12 +20,16 @@ class JoinPrivateRoomViewController: UIViewController {
     }
     
     @IBAction func backAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         dismiss(animated: false) {
             self.delegate?.backPressed()
         }
     }
     
     @IBAction func joinPrivateRoomAction(_ sender: Any) {
+        Sounds.shared.playButtonSound()
+        
         guard let userUid = Auth.auth().currentUser?.uid, let privateKey = privateKeyTextField.text else { return }
         
         QTClient.shared.joinPrivateRoom(userUid: userUid, privateKey: privateKey) {
