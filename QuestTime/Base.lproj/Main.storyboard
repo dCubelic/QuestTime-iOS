@@ -62,15 +62,25 @@
                                     <outlet property="delegate" destination="atN-AA-ohX" id="f3K-9j-c1C"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not part of any rooms yet. Press + to join a room." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="843-Es-Dbx">
+                                <rect key="frame" x="20" y="325" width="280" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="843-Es-Dbx" secondAttribute="trailing" constant="20" id="5O3-P8-7fi"/>
                             <constraint firstItem="3gP-wx-ych" firstAttribute="leading" secondItem="qUS-bw-0iR" secondAttribute="leading" id="GCh-eZ-4Ln"/>
+                            <constraint firstItem="843-Es-Dbx" firstAttribute="leading" secondItem="kLs-Od-EO6" secondAttribute="leading" constant="20" id="L4o-kH-LQb"/>
                             <constraint firstItem="qUS-bw-0iR" firstAttribute="trailing" secondItem="PEg-Zn-hGB" secondAttribute="trailing" id="NXB-kY-unz"/>
                             <constraint firstItem="PEg-Zn-hGB" firstAttribute="leading" secondItem="qUS-bw-0iR" secondAttribute="leading" id="Pnb-28-aXZ"/>
                             <constraint firstItem="qUS-bw-0iR" firstAttribute="trailing" secondItem="3gP-wx-ych" secondAttribute="trailing" id="V7f-zL-pSY"/>
                             <constraint firstItem="PEg-Zn-hGB" firstAttribute="top" secondItem="qUS-bw-0iR" secondAttribute="top" id="cdM-xT-MmQ"/>
                             <constraint firstItem="qUS-bw-0iR" firstAttribute="bottom" secondItem="3gP-wx-ych" secondAttribute="bottom" id="e7d-8u-EQ2"/>
+                            <constraint firstItem="843-Es-Dbx" firstAttribute="centerX" secondItem="3gP-wx-ych" secondAttribute="centerX" id="g8C-yQ-9IF"/>
+                            <constraint firstItem="843-Es-Dbx" firstAttribute="centerY" secondItem="3gP-wx-ych" secondAttribute="centerY" constant="-50" id="lGS-Xt-Ff3"/>
                             <constraint firstItem="3gP-wx-ych" firstAttribute="top" secondItem="PEg-Zn-hGB" secondAttribute="bottom" constant="5" id="oIF-vr-xFR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qUS-bw-0iR"/>
@@ -99,6 +109,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyTableViewLabel" destination="843-Es-Dbx" id="Vfl-Bn-LJJ"/>
                         <outlet property="headerView" destination="PEg-Zn-hGB" id="4Ve-gk-SZ5"/>
                         <outlet property="questionsLeftTodayLabel" destination="xEK-63-Uou" id="npt-uT-XcB"/>
                         <outlet property="questionsLeftTodayNumberLabel" destination="2qz-HH-Mxc" id="VXJ-DG-rH4"/>
@@ -163,6 +174,12 @@
                                     <outlet property="delegate" destination="wy7-ek-BMN" id="1G1-1F-CHO"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no questions yet. The question will appear at a random time of time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbT-k3-ul4">
+                                <rect key="frame" x="20" y="204" width="280" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P46-zV-XBZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
@@ -170,7 +187,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qbT-k3-ul4" firstAttribute="centerY" secondItem="rtt-bX-D0f" secondAttribute="centerY" constant="-100" id="3em-9y-pbh"/>
+                            <constraint firstItem="qbT-k3-ul4" firstAttribute="centerX" secondItem="rtt-bX-D0f" secondAttribute="centerX" id="A5X-nx-pph"/>
+                            <constraint firstAttribute="trailing" secondItem="qbT-k3-ul4" secondAttribute="trailing" constant="20" id="HCj-ax-cGP"/>
                             <constraint firstItem="YrM-z1-eNZ" firstAttribute="centerX" secondItem="M7h-dh-7v3" secondAttribute="centerX" id="MfK-3G-A9d"/>
+                            <constraint firstItem="qbT-k3-ul4" firstAttribute="leading" secondItem="M7h-dh-7v3" secondAttribute="leading" constant="20" id="TcF-zN-om3"/>
                             <constraint firstItem="9J6-j5-8W7" firstAttribute="centerX" secondItem="M7h-dh-7v3" secondAttribute="centerX" id="YbD-bL-RBS"/>
                             <constraint firstItem="YrM-z1-eNZ" firstAttribute="top" secondItem="9J6-j5-8W7" secondAttribute="bottom" constant="8" id="bAG-RM-W3r"/>
                             <constraint firstItem="rtt-bX-D0f" firstAttribute="leading" secondItem="M7h-dh-7v3" secondAttribute="leading" id="bSh-4O-7nd"/>
@@ -204,6 +225,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="emptyTableViewLabel" destination="qbT-k3-ul4" id="scV-ZD-vBV"/>
                         <outlet property="lockImageView" destination="DBH-44-u8y" id="nxw-9M-IME"/>
                         <outlet property="privateKeyLabel" destination="MBK-iD-ZpI" id="AYA-3b-BGb"/>
                         <outlet property="privateKeyViewHeightConstraint" destination="Vst-XM-Nkf" id="hWf-sD-d10"/>

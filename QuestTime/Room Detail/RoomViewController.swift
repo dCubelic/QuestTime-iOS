@@ -9,6 +9,7 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var privateKeyLabel: UILabel!
     @IBOutlet weak var lockImageView: UIImageView!
+    @IBOutlet weak var emptyTableViewLabel: UILabel!
     
     @IBOutlet weak var privateKeyViewHeightConstraint: NSLayoutConstraint!
     
@@ -88,12 +89,14 @@ class RoomViewController: UIViewController {
 }
 
 extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        if true {
+            emptyTableViewLabel.isHidden = false
+        } else {
+            emptyTableViewLabel.isHidden = true
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

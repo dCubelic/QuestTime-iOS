@@ -9,6 +9,7 @@ class RoomsViewController: UIViewController {
     @IBOutlet weak var questionsLeftTodayLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var emptyTableViewLabel: UILabel!
     
     var rooms: [Room] = []
     
@@ -79,11 +80,14 @@ class RoomsViewController: UIViewController {
 }
 
 extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if rooms.count == 0 {
+            emptyTableViewLabel.isHidden = false
+        } else {
+            emptyTableViewLabel.isHidden = true
+        }
+        
         return rooms.count
     }
     
