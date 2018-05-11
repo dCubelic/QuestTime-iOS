@@ -53,15 +53,19 @@ class QuestionDetailViewController: UIViewController {
         
         setupLabels()
         
-        answerButtons.first { $0.title(for: .normal) == question.myAnswer }?.backgroundColor = .red
-        answerButtons.first { $0.title(for: .normal) == question.correctAnswer}?.backgroundColor = .green
+        answerButtons.first { $0.title(for: .normal) == question.myAnswer }?.backgroundColor = .qtRed
+        answerButtons.first { $0.title(for: .normal) == question.myAnswer}?.setTitleColor(.white, for: .normal)
+        answerButtons.first { $0.title(for: .normal) == question.correctAnswer}?.backgroundColor = .qtGreen
+        answerButtons.first { $0.title(for: .normal) == question.correctAnswer}?.setTitleColor(.white, for: .normal)
         
         if question.myAnswer == question.correctAnswer {
-            correctLabel.textColor = .green
+            correctLabel.textColor = .qtGreen
             correctLabel.text = "Correct!"
+            pointsLabel.textColor = .qtGreen
         } else {
-            correctLabel.textColor = .red
+            correctLabel.textColor = .qtRed
             correctLabel.text = "Wrong!"
+            pointsLabel.textColor = .qtRed
         }
         
         if let points = question.myPoints {
@@ -111,6 +115,8 @@ class QuestionDetailViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
+        Sounds.shared.play(sound: .buttonClick)
+        
         delegate?.questionViewControllerWillDismiss()
         dismiss(animated: false, completion: nil)
     }

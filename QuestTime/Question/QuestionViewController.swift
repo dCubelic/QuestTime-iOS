@@ -65,20 +65,21 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func answerAction(_ sender: UIButton) {
-        question?.myAnswer = sender.title(for: .normal)
+        guard let room = room, let question = question, let userUid = Auth.auth().currentUser?.uid else { return }
+        
+        Sounds.shared.play(sound: .buttonClick)
+        
+        question.myAnswer = sender.title(for: .normal)
         
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
         
         vc.delegate = self.delegate
         vc.question = question
         
-        //flip transition
         let transition = CATransition()
         transition.duration = 0.5
         transition.type = "flip"
         transition.subtype = kCATransitionFromRight
-        
-        guard let room = room, let question = question, let userUid = Auth.auth().currentUser?.uid else { return }
         
         QTClient.shared.setAnswer(for: room, question: question, userUid: userUid) {
             self.navigationController?.view.layer.add(transition, forKey: kCATransition)

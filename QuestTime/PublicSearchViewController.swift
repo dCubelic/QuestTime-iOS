@@ -4,6 +4,7 @@ import FirebaseAuth
 class PublicSearchViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyTableViewLabel: UILabel!
     
     var rooms: [Room] = []
     
@@ -17,6 +18,12 @@ class PublicSearchViewController: UIViewController {
 
 extension PublicSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if rooms.count == 0 {
+            emptyTableViewLabel.isHidden = false
+        } else {
+            emptyTableViewLabel.isHidden = true
+        }
+        
         return rooms.count
     }
     
