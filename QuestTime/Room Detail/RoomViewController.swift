@@ -76,6 +76,10 @@ class RoomViewController: UIViewController {
                     }
                 }
             }
+            
+            if room.roomQuestions.count == 0 {
+                self.refreshControl.endRefreshing()
+            }
         }
         
     }

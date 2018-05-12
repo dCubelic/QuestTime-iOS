@@ -44,7 +44,12 @@ class PeopleViewController: UIViewController {
                 self.users.append(Person(uid: user, displayName: displayName, points: room.points[user] ?? 0))
                 
 //                if index == room.points.count - 1 {
-                    self.users.sort { $0.points > $1.points }
+                self.users.sort(by: { (person, person2) -> Bool in
+                    if person.points == person2.points {
+                        return person.displayName.lowercased() < person2.displayName.lowercased()
+                    }
+                    return person.points > person2.points
+                })
                     self.tableView.reloadData()
                     self.setupFirstPlaces()
 //                }

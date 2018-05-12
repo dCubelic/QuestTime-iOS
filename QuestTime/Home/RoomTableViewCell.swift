@@ -68,7 +68,7 @@ class RoomTableViewCell: UITableViewCell {
         if room.roomQuestions.contains(where: { (roomQuestion) -> Bool in
             !roomQuestion.answers.contains(where: { (key, value) -> Bool in
                 return key == userUid
-            })
+            }) && (roomQuestion.timestamp > room.personTimeIntervalJoined[userUid]!)
         }) {
             showUnansweredView()
         } else {
