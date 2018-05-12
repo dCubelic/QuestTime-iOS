@@ -1,6 +1,7 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseMessaging
 
 public enum QTError {
     case privateRoomNotFound
@@ -94,6 +95,8 @@ public class QTClient {
                             self.rooms.child(room.key).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
                             self.users.child(userUid).child("rooms").child(room.key).setValue(true)
                             
+                            Messaging.messaging().subscribe(toTopic: room.key)
+                            
                             UIApplication.shared.isNetworkActivityIndicatorVisible = false
                             completion(nil)
                             
@@ -111,6 +114,8 @@ public class QTClient {
     public func joinPublicRoom(userUid: String, roomUid: String, completion: @escaping () -> Void) {
         rooms.child(roomUid).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
         users.child(userUid).child("rooms").child(roomUid).setValue(true)
+        
+        Messaging.messaging().subscribe(toTopic: roomUid)
     
         completion()
     }
@@ -128,6 +133,8 @@ public class QTClient {
         
         users.child("\(userUid)/rooms/\(roomUid)").removeValue()
         rooms.child(roomUid).child("members").child(userUid).removeValue()
+        
+        Messaging.messaging().unsubscribe(fromTopic: roomUid)
         
         rooms.child(roomUid).child("questions").observeSingleEvent(of: .value) { (snapshot) in
             guard let questionsDict = snapshot.value as? [String: Any] else { return }
