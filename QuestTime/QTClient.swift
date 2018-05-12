@@ -89,17 +89,16 @@ public class QTClient {
             if let rooms = snapshot.value as? [String: Any] {
                 
                 for room in rooms {
-                    if let roomValues = room.value as? [String: Any],
-                        let roomPrivateKey = roomValues["privateKey"] as? String,
-                        roomPrivateKey == privateKey {
-                        
-                        self.rooms.child(room.key).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
-                        self.users.child(userUid).child("rooms").child(room.key).setValue(true)
-                        
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        completion(nil)
-                        
-                        break
+                    if let r = Room(with: snapshot.childSnapshot(forPath: room.key)) {
+                        if r.privateKey == privateKey && !r.peopleUIDs.contains(userUid) {
+                            self.rooms.child(room.key).child("members").child(userUid).setValue(Date().timeIntervalSince1970)
+                            self.users.child(userUid).child("rooms").child(room.key).setValue(true)
+                            
+                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                            completion(nil)
+                            
+                            break
+                        }
                     }
                 }
                 

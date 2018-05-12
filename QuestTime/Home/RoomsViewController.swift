@@ -124,6 +124,7 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true, completion: nil)
             completionHandler(false)
         }
+        action.backgroundColor = .qtRed
         
         return UISwipeActionsConfiguration(actions: [action])
     }
