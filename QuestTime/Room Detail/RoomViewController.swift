@@ -10,11 +10,11 @@ class RoomViewController: UIViewController {
     @IBOutlet weak var privateKeyLabel: UILabel!
     @IBOutlet weak var lockImageView: UIImageView!
     @IBOutlet weak var emptyTableViewLabel: UILabel!
-    
     @IBOutlet weak var privateKeyViewHeightConstraint: NSLayoutConstraint!
     
-    var room: Room?
+    var refreshControl = UIRefreshControl()
     
+    var room: Room?
     var questions: [Question] = []
     
     override func viewDidLoad() {
@@ -25,10 +25,15 @@ class RoomViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
         NotificationCenter.default.addObserver(self, selector: #selector(loadQuestions), name: Notification.Name(Constants.Notifications.receivedNotification), object: nil)
         
-        separatorView.layer.cornerRadius = 2
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl.tintColor = .white
+        tableView.addSubview(refreshControl)
+        
         tableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionTableViewCell")
         
         privateKeyViewHeightConstraint.constant = 0
+        separatorView.layer.cornerRadius = 2
         
         privateKeyLabel.isHidden = room?.type == .publicRoom
         lockImageView.isHidden = room?.type == .publicRoom
@@ -38,6 +43,15 @@ class RoomViewController: UIViewController {
         title = room?.name
         
         loadQuestions()
+    }
+    
+    @objc func refresh() {
+        guard let roomUid = room?.uid else { return }
+        
+        QTClient.shared.loadRoom(with: roomUid) { (room) in
+            self.room = room
+            self.loadQuestions()
+        }
     }
     
     @objc private func loadQuestions() {
@@ -58,6 +72,7 @@ class RoomViewController: UIViewController {
                     if index == room.roomQuestions.count - 1 {
                         self.questions.sort { $0.date > $1.date }
                         self.tableView.reloadData()
+                        self.refreshControl.endRefreshing()
                     }
                 }
             }
