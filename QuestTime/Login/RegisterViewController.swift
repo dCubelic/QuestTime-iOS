@@ -71,13 +71,49 @@ class RegisterViewController: UIViewController {
     }
 
     @IBAction func registerAction(_ sender: Any) {
-        guard let email = emailTextField.text, let password = passwordTextField.text, password == repeatPasswordTextField.text, let displayName = displayNameTextField.text else { return }
+        guard let email = emailTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text else { return }
         
         Sounds.shared.play(sound: .buttonClick)
         
+        if emailTextField.text?.isEmpty == true {
+            emailTextField.shake()
+        }
+        
+        if(displayNameTextField.text?.isEmpty == true) {
+            displayNameTextField.shake()
+        }
+        
+        if(passwordTextField.text?.isEmpty == true) {
+            passwordTextField.shake()
+        }
+        
+        if(repeatPasswordTextField.text?.isEmpty == true) {
+            repeatPasswordTextField.shake()
+        }
+        
+        if password != repeatPasswordTextField.text {
+            repeatPasswordTextField.shake()
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            
+            if error != nil {
+                if let errCode = AuthErrorCode(rawValue: error!._code) {
+                    switch errCode {
+                    case .invalidEmail, .emailAlreadyInUse, .missingEmail:
+                        self.emailTextField.shake()
+                    case .weakPassword:
+                        self.passwordTextField.shake()
+                    default:
+                        break
+                    }
+                }
+            }
+            
+            
             if let regUser = user, error == nil {
-                
                 self.usersRef.child(regUser.uid).setValue(["username": displayName, "email": email])
                 
                 Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -86,6 +122,8 @@ class RegisterViewController: UIViewController {
                     }
                 })
             }
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 }

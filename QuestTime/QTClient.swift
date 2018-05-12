@@ -2,6 +2,10 @@ import Foundation
 import FirebaseDatabase
 import FirebaseAuth
 
+public enum QTError {
+    case privateRoomNotFound
+}
+
 public class QTClient {
     
     public static var shared = QTClient()
@@ -78,7 +82,7 @@ public class QTClient {
         }
     }
     
-    public func joinPrivateRoom(userUid: String, privateKey: String, completion: @escaping () -> Void) {
+    public func joinPrivateRoom(userUid: String, privateKey: String, completion: @escaping (QTError?) -> Void) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         rooms.observeSingleEvent(of: .value) { (snapshot) in
@@ -93,11 +97,13 @@ public class QTClient {
                         self.users.child(userUid).child("rooms").child(room.key).setValue(true)
                         
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        completion()
+                        completion(nil)
                         
                         break
                     }
                 }
+                
+                completion(.privateRoomNotFound)
                 
             }
         }

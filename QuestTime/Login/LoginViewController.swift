@@ -69,10 +69,17 @@ class LoginViewController: UIViewController {
         
         Sounds.shared.play(sound: .buttonClick)
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            guard error == nil else {
+                self.emailTextField.shake()
+                self.passwordTextField.shake()
+                return
+            }
             if user != nil {
                 Window.main?.showMain()
             }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
     
@@ -86,6 +93,17 @@ class LoginViewController: UIViewController {
         let vc = UIStoryboard(name: Constants.Storyboard.login, bundle: nil).instantiateViewController(ofType: RegisterViewController.self)
         vc.emailText = emailTextField.text
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func shake(view: UIView) {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: view.center.x - 10, y: view.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: view.center.x + 10, y: view.center.y))
+        
+        view.layer.add(animation, forKey: "position")
     }
     
 }

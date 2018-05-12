@@ -25,6 +25,8 @@ class QuestionTableViewCell: UITableViewCell {
         
         cellView.layer.cornerRadius = 15
         cellView.layer.masksToBounds = true
+        
+        unansweredView.backgroundColor = .qtRed
     }
     
     func showUnansweredView() {

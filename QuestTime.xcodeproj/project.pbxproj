@@ -16,6 +16,7 @@
 		B43384662077A408004272DC /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384652077A408004272DC /* QuestionViewController.swift */; };
 		B43384682077B09F004272DC /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384672077B09F004272DC /* QuestionDetailViewController.swift */; };
 		B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43ABAD2207BAD2100D7B5F8 /* Person.swift */; };
+		B43AFCB120A6D4C30062C0B4 /* UIView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */; };
 		B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD96206F899400FC6662 /* RoomViewController.swift */; };
 		B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */; };
 		B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */; };
@@ -65,6 +66,7 @@
 		B43384652077A408004272DC /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		B43384672077B09F004272DC /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
 		B43ABAD2207BAD2100D7B5F8 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+QT.swift"; sourceTree = "<group>"; };
 		B443AD96206F899400FC6662 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */,
 				B4E05B77207E45D40016A28B /* String+QT.swift */,
 				B46EAC982080B76500745842 /* UIColor+QT.swift */,
+				B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */,
 			);
 			path = "Swift Extensions";
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */,
 				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
 				B4F0FA3920A5E575005E4E79 /* Sounds.swift in Sources */,
+				B43AFCB120A6D4C30062C0B4 /* UIView+QT.swift in Sources */,
 				B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */,
 				B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */,
 				B4A4D77920A3365C00D51FBC /* JoinPrivateRoomViewController.swift in Sources */,

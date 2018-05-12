@@ -39,6 +39,8 @@ class RoomTableViewCell: UITableViewCell {
 //        shadowView.layer.shadowColor = UIColor.black.cgColor
 //        shadowView.layer.shadowOpacity = 0.23
 //        shadowView.layer.shadowRadius = 4
+        
+        unansweredView.backgroundColor = .qtRed
 
         hideUnansweredView()
     }
