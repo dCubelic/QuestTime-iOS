@@ -27,7 +27,7 @@ class RoomsViewController: UIViewController {
         loadUserRooms()
     }
     
-    private func loadUserRooms() {
+    @objc private func loadUserRooms() {
         guard let userUid = Auth.auth().currentUser?.uid else { return }
         
         QTClient.shared.loadRoomsForUser(with: userUid) { (rooms) in

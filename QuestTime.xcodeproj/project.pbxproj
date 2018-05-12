@@ -17,6 +17,7 @@
 		B43384682077B09F004272DC /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384672077B09F004272DC /* QuestionDetailViewController.swift */; };
 		B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43ABAD2207BAD2100D7B5F8 /* Person.swift */; };
 		B43AFCB120A6D4C30062C0B4 /* UIView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */; };
+		B43AFCB520A75E630062C0B4 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = B43AFCB420A75E5E0062C0B4 /* notification.caf */; };
 		B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD96206F899400FC6662 /* RoomViewController.swift */; };
 		B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */; };
 		B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */; };
@@ -67,6 +68,7 @@
 		B43384672077B09F004272DC /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
 		B43ABAD2207BAD2100D7B5F8 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+QT.swift"; sourceTree = "<group>"; };
+		B43AFCB420A75E5E0062C0B4 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		B443AD96206F899400FC6662 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		B4B51EFA204C29A100414BB1 = {
 			isa = PBXGroup;
 			children = (
+				B43AFCB420A75E5E0062C0B4 /* notification.caf */,
 				B4B51F05204C29A100414BB1 /* QuestTime */,
 				B4B51F04204C29A100414BB1 /* Products */,
 				3A93B633319EFE011E7D330B /* Pods */,
@@ -356,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43AFCB520A75E630062C0B4 /* notification.caf in Resources */,
 				B4D662CD20A4904300A9170B /* SearchRoomTableViewCell.xib in Resources */,
 				B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */,
 				B4CD06072071201E008A9F6C /* PersonTableViewCell.xib in Resources */,
