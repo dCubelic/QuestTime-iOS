@@ -102,8 +102,8 @@ public class QTClient {
                     }
                 }
                 
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 completion(.privateRoomNotFound)
-                
             }
         }
     }
