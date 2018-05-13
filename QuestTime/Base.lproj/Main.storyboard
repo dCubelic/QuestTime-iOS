@@ -22,8 +22,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEg-Zn-hGB">
                                 <rect key="frame" x="0.0" y="64" width="320" height="154"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-HH-Mxc">
-                                        <rect key="frame" x="125.5" y="0.0" width="70.5" height="119.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-HH-Mxc">
+                                        <rect key="frame" x="100.5" y="0.0" width="119.5" height="119.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="2qz-HH-Mxc" secondAttribute="height" multiplier="1:1" id="2K9-iM-wbP"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="100"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -49,8 +52,8 @@
                                     <constraint firstItem="2qz-HH-Mxc" firstAttribute="centerX" secondItem="PEg-Zn-hGB" secondAttribute="centerX" id="JJt-Vi-7YG"/>
                                     <constraint firstItem="xEK-63-Uou" firstAttribute="top" secondItem="2qz-HH-Mxc" secondAttribute="bottom" id="LuF-MJ-EeI"/>
                                     <constraint firstItem="gSD-XS-6Lp" firstAttribute="top" secondItem="xEK-63-Uou" secondAttribute="bottom" constant="10" id="ah0-Ne-mx9"/>
-                                    <constraint firstItem="2qz-HH-Mxc" firstAttribute="top" secondItem="PEg-Zn-hGB" secondAttribute="top" id="gaI-vi-tNB"/>
                                     <constraint firstItem="gSD-XS-6Lp" firstAttribute="centerX" secondItem="PEg-Zn-hGB" secondAttribute="centerX" id="o2r-fB-nCc"/>
+                                    <constraint firstItem="2qz-HH-Mxc" firstAttribute="top" secondItem="PEg-Zn-hGB" secondAttribute="top" id="o8M-1K-WPP"/>
                                     <constraint firstItem="xEK-63-Uou" firstAttribute="centerX" secondItem="PEg-Zn-hGB" secondAttribute="centerX" id="vqo-nt-sEl"/>
                                 </constraints>
                             </view>
@@ -63,7 +66,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not part of any rooms yet. Press + to join or create a room." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="843-Es-Dbx">
-                                <rect key="frame" x="20" y="325" width="280" height="41"/>
+                                <rect key="frame" x="20" y="325.5" width="280" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
