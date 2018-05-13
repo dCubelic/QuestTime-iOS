@@ -71,6 +71,10 @@ class Window: UIWindow {
         Window.main = self
     }
     
+    public func getContainerChild() -> UIViewController? {
+        return container.child
+    }
+    
     public func showLogin(loginMessage: String? = nil) {
         if container.child is LoginViewController {
             return

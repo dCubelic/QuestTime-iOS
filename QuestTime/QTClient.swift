@@ -207,6 +207,8 @@ public class QTClient {
             ref.child("members").child(userUid).setValue(Date().timeIntervalSince1970)
             self.users.child(userUid).child("rooms").child(ref.key).setValue(true)
             
+            Messaging.messaging().subscribe(toTopic: ref.key)
+            
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let room = Room(with: snapshot) {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
