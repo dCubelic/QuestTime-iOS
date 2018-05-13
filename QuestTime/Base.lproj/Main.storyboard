@@ -134,19 +134,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9J6-j5-8W7">
                                 <rect key="frame" x="103.5" y="64" width="113" height="19.5"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="DBH-44-u8y">
+                                        <rect key="frame" x="-0.5" y="0.0" width="15" height="19.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="DBH-44-u8y" secondAttribute="height" multiplier="10:13" id="8XK-TQ-i9d"/>
+                                            <constraint firstAttribute="width" constant="15" id="A1g-Oh-pfD"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JFAS89FU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBK-iD-ZpI">
                                         <rect key="frame" x="23" y="0.0" width="90" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="DBH-44-u8y">
-                                        <rect key="frame" x="0.0" y="0.0" width="15" height="19.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="DBH-44-u8y" secondAttribute="height" multiplier="10:13" id="8XK-TQ-i9d"/>
-                                            <constraint firstAttribute="width" constant="15" id="A1g-Oh-pfD"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -214,6 +214,11 @@
                                 <color key="value" red="0.2666666667" green="0.63921568630000003" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="P46-zV-XBZ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="RoomName" id="Sdd-Mx-vGk">
                         <barButtonItem key="backBarButtonItem" title=" " id="CbF-XY-Ncu"/>
@@ -871,7 +876,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -42,7 +42,19 @@ class RoomViewController: UIViewController {
         privateKeyLabel.text = room?.privateKey
         title = room?.name
         
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction))
+        privateKeyLabel.isUserInteractionEnabled = true
+        privateKeyLabel.addGestureRecognizer(longPressGesture)
+        
         loadQuestions()
+    }
+    
+    @objc func longPressAction() {
+        UIPasteboard.general.string = room?.privateKey
+        
+        let popup = UIAlertController(title: "Info", message: "Private key copied to clipboard.", preferredStyle: .alert)
+        popup.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(popup, animated: true, completion: nil)
     }
     
     @objc func refresh() {
@@ -83,21 +95,6 @@ class RoomViewController: UIViewController {
         }
         
     }
-    
-//    private func loadQuestions() {
-//        guard let room = room else { return }
-//
-//        for questionID in room.questionIDs {
-//            questions = []
-//
-//            Database.database().reference(withPath: "questions/\(questionID)").observe(.value) { (snapshot) in
-//                if let question = Question(with: snapshot) {
-//                    self.questions.append(question)
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
-//    }
 
     @IBAction func peopleAction(_ sender: Any) {
         Sounds.shared.play(sound: .buttonClick)
@@ -159,7 +156,7 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension RoomViewController: QuestionViewControllerDelegate {
     func questionViewControllerAnsweredQuestion() {
-        loadQuestions()
+        refresh()
     }
     
     func questionViewControllerWillDismiss() {

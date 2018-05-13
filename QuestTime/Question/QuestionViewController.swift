@@ -82,10 +82,13 @@ class QuestionViewController: UIViewController {
         transition.subtype = kCATransitionFromRight
         
         QTClient.shared.setAnswer(for: room, question: question, userUid: userUid) {
+            self.delegate?.questionViewControllerAnsweredQuestion()
+            
             self.navigationController?.view.layer.add(transition, forKey: kCATransition)
             self.navigationController?.pushViewController(vc, animated: false)
-            self.delegate?.questionViewControllerAnsweredQuestion()
         }
+
+        
         
     }
 
