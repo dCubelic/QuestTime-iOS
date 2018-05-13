@@ -73,6 +73,9 @@ class RoomsViewController: UIViewController {
         Sounds.shared.play(sound: .buttonClick)
         
         let settingsVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: SettingsViewController.self)
+        
+        settingsVC.rooms = self.rooms
+        
         settingsVC.modalPresentationStyle = .overCurrentContext
         present(settingsVC, animated: false, completion: nil)
     }

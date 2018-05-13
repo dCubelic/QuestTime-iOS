@@ -15,5 +15,6 @@ struct Constants {
     
     struct UserDefaults {
         static let sound = "sound"
+        static let notifications = "notifications"
     }
 }
