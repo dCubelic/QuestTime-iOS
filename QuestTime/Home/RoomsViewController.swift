@@ -11,15 +11,20 @@ class RoomsViewController: UIViewController {
     @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var emptyTableViewLabel: UILabel!
+    @IBOutlet weak var headerViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     var rooms: [Room] = []
     
     var audioPlayer: AVAudioPlayer?
+    var test: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
+        
+        questionsLeftTodayNumberLabel.adjustsFontSizeToFitWidth = true
         
         underlineView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
@@ -132,6 +137,25 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [action])
     }
 
+}
+
+extension RoomsViewController: UIScrollViewDelegate {
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        test = test + scrollView.contentOffset.y
+//        
+//        if scrollView.contentOffset.y > 0 && headerView.frame.height > 100 {
+//            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100 - test/5, weight: .black)
+//            headerViewHeightConstraint.constant = 154 - scrollView.contentOffset.y
+//            scrollView.setContentOffset(CGPoint.zero, animated: false)
+//        }
+//        
+//        if scrollView.contentOffset.y < 0 && headerView.frame.height < 154 {
+//            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100 + scrollView.contentOffset.y/5, weight: .black)
+//            headerViewHeightConstraint.constant = 154 + scrollView.contentOffset.y
+//            scrollView.setContentOffset(CGPoint.zero, animated: false)
+//        }
+//    }
 }
 
 extension RoomsViewController: AddRoomPopupViewControllerDelegate {

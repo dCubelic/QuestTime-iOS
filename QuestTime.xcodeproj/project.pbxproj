@@ -81,7 +81,6 @@
 		B467E4022080F92C00729729 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B46EAC982080B76500745842 /* UIColor+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+QT.swift"; sourceTree = "<group>"; };
 		B478162020A072A000BF88A7 /* QTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTClient.swift; sourceTree = "<group>"; };
-		B4859D2120A820F20066FC68 /* NSLayoutConstraint+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+QT.swift"; sourceTree = "<group>"; };
 		B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPrivateRoomViewController.swift; sourceTree = "<group>"; };
 		B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B4AC13F2207BA93900DF8A92 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -229,7 +228,6 @@
 				B4E05B77207E45D40016A28B /* String+QT.swift */,
 				B46EAC982080B76500745842 /* UIColor+QT.swift */,
 				B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */,
-				B4859D2120A820F20066FC68 /* NSLayoutConstraint+QT.swift */,
 			);
 			path = "Swift Extensions";
 			sourceTree = "<group>";

@@ -22,16 +22,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEg-Zn-hGB">
                                 <rect key="frame" x="0.0" y="64" width="320" height="154"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-HH-Mxc">
-                                        <rect key="frame" x="100.5" y="0.0" width="119.5" height="119.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="2qz-HH-Mxc" secondAttribute="height" multiplier="1:1" id="2K9-iM-wbP"/>
-                                        </constraints>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-HH-Mxc">
+                                        <rect key="frame" x="125" y="0.0" width="70.5" height="119.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="100"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUESTIONS LEFT TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEK-63-Uou">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUESTIONS LEFT TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEK-63-Uou">
                                         <rect key="frame" x="55.5" y="119.5" width="210" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +48,7 @@
                                     <constraint firstAttribute="bottom" secondItem="gSD-XS-6Lp" secondAttribute="bottom" id="JEg-ql-cc8"/>
                                     <constraint firstItem="2qz-HH-Mxc" firstAttribute="centerX" secondItem="PEg-Zn-hGB" secondAttribute="centerX" id="JJt-Vi-7YG"/>
                                     <constraint firstItem="xEK-63-Uou" firstAttribute="top" secondItem="2qz-HH-Mxc" secondAttribute="bottom" id="LuF-MJ-EeI"/>
+                                    <constraint firstAttribute="height" constant="154" id="aO2-vW-gVz"/>
                                     <constraint firstItem="gSD-XS-6Lp" firstAttribute="top" secondItem="xEK-63-Uou" secondAttribute="bottom" constant="10" id="ah0-Ne-mx9"/>
                                     <constraint firstItem="gSD-XS-6Lp" firstAttribute="centerX" secondItem="PEg-Zn-hGB" secondAttribute="centerX" id="o2r-fB-nCc"/>
                                     <constraint firstItem="2qz-HH-Mxc" firstAttribute="top" secondItem="PEg-Zn-hGB" secondAttribute="top" id="o8M-1K-WPP"/>
@@ -113,6 +111,8 @@
                     <connections>
                         <outlet property="emptyTableViewLabel" destination="843-Es-Dbx" id="Vfl-Bn-LJJ"/>
                         <outlet property="headerView" destination="PEg-Zn-hGB" id="4Ve-gk-SZ5"/>
+                        <outlet property="headerViewBottomConstraint" destination="JEg-ql-cc8" id="TRd-BY-9WR"/>
+                        <outlet property="headerViewHeightConstraint" destination="aO2-vW-gVz" id="Kkd-rJ-2EP"/>
                         <outlet property="questionsLeftTodayLabel" destination="xEK-63-Uou" id="npt-uT-XcB"/>
                         <outlet property="questionsLeftTodayNumberLabel" destination="2qz-HH-Mxc" id="VXJ-DG-rH4"/>
                         <outlet property="tableView" destination="3gP-wx-ych" id="6Dc-tm-0qV"/>
