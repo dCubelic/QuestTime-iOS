@@ -29,6 +29,14 @@ class QuestionTableViewCell: UITableViewCell {
         unansweredView.backgroundColor = .qtRed
     }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        if highlighted {
+            cellView.backgroundColor = UIColor(white: 220.0/255.0, alpha: 1)
+        } else {
+            cellView.backgroundColor = .white
+        }
+    }
+    
     func showUnansweredView() {
         unansweredView.isHidden = false
         pointsLabel.isHidden = true

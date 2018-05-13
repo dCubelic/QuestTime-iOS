@@ -35,7 +35,7 @@ class SearchRoomTableViewCell: UITableViewCell {
         difficultyView.layer.cornerRadius = 5
         difficultyView.layer.masksToBounds = true
         
-        joinButton.backgroundColor = .qtRed
+//        joinButton.backgroundColor = .qtRed
     }
     
     @IBAction func joinAction(_ sender: Any) {

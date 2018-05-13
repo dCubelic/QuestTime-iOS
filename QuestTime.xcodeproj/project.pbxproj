@@ -30,6 +30,7 @@
 		B467E4032080F92C00729729 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B467E4022080F92C00729729 /* GoogleService-Info.plist */; };
 		B46EAC992080B76500745842 /* UIColor+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46EAC982080B76500745842 /* UIColor+QT.swift */; };
 		B478162120A072A100BF88A7 /* QTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B478162020A072A000BF88A7 /* QTClient.swift */; };
+		B4859D2420A8DF8D0066FC68 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4859D2320A8DF8D0066FC68 /* ForgotPasswordViewController.swift */; };
 		B4A4D77920A3365C00D51FBC /* JoinPrivateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */; };
 		B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */; };
 		B4AC13F3207BA93900DF8A92 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC13F2207BA93900DF8A92 /* Room.swift */; };
@@ -81,6 +82,7 @@
 		B467E4022080F92C00729729 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B46EAC982080B76500745842 /* UIColor+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+QT.swift"; sourceTree = "<group>"; };
 		B478162020A072A000BF88A7 /* QTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTClient.swift; sourceTree = "<group>"; };
+		B4859D2320A8DF8D0066FC68 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPrivateRoomViewController.swift; sourceTree = "<group>"; };
 		B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B4AC13F2207BA93900DF8A92 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				B4D3A4712076D3F1008278B5 /* Login.storyboard */,
 				B4032F03205880E2007EFE96 /* LoginViewController.swift */,
 				B4656C1E205941120081BB6F /* RegisterViewController.swift */,
+				B4859D2320A8DF8D0066FC68 /* ForgotPasswordViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */,
 				B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */,
 				B4E05B78207E45D40016A28B /* String+QT.swift in Sources */,
+				B4859D2420A8DF8D0066FC68 /* ForgotPasswordViewController.swift in Sources */,
 				B4B1F3DE206B9C080040A4CD /* UITableView+QT.swift in Sources */,
 				B4D662C920A48F4300A9170B /* PublicSearchViewController.swift in Sources */,
 				B4656C232059428B0081BB6F /* Constants.swift in Sources */,

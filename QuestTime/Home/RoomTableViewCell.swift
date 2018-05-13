@@ -45,6 +45,14 @@ class RoomTableViewCell: UITableViewCell {
         hideUnansweredView()
     }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        if highlighted {
+            cellView.backgroundColor = UIColor(white: 220.0/255.0, alpha: 1)
+        } else {
+            cellView.backgroundColor = .white
+        }
+    }
+    
     func showUnansweredView() {
         NSLayoutConstraint.deactivate([zeroWidthConstraint])
         NSLayoutConstraint.activate([unansweredView.widthAnchor.constraint(equalToConstant: 20)])
