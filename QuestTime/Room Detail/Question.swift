@@ -36,10 +36,10 @@ public class Question {
         
         self.uid = snapshot.key
         self.question = question.decodeHtml()
-        self.correctAnswer = correctAnswer
-        self.incorrectAnswers = incorrectAnswers
+        self.correctAnswer = correctAnswer.decodeHtml()
+        self.incorrectAnswers = incorrectAnswers.map( { $0.decodeHtml() } )
         
-        self.answers = incorrectAnswers
+        self.answers = self.incorrectAnswers
         self.answers.append(correctAnswer)
         self.answers.sort { $0.hash < $1.hash }
     }
