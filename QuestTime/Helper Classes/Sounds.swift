@@ -22,6 +22,7 @@ class Sounds {
         guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: "mp3") else { return }
         
         do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
             try AVAudioSession.sharedInstance().setActive(true)
             
             audioPlayer = try AVAudioPlayer(contentsOf: url)

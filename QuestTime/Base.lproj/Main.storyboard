@@ -22,13 +22,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEg-Zn-hGB">
                                 <rect key="frame" x="0.0" y="64" width="320" height="154"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-HH-Mxc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-HH-Mxc">
                                         <rect key="frame" x="125" y="0.0" width="70.5" height="119.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="100"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUESTIONS LEFT TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEK-63-Uou">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QUESTIONS LEFT TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEK-63-Uou">
                                         <rect key="frame" x="55.5" y="119.5" width="210" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,9 +76,9 @@
                             <constraint firstItem="843-Es-Dbx" firstAttribute="leading" secondItem="kLs-Od-EO6" secondAttribute="leading" constant="20" id="L4o-kH-LQb"/>
                             <constraint firstItem="qUS-bw-0iR" firstAttribute="trailing" secondItem="PEg-Zn-hGB" secondAttribute="trailing" id="NXB-kY-unz"/>
                             <constraint firstItem="PEg-Zn-hGB" firstAttribute="leading" secondItem="qUS-bw-0iR" secondAttribute="leading" id="Pnb-28-aXZ"/>
+                            <constraint firstAttribute="bottom" secondItem="3gP-wx-ych" secondAttribute="bottom" id="RbO-nm-qyy"/>
                             <constraint firstItem="qUS-bw-0iR" firstAttribute="trailing" secondItem="3gP-wx-ych" secondAttribute="trailing" id="V7f-zL-pSY"/>
                             <constraint firstItem="PEg-Zn-hGB" firstAttribute="top" secondItem="qUS-bw-0iR" secondAttribute="top" id="cdM-xT-MmQ"/>
-                            <constraint firstItem="qUS-bw-0iR" firstAttribute="bottom" secondItem="3gP-wx-ych" secondAttribute="bottom" id="e7d-8u-EQ2"/>
                             <constraint firstItem="843-Es-Dbx" firstAttribute="centerX" secondItem="3gP-wx-ych" secondAttribute="centerX" id="g8C-yQ-9IF"/>
                             <constraint firstItem="843-Es-Dbx" firstAttribute="centerY" secondItem="3gP-wx-ych" secondAttribute="centerY" constant="-50" id="lGS-Xt-Ff3"/>
                             <constraint firstItem="3gP-wx-ych" firstAttribute="top" secondItem="PEg-Zn-hGB" secondAttribute="bottom" constant="5" id="oIF-vr-xFR"/>

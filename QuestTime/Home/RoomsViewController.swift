@@ -4,7 +4,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class RoomsViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionsLeftTodayNumberLabel: UILabel!
     @IBOutlet weak var questionsLeftTodayLabel: UILabel!
@@ -64,7 +64,7 @@ class RoomsViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
     }
-
+    
     @IBAction func addRoomAction(_ sender: Any) {
         Sounds.shared.play(sound: .buttonClick)
         
@@ -116,46 +116,62 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let action = UIContextualAction(style: .destructive, title: "Leave") { (_, _, completionHandler) in
-            
-            let room = self.rooms[indexPath.row]
-            
-            let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'? All your progress will be lost.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
-                guard let roomUid = room.uid else { return }
-                QTClient.shared.leaveRoom(roomUid: roomUid, completion: { } )
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            
-            self.present(alert, animated: true, completion: nil)
-            completionHandler(false)
-        }
-        action.backgroundColor = .qtRed
-        
-        return UISwipeActionsConfiguration(actions: [action])
-    }
-
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        
+//        let action = UIContextualAction(style: .destructive, title: "Leave") { (_, _, completionHandler) in
+//            
+//            let room = self.rooms[indexPath.row]
+//            
+//            let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'? All your progress will be lost.", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+//                guard let roomUid = room.uid else { return }
+//                QTClient.shared.leaveRoom(roomUid: roomUid, completion: { } )
+//            }))
+//            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+//            
+//            self.present(alert, animated: true, completion: nil)
+//            completionHandler(false)
+//        }
+//        action.backgroundColor = .qtRed
+//        
+//        return UISwipeActionsConfiguration(actions: [action])
+//    }
+    
 }
 
 extension RoomsViewController: UIScrollViewDelegate {
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        test = test + scrollView.contentOffset.y
-//        
-//        if scrollView.contentOffset.y > 0 && headerView.frame.height > 100 {
-//            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100 - test/5, weight: .black)
-//            headerViewHeightConstraint.constant = 154 - scrollView.contentOffset.y
-//            scrollView.setContentOffset(CGPoint.zero, animated: false)
-//        }
-//        
-//        if scrollView.contentOffset.y < 0 && headerView.frame.height < 154 {
-//            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100 + scrollView.contentOffset.y/5, weight: .black)
-//            headerViewHeightConstraint.constant = 154 + scrollView.contentOffset.y
-//            scrollView.setContentOffset(CGPoint.zero, animated: false)
-//        }
-//    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        
+        if y > 0 {
+            headerViewHeightConstraint.constant = max(80, headerView.frame.height - y)
+            
+            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: max(40, 0.810810*headerView.frame.height - 24.864864), weight: .black)
+            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: max(12, 0.0675675*headerView.frame.height + 6.594594) , weight: .black)
+            
+            if headerView.frame.height > 80 {
+
+                var scrollBounds = scrollView.bounds
+                scrollBounds.origin = CGPoint(x: 0, y: 0)
+                scrollView.bounds = scrollBounds
+                
+            }
+        } else {
+            headerViewHeightConstraint.constant = min(154, headerView.frame.height - y)
+            
+            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: min(100, 0.675675*headerView.frame.height - 4.054054), weight: .black)
+            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: min(17, 0.0675675*headerView.frame.height + 6.594594) , weight: .black)
+            
+            if headerView.frame.height < 154 {
+                var scrollBounds = scrollView.bounds
+                scrollBounds.origin = CGPoint(x: 0, y: 0)
+                scrollView.bounds = scrollBounds
+            }
+        }
+        
+    }
+
 }
 
 extension RoomsViewController: AddRoomPopupViewControllerDelegate {
