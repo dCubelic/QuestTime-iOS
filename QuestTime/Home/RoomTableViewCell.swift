@@ -62,9 +62,7 @@ class RoomTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([zeroWidthConstraint])
     }
     
-    func setup(with room: Room) {
-        guard let userUid = Auth.auth().currentUser?.uid else { return }
-        
+    func setup(with room: Room) {        
         roomNameLabel.text = room.name
         if let uid = room.uid {
             underlineView.backgroundColor = UIColor.from(hashString: uid)
