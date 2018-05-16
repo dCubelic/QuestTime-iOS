@@ -49,7 +49,6 @@ class SettingsViewController: UIViewController {
     @IBAction func notificationsSwitchChanged(_ sender: Any) {
         guard let notificationsOn = UserDefaults.standard.value(forKey: Constants.UserDefaults.notifications) as? Bool else { return }
         
-        
         for room in rooms {
             if let roomUid = room.uid {
                 if notificationsOn {

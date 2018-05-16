@@ -2,6 +2,7 @@ import UIKit
 import AVFoundation
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseMessaging
 
 class RoomsViewController: UIViewController {
     
@@ -32,6 +33,15 @@ class RoomsViewController: UIViewController {
         loadUserRooms()
     }
     
+    private func registerForTopics() {
+        guard let notificationsOn = UserDefaults.standard.value(forKey: Constants.UserDefaults.notifications) as? Bool else {
+            rooms.forEach { if let uid = $0.uid { Messaging.messaging().subscribe(toTopic: uid ) } }
+            return
+        }
+        
+        rooms.forEach { if let uid = $0.uid, notificationsOn { Messaging.messaging().subscribe(toTopic: uid ) } }
+    }
+    
     @objc private func loadUserRooms() {
         guard let userUid = Auth.auth().currentUser?.uid else { return }
         
@@ -47,6 +57,8 @@ class RoomsViewController: UIViewController {
                 return room.name.lowercased() < room2.name.lowercased()
             })
             self.tableView.reloadData()
+            
+            self.registerForTopics()
             
             self.questionsLeftTodayNumberLabel.text = String(self.calculateNumberOfQuestionsLeftToday())
         }

@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         if let roomId = userInfo["roomId"] as? String {
             QTClient.shared.loadRoom(with: roomId) { (room) in
                 if let vc = self.window?.getContainerChild() as? UINavigationController {
+                    vc.popToRootViewController(animated: false)
                     let pushVc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: RoomViewController.self)
                     pushVc.room = room
                     

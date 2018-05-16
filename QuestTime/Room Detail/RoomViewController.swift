@@ -28,7 +28,7 @@ class RoomViewController: UIViewController {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         refreshControl.tintColor = .white
-        tableView.addSubview(refreshControl)
+//        tableView.addSubview(refreshControl)
         
         tableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionTableViewCell")
         
@@ -90,6 +90,7 @@ class RoomViewController: UIViewController {
             }
             
             if room.roomQuestions.count == 0 {
+                self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
         }
