@@ -207,6 +207,14 @@ public class QTClient {
             ref.child("members").child(userUid).setValue(Date().timeIntervalSince1970)
             self.users.child(userUid).child("rooms").child(ref.key).setValue(true)
             
+            if let midnight = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: Date()) {
+                if Date() < midnight.addingTimeInterval(-60*60*2) { //2 hours before midnight
+                    self.randomQuestionJson(for: room, completion: { (json) in
+                        ref.child("questions").setValue(json)
+                    })
+                }
+            }
+
             Messaging.messaging().subscribe(toTopic: ref.key)
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -215,6 +223,37 @@ public class QTClient {
                     completion(room)
                 }
             })
+        }
+    }
+    
+    private func randomQuestionJson(for room: Room, completion: @escaping ([String : Any]) -> Void) {
+        guard let randomCategory = room.categories.randomElement() else { return }
+        
+        var roomUids: [String] = []
+        
+        questions.child(randomCategory.rawValue).observeSingleEvent(of: .value) { (questionsSnapshot) in
+            if let questions = questionsSnapshot.value as? [String: Any] {
+                for question in questions {
+                    if let questionDict = question.value as? [String: Any] {
+                        if questionDict["difficulty"] as? String == room.difficulty.rawValue {
+                            roomUids.append(question.key)
+                        }
+                    }
+                }
+            }
+            
+            guard let range = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: Date())?.timeIntervalSinceNow, let randomUid = roomUids.randomElement() else { return }
+            
+            let randomTime = Double(arc4random_uniform(UInt32(range))) + Date().timeIntervalSince1970
+            
+            let json = [
+                randomUid: [
+                    "category": randomCategory.rawValue,
+                    "timestamp": randomTime
+                ]
+            ]
+            
+            completion(json)
         }
     }
     
@@ -232,5 +271,11 @@ extension Array where Element: Equatable {
             }
         }
         return false
+    }
+    
+    func randomElement() -> Element? {
+        if isEmpty { return nil }
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        return self[index]
     }
 }

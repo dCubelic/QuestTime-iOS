@@ -145,18 +145,6 @@ class CreateRoomViewController: UIViewController {
             room = Room(name: roomName, type: selectedRoomType, privateKey: privateKey, difficulty: selectedDifficulty, categories: selectedCategories)
         }
         
-//        Database.database().reference(withPath: "rooms").childByAutoId().setValue(room.toJson()) { (error, ref) in
-//            guard let user = Auth.auth().currentUser else { return }
-//
-//            ref.child("members").child(user.uid).setValue(true)
-//
-//            Database.database().reference(withPath: "users/\(user.uid)/rooms").child(ref.key).setValue(true)
-//
-//            self.dismiss(animated: true, completion: {
-//                self.delegate?.didCreate(room: room)
-//            })
-//        }
-        
         QTClient.shared.createRoom(room: room) { (newRoom) in
             self.dismiss(animated: true, completion: {
                 self.delegate?.didCreate(room: newRoom)
