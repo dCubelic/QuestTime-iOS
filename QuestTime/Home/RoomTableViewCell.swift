@@ -71,14 +71,8 @@ class RoomTableViewCell: UITableViewCell {
         }
         difficultyView.backgroundColor = difficultyColor(for: room.difficulty)
         peopleLabel.text = "\(room.peopleUIDs.count)"
-//        peopleLabel.text = "\(room.peopleUIDs.count) \(room.peopleUIDs.count == 1 ? "person" : "people")"
         setupCategoryImageViews(for: room.categories)
-        if room.roomQuestions.contains(where: { (roomQuestion) -> Bool in
-            !roomQuestion.answers.contains(where: { (key, value) -> Bool in
-                return key == userUid
-            }) && (roomQuestion.timestamp > room.personTimeIntervalJoined[userUid]!)
-            && (roomQuestion.timestamp < Date())
-        }) {
+        if room.containsUnansweredQuestion() {
             showUnansweredView()
         } else {
             hideUnansweredView()

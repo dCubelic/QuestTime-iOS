@@ -37,17 +37,18 @@ class RoomsViewController: UIViewController {
         
         QTClient.shared.loadRoomsForUser(with: userUid) { (rooms) in
             self.rooms = rooms
-            //TODO: - smislit bolji komparator
-            self.rooms.sort { $0.name.lowercased() < $1.name.lowercased() }
+            self.rooms.sort(by: { (room, room2) -> Bool in
+                if room.containsUnansweredQuestion() && !room2.containsUnansweredQuestion() {
+                    return true
+                }
+                if !room.containsUnansweredQuestion() && room2.containsUnansweredQuestion() {
+                    return false
+                }
+                return room.name.lowercased() < room2.name.lowercased()
+            })
             self.tableView.reloadData()
             
-            //Broj neodg. pitanja ?
-            self.questionsLeftTodayNumberLabel.text = String(rooms.filter({ (room) -> Bool in
-                room.peopleUIDs.contains(userUid) &&
-                    !(room.roomQuestions.sorted(by: { $0.timestamp > $1.timestamp }).first?.answers.contains(where: { (key, _) -> Bool in
-                        key == userUid
-                    }) ?? false)
-            }).count)
+            self.questionsLeftTodayNumberLabel.text = String(self.calculateNumberOfQuestionsLeftToday())
         }
         
     }
@@ -63,6 +64,13 @@ class RoomsViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
+    }
+    
+    private func calculateNumberOfQuestionsLeftToday() -> Int {
+        var number = 0
+        
+        rooms.forEach { number += $0.roomQuestions.filter { $0.timestamp > Date() }.count }
+        return number
     }
     
     @IBAction func addRoomAction(_ sender: Any) {

@@ -1,5 +1,6 @@
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 enum Difficulty: String {
     case easy, medium, hard
@@ -87,8 +88,15 @@ public class Room {
         }
     }
     
-    func add(personUID: String) {
-        peopleUIDs.append(personUID)
+    func containsUnansweredQuestion() -> Bool {
+        guard let userUid = Auth.auth().currentUser?.uid else { return false }
+        
+        return roomQuestions.contains(where: { (roomQuestion) -> Bool in
+            !roomQuestion.answers.contains(where: { (key, value) -> Bool in
+                return key == userUid
+            }) && (roomQuestion.timestamp > personTimeIntervalJoined[userUid]!)
+                && (roomQuestion.timestamp < Date())
+        })
     }
     
     func toJson() -> [String: Any] {
