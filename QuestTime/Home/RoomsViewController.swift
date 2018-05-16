@@ -116,8 +116,8 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction(style: .default, title: "Leave") { (_, _) in
             let room = self.rooms[indexPath.row]
             
             let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'? All your progress will be lost.", preferredStyle: .alert)
@@ -129,28 +129,10 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
             
             self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    @available(iOS 11.0, *)
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-
-        let action = UIContextualAction(style: .destructive, title: "Leave") { (_, _, completionHandler) in
-
-            let room = self.rooms[indexPath.row]
-
-            let alert = UIAlertController(title: "Leave room?", message: "Are you sure you want to leave '\(room.name)'? All your progress will be lost.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
-                guard let roomUid = room.uid else { return }
-                QTClient.shared.leaveRoom(roomUid: roomUid, completion: { } )
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-
-            self.present(alert, animated: true, completion: nil)
-            completionHandler(false)
-        }
+        
         action.backgroundColor = .qtRed
-
-        return UISwipeActionsConfiguration(actions: [action])
+        
+        return [action]
     }
     
 }
