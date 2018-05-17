@@ -19,12 +19,6 @@ public class Question {
         return df
     }()
     
-    init(question: String, incorrectAnswers: [String], correctAnswer: String) {
-        self.question = question
-        self.incorrectAnswers = incorrectAnswers
-        self.correctAnswer = correctAnswer
-    }
-    
     init?(with snapshot: DataSnapshot) {
         guard let value = snapshot.value as? [String: Any?],
             let correctAnswer = value["correct_answer"] as? String,
@@ -40,7 +34,7 @@ public class Question {
         self.incorrectAnswers = incorrectAnswers.map( { $0.decodeHtml() } )
         
         self.answers = self.incorrectAnswers
-        self.answers.append(correctAnswer)
+        self.answers.append(self.correctAnswer)
         self.answers.sort { $0.hash < $1.hash }
     }
     
