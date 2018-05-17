@@ -11,21 +11,19 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
-    @IBOutlet weak var firstAnswerButton: UIButton!
-    @IBOutlet weak var secondAnswerButton: UIButton!
-    @IBOutlet weak var thirdAnswerButton: UIButton!
-    @IBOutlet weak var fourthAnswerButton: UIButton!
+    @IBOutlet weak var firstAnswerLabel: UILabel!
+    @IBOutlet weak var secondAnswerLabel: UILabel!
+    @IBOutlet weak var thirdAnswerLabel: UILabel!
+    @IBOutlet weak var fourthAnswerLabel: UILabel!
     
     weak var delegate: QuestionViewControllerDelegate?
-    var answerButtons: [UIButton] = []
-//    var answers: [String] = []
+    var answerLabels: [UILabel] = []
     
     var room: Room?
     var question: Question?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         questionView.addGestureRecognizer(UITapGestureRecognizer(target: nil, action: nil))
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAction)))
         
@@ -35,17 +33,36 @@ class QuestionViewController: UIViewController {
         underlineView.layer.cornerRadius = 2
         underlineView.layer.masksToBounds = true
         
-        answerButtons = [firstAnswerButton, secondAnswerButton, thirdAnswerButton, fourthAnswerButton]
+        answerLabels = [firstAnswerLabel, secondAnswerLabel, thirdAnswerLabel, fourthAnswerLabel]
         setupLabels()
-        answerButtons.forEach { (button) in
-            button.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        for label in answerLabels {
+            label.layer.cornerRadius = 15
+            label.layer.masksToBounds = true
+            label.isUserInteractionEnabled = true
+            label.tag = 0
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(answerAction(_:)))
+            label.addGestureRecognizer(tapGesture)
+            
         }
         
-        for button in answerButtons {
-            button.layer.cornerRadius = 15
-            button.layer.masksToBounds = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            if let label = touch.view as? UILabel {
+                label.backgroundColor = UIColor(white: 220.0/255.0, alpha: 1.0)
+            }
         }
-
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            if let label = touch.view as? UILabel {
+                label.backgroundColor = .white
+            }
+        }
     }
     
     private func setupLabels() {
@@ -53,10 +70,10 @@ class QuestionViewController: UIViewController {
         
         questionLabel.text = question.question
         
-        answerButtons[0].setTitle(question.answers[0], for: .normal)
-        answerButtons[1].setTitle(question.answers[1], for: .normal)
-        answerButtons[2].setTitle(question.answers[2], for: .normal)
-        answerButtons[3].setTitle(question.answers[3], for: .normal)
+        answerLabels[0].text = question.answers[0]
+        answerLabels[1].text = question.answers[1]
+        answerLabels[2].text = question.answers[2]
+        answerLabels[3].text = question.answers[3]
     }
     
     @objc func tapAction() {
@@ -64,12 +81,12 @@ class QuestionViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func answerAction(_ sender: UIButton) {
-        guard let room = room, let question = question, let userUid = Auth.auth().currentUser?.uid else { return }
+    @objc func answerAction(_ sender: UITapGestureRecognizer) {
+        guard let label = sender.view as? UILabel, let room = room, let question = question, let userUid = Auth.auth().currentUser?.uid else { return }
         
         Sounds.shared.play(sound: .buttonClick)
         
-        question.myAnswer = sender.title(for: .normal)
+        question.myAnswer = label.text
         
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
         
@@ -87,9 +104,6 @@ class QuestionViewController: UIViewController {
             self.navigationController?.view.layer.add(transition, forKey: kCATransition)
             self.navigationController?.pushViewController(vc, animated: false)
         }
-
-        
-        
     }
-
+    
 }

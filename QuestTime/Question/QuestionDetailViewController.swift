@@ -6,21 +6,20 @@ class QuestionDetailViewController: UIViewController {
     @IBOutlet weak var correctLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var firstAnswerButton: UIButton!
-    @IBOutlet weak var secondAnswerButton: UIButton!
-    @IBOutlet weak var thirdAnswerButton: UIButton!
-    @IBOutlet weak var fourthAnswerButton: UIButton!
     @IBOutlet weak var firstPercentageLabel: UILabel!
     @IBOutlet weak var secondPercentageLabel: UILabel!
     @IBOutlet weak var thirdPercentageLabel: UILabel!
     @IBOutlet weak var fourthPercentageLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
+    @IBOutlet weak var firstAnswerLabel: UILabel!
+    @IBOutlet weak var secondAnswerLabel: UILabel!
+    @IBOutlet weak var thirdAnswerLabel: UILabel!
+    @IBOutlet weak var fourthAnswerLabel: UILabel!
     
     weak var delegate: QuestionViewControllerDelegate?
-    var answerButtons: [UIButton] = []
+    var answerLabels: [UILabel] = []
     
     var question: Question?
-//    var answers: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +33,12 @@ class QuestionDetailViewController: UIViewController {
         underlineView.layer.cornerRadius = 2
         underlineView.layer.masksToBounds = true
         
-        answerButtons = [firstAnswerButton, secondAnswerButton, thirdAnswerButton, fourthAnswerButton]
+        answerLabels = [firstAnswerLabel, secondAnswerLabel, thirdAnswerLabel, fourthAnswerLabel]
         setupUI()
         
-        answerButtons.forEach { (button) in
-            button.titleLabel?.adjustsFontSizeToFitWidth = true
-        }
-        
-        for button in answerButtons {
-            button.layer.cornerRadius = 15
-            button.layer.masksToBounds = true
+        for label in answerLabels {
+            label.layer.cornerRadius = 15
+            label.layer.masksToBounds = true
         }
         
     }
@@ -53,10 +48,10 @@ class QuestionDetailViewController: UIViewController {
         
         setupLabels()
         
-        answerButtons.first { $0.title(for: .normal) == question.myAnswer }?.backgroundColor = .qtRed
-        answerButtons.first { $0.title(for: .normal) == question.myAnswer}?.setTitleColor(.white, for: .normal)
-        answerButtons.first { $0.title(for: .normal) == question.correctAnswer}?.backgroundColor = .qtGreen
-        answerButtons.first { $0.title(for: .normal) == question.correctAnswer}?.setTitleColor(.white, for: .normal)
+        answerLabels.first { $0.text == question.myAnswer }?.backgroundColor = .qtRed
+        answerLabels.first { $0.text == question.myAnswer}?.textColor = .white
+        answerLabels.first { $0.text == question.correctAnswer}?.backgroundColor = .qtGreen
+        answerLabels.first { $0.text == question.correctAnswer}?.textColor = .white
         
         if question.myAnswer == question.correctAnswer {
             correctLabel.textColor = .qtGreen
@@ -103,10 +98,10 @@ class QuestionDetailViewController: UIViewController {
         
         questionLabel.text = question.question
         
-        answerButtons[0].setTitle(question.answers[0], for: .normal)
-        answerButtons[1].setTitle(question.answers[1], for: .normal)
-        answerButtons[2].setTitle(question.answers[2], for: .normal)
-        answerButtons[3].setTitle(question.answers[3], for: .normal)
+        answerLabels[0].text = question.answers[0]
+        answerLabels[1].text = question.answers[1]
+        answerLabels[2].text = question.answers[2]
+        answerLabels[3].text = question.answers[3]
     }
     
     @objc func tapAction() {
