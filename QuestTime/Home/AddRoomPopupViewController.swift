@@ -23,6 +23,10 @@ class AddRoomPopupViewController: UIViewController {
         
         backgroundView.layer.cornerRadius = 20
         backgroundView.layer.masksToBounds = true
+        
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        visualEffectView.frame = view.bounds
+        view.insertSubview(visualEffectView, belowSubview: backgroundView)
     }
     
     @objc func tapAction() {

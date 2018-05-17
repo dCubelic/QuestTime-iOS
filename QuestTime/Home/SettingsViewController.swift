@@ -12,9 +12,11 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        backgroundView.layer.cornerRadius = 30
-        backgroundView.layer.masksToBounds = true
+        
+//        backgroundView.layer.cornerRadius = 30
+//        backgroundView.layer.masksToBounds = true
+        
+        backgroundView.backgroundColor = .qtGray
         
         let backgroundTapGesture = UITapGestureRecognizer(target: nil, action: nil)
         backgroundView.addGestureRecognizer(backgroundTapGesture)
@@ -33,6 +35,10 @@ class SettingsViewController: UIViewController {
         } else {
             UserDefaults.standard.setValue(true, forKey: Constants.UserDefaults.notifications)
         }
+        
+//        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+//        visualEffectView.frame = view.bounds
+//        view.insertSubview(visualEffectView, belowSubview: backgroundView)
     }
     
     @objc func tapAction() {
@@ -60,12 +66,6 @@ class SettingsViewController: UIViewController {
         }
         
         UserDefaults.standard.setValue(!notificationsOn, forKey: Constants.UserDefaults.notifications)
-    }
-    
-    @IBAction func closeAction(_ sender: Any) {
-        Sounds.shared.play(sound: .buttonClick)
-        
-        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func logoutAction(_ sender: Any) {

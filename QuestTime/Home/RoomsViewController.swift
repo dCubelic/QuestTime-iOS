@@ -4,7 +4,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import FirebaseMessaging
 
-class RoomsViewController: UIViewController {
+class RoomsViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionsLeftTodayNumberLabel: UILabel!
@@ -95,16 +95,26 @@ class RoomsViewController: UIViewController {
     }
     
     @IBAction func settingsAction(_ sender: Any) {
+        guard let sender = sender as? UIBarButtonItem else { return }
         Sounds.shared.play(sound: .buttonClick)
         
         let settingsVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: SettingsViewController.self)
         
         settingsVC.rooms = self.rooms
         
-        settingsVC.modalPresentationStyle = .overCurrentContext
-        present(settingsVC, animated: false, completion: nil)
+        settingsVC.modalPresentationStyle = .popover
+        guard let popover = settingsVC.popoverPresentationController else { return }
+        popover.backgroundColor = .qtGray
+        popover.delegate = self
+        popover.permittedArrowDirections = .up
+        popover.barButtonItem = sender
+        
+        present(settingsVC, animated: true, completion: nil)
     }
-    
+
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
 }
 
 extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {

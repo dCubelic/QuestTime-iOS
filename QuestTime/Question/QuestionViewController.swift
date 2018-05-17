@@ -44,9 +44,11 @@ class QuestionViewController: UIViewController {
             
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(answerAction(_:)))
             label.addGestureRecognizer(tapGesture)
-            
         }
         
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        visualEffectView.frame = view.bounds
+        view.insertSubview(visualEffectView, belowSubview: questionView)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -11,6 +11,10 @@ extension UIColor {
         return UIColor(red: 196.0/255.0, green: 6.0/255.0, blue: 6.0/255.0, alpha: 1.0)
     }
     
+    public class var qtGray: UIColor {
+        return UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+    }
+    
     static func from(hashString: String) -> UIColor {
         let hash: Int = hashString.hashValue
         
