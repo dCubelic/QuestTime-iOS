@@ -27,25 +27,28 @@ class JoinPublicRoomViewController: UIViewController {
         }
     }
     
-    weak var delegate: JoinPublicRoomViewControllerDelegate?
+    weak var delegate: AddRoomPopupViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        backgroundView.layer.cornerRadius = 20
-        backgroundView.layer.masksToBounds = true
         
         roomNameTextField.delegate = self
         
         categoriesLabel.text = ""
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.beginAnimations(nil, context: nil)
+        self.presentingViewController?.presentedViewController?.preferredContentSize = CGSize(width: 250, height: 275)
+        UIView.commitAnimations()
+    }
+    
     @IBAction func backAction(_ sender: Any) {
         Sounds.shared.play(sound: .buttonClick)
         
-        dismiss(animated: false) {
-            self.delegate?.backPressed()
-        }
+        navigationController?.popViewController(animated: false)
     }
     
     @IBAction func searchAction(_ sender: Any) {
@@ -69,7 +72,6 @@ extension JoinPublicRoomViewController: UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(ofType: CategoryCollectionViewCell.self, for: indexPath)
         
         cell.categoryImageView.image = UIImage(named: categories[indexPath.row].rawValue)
-        cell.alpha = cell.unselectedAlpha
         cell.delegate = self
         
         return cell

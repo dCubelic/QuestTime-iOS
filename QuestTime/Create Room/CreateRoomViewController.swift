@@ -164,7 +164,6 @@ extension CreateRoomViewController: UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(ofType: CategoryCollectionViewCell.self, for: indexPath)
         
         cell.categoryImageView.image = UIImage(named: categories[indexPath.row].rawValue)
-        cell.alpha = cell.unselectedAlpha
         cell.delegate = self
         
         return cell
@@ -214,6 +213,7 @@ extension CreateRoomViewController: CategoryCollectionViewCellDelegate {
             }
         } else {
             selectedCategories.append(category)
+            selectedCategories.sort { $0.rawValue < $1.rawValue }
         }
         
         doneButton.isEnabled = selectedCategories.count > 0 && !(roomNameTextField.text?.isEmpty == true)

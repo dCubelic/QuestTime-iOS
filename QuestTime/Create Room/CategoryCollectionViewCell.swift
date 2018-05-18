@@ -16,15 +16,16 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.categoryImageView.alpha = unselectedAlpha
     }
     
     func toggleSelection() {
         categorySelected = !categorySelected
         
         if categorySelected {
-            self.alpha = 1
+            self.categoryImageView.alpha = 1
         } else {
-            self.alpha = unselectedAlpha
+            self.categoryImageView.alpha = unselectedAlpha
         }
         
         delegate?.categoryCollectionViewCell(self, didChangeSelectionTo: categorySelected)

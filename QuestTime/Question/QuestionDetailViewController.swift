@@ -41,7 +41,7 @@ class QuestionDetailViewController: UIViewController {
             label.layer.masksToBounds = true
         }
         
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         visualEffectView.frame = view.bounds
         view.insertSubview(visualEffectView, belowSubview: questionView)
     }

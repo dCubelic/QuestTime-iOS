@@ -10,21 +10,23 @@ class JoinPrivateRoomViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var privateKeyTextField: UITextField!
     
-    weak var delegate: JoinPrivateRoomViewControllerDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        backgroundView.layer.cornerRadius = 20
-        backgroundView.layer.masksToBounds = true
+
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.beginAnimations(nil, context: nil)
+        self.presentingViewController?.presentedViewController?.preferredContentSize = CGSize(width: 220, height: 120)
+        UIView.commitAnimations()
+    }
+
     @IBAction func backAction(_ sender: Any) {
         Sounds.shared.play(sound: .buttonClick)
         
-        dismiss(animated: false) {
-            self.delegate?.backPressed()
-        }
+        navigationController?.popViewController(animated: false)
     }
     
     @IBAction func joinPrivateRoomAction(_ sender: Any) {

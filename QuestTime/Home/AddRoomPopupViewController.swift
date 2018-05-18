@@ -2,8 +2,7 @@ import UIKit
 
 protocol AddRoomPopupViewControllerDelegate: class {
     func createNewRoomSelected()
-    func joinPrivateRoomSelected()
-    func joinPublicRoomSelected()
+    func searchPressed(categories: [Category], roomName: String)
 }
 
 class AddRoomPopupViewController: UIViewController {
@@ -21,12 +20,17 @@ class AddRoomPopupViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
         view.addGestureRecognizer(tapGesture)
         
-        backgroundView.layer.cornerRadius = 20
-        backgroundView.layer.masksToBounds = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        visualEffectView.frame = view.bounds
-        view.insertSubview(visualEffectView, belowSubview: backgroundView)
+        self.preferredContentSize = CGSize(width: 220, height: 150)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.beginAnimations(nil, context: nil)
+        self.presentingViewController?.presentedViewController?.preferredContentSize = CGSize(width: 220, height: 150)
+        UIView.commitAnimations()
     }
     
     @objc func tapAction() {
@@ -36,17 +40,17 @@ class AddRoomPopupViewController: UIViewController {
     @IBAction func joinPublicRoomAction(_ sender: Any) {
         Sounds.shared.play(sound: .buttonClick)
         
-        dismiss(animated: false) {
-            self.delegate?.joinPublicRoomSelected()
-        }
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: JoinPublicRoomViewController.self)
+        vc.delegate = delegate
+        
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func joinPrivateRoomAction(_ sender: Any) {
         Sounds.shared.play(sound: .buttonClick)
         
-        dismiss(animated: false) {
-            self.delegate?.joinPrivateRoomSelected()
-        }
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: JoinPrivateRoomViewController.self)
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     @IBAction func createRoomAction(_ sender: Any) {

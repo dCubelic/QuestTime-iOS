@@ -13,12 +13,10 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var emptyTableViewLabel: UILabel!
     @IBOutlet weak var headerViewBottomConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     var rooms: [Room] = []
     
     var audioPlayer: AVAudioPlayer?
-    var test: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +29,22 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
         tableView.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
         
         loadUserRooms()
+//        setupNavigationButtons()
+    }
+    
+    private func setupNavigationButtons() {
+        let addButton = UIButton(type: .custom)
+        addButton.frame = CGRect(x: 50, y: 50, width: 25, height: 44)
+        addButton.setImage(#imageLiteral(resourceName: "add"), for: .normal)
+        addButton.addTarget(self, action: #selector(addRoomAction(_:)), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
+        
+        let settingsButton = UIButton(type: .custom)
+        settingsButton.setImage(#imageLiteral(resourceName: "settings"), for: .normal)
+        settingsButton.addTarget(self, action: #selector(settingsAction(_:)), for: .touchUpInside)
+        settingsButton.frame = CGRect(x: 0, y: 0, width: 25, height: 100)
+        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+        self.navigationItem.leftBarButtonItem = settingsBarButton
     }
     
     private func registerForTopics() {
@@ -85,17 +99,31 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
         return number
     }
     
+    @objc func test() {
+        print("test")
+    }
+    
     @IBAction func addRoomAction(_ sender: Any) {
+        guard let button = sender as? UIBarButtonItem else { return }
         Sounds.shared.play(sound: .buttonClick)
         
-        let popupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: AddRoomPopupViewController.self)
-        popupVC.delegate = self
-        popupVC.modalPresentationStyle = .overCurrentContext
-        present(popupVC, animated: false, completion: nil)
+        let addRoomVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: AddRoomPopupViewController.self)
+        addRoomVc.delegate = self
+        
+        let navVC = UINavigationController(rootViewController: addRoomVc)
+        
+        navVC.modalPresentationStyle = .popover
+        guard let popover = navVC.popoverPresentationController else { return }
+        popover.backgroundColor = .qtGray
+        popover.delegate = self
+        popover.barButtonItem = button
+        popover.permittedArrowDirections = .up
+        
+        present(navVC, animated: true, completion: nil)
     }
     
     @IBAction func settingsAction(_ sender: Any) {
-        guard let sender = sender as? UIBarButtonItem else { return }
+        guard let button = sender as? UIBarButtonItem else { return }
         Sounds.shared.play(sound: .buttonClick)
         
         let settingsVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: SettingsViewController.self)
@@ -106,8 +134,8 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
         guard let popover = settingsVC.popoverPresentationController else { return }
         popover.backgroundColor = .qtGray
         popover.delegate = self
+        popover.barButtonItem = button
         popover.permittedArrowDirections = .up
-        popover.barButtonItem = sender
         
         present(settingsVC, animated: true, completion: nil)
     }
@@ -172,32 +200,60 @@ extension RoomsViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         
-        if y > 0 {
-            headerViewHeightConstraint.constant = max(80, headerView.frame.height - y)
-            
-            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: max(40, 0.810810*headerView.frame.height - 24.864864), weight: .black)
-            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: max(12, 0.0675675*headerView.frame.height + 6.594594) , weight: .black)
-            
-            if headerView.frame.height > 80 {
-                
-                var scrollBounds = scrollView.bounds
-                scrollBounds.origin = CGPoint(x: 0, y: 0)
-                scrollView.bounds = scrollBounds
-                
+        if #available(iOS 11.0, *) {
+            if tableView.contentSize.height + 160 + view.safeAreaInsets.top < view.frame.height {
+                headerViewHeightConstraint.constant = 160
+                questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100, weight: .black)
+                questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
+                return
             }
         } else {
-            headerViewHeightConstraint.constant = min(154, headerView.frame.height - y)
-            
-            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: min(100, 0.675675*headerView.frame.height - 4.054054), weight: .black)
-            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: min(17, 0.0675675*headerView.frame.height + 6.594594) , weight: .black)
-            
-            if headerView.frame.height < 154 {
-                var scrollBounds = scrollView.bounds
-                scrollBounds.origin = CGPoint(x: 0, y: 0)
-                scrollView.bounds = scrollBounds
+            guard let nbh = navigationController?.navigationBar.frame.height else { return }
+            if tableView.contentSize.height + 160 + nbh < view.frame.height {
+                headerViewHeightConstraint.constant = 160
+                questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100, weight: .black)
+                questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
+                return
             }
         }
         
+        //Scroll up
+        if y > 0 {
+            UIView.beginAnimations(nil, context: nil)
+            
+            let height = max(80, headerView.frame.height - y)
+            
+            headerViewHeightConstraint.constant = height
+            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: max(50, 0.625*height), weight: .black)
+            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: max(10, 0.125*height) , weight: .black)
+            
+            if headerView.frame.height > 80 {
+                resetScrollBounds(scrollView: scrollView)
+            }
+            
+            UIView.commitAnimations()
+        } else { //Scroll down
+            UIView.beginAnimations(nil, context: nil)
+            
+            let height = min(160, headerView.frame.height - y)
+            
+            headerViewHeightConstraint.constant = height
+            questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: min(100, 0.625*height), weight: .black)
+            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: min(20, 0.125*height) , weight: .black)
+            
+            if headerView.frame.height < 160 {
+                resetScrollBounds(scrollView: scrollView)
+            }
+            
+            UIView.commitAnimations()
+        }
+        
+    }
+    
+    private func resetScrollBounds(scrollView: UIScrollView) {
+        var scrollBounds = scrollView.bounds
+        scrollBounds.origin = CGPoint(x: 0, y: 0)
+        scrollView.bounds = scrollBounds
     }
     
 }
@@ -212,7 +268,6 @@ extension RoomsViewController: AddRoomPopupViewControllerDelegate {
     
     func joinPrivateRoomSelected() {
         let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: JoinPrivateRoomViewController.self)
-        vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         
         present(vc, animated: false, completion: nil)

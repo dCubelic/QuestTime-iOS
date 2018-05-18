@@ -46,7 +46,7 @@ class QuestionViewController: UIViewController {
             label.addGestureRecognizer(tapGesture)
         }
         
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         visualEffectView.frame = view.bounds
         view.insertSubview(visualEffectView, belowSubview: questionView)
     }
