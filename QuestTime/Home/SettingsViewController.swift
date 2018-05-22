@@ -13,9 +13,6 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        backgroundView.layer.cornerRadius = 30
-//        backgroundView.layer.masksToBounds = true
-        
         backgroundView.backgroundColor = .qtGray
         
         let backgroundTapGesture = UITapGestureRecognizer(target: nil, action: nil)
@@ -36,9 +33,6 @@ class SettingsViewController: UIViewController {
             UserDefaults.standard.setValue(true, forKey: Constants.UserDefaults.notifications)
         }
         
-//        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-//        visualEffectView.frame = view.bounds
-//        view.insertSubview(visualEffectView, belowSubview: backgroundView)
     }
     
     @objc func tapAction() {
@@ -73,6 +67,11 @@ class SettingsViewController: UIViewController {
         
         do {
             try Auth.auth().signOut()
+            
+            for room in rooms {
+                if let roomUid = room.uid { Messaging.messaging().unsubscribe(fromTopic: roomUid)}
+            }
+            
             Window.main?.showLogin()
         } catch {
             print("error")
