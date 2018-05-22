@@ -36,7 +36,7 @@ class JoinPrivateRoomViewController: UIViewController {
         
         QTClient.shared.joinPrivateRoom(userUid: userUid, privateKey: privateKey) { (error) in
             guard error == nil else {
-                self.backgroundView.shake()
+                self.privateKeyTextField.shake()
                 return
             }
             

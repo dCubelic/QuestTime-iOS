@@ -25,9 +25,7 @@ public class Question {
             let question = value["question"] as? String,
             let incorrectAnswers = value["incorrect_answers"] as? [String]
             else { return nil }
-        
-        
-        
+
         self.uid = snapshot.key
         self.question = question.decodeHtml()
         self.correctAnswer = correctAnswer.decodeHtml()

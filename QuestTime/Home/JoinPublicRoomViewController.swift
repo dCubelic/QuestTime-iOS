@@ -24,6 +24,8 @@ class JoinPublicRoomViewController: UIViewController {
                 }
             }
             categoriesLabel.text = categoriesString
+            
+            adjustViewSize()
         }
     }
     
@@ -40,8 +42,14 @@ class JoinPublicRoomViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        adjustViewSize()
+    }
+    
+    private func adjustViewSize() {
         UIView.beginAnimations(nil, context: nil)
-        self.presentingViewController?.presentedViewController?.preferredContentSize = CGSize(width: 250, height: 275)
+        if let categoriesString = categoriesLabel.text {
+            self.presentingViewController?.presentedViewController?.preferredContentSize = CGSize(width: 250, height: 262+categoriesString.height(withConstrainedWidth: collectionView.frame.width, font: UIFont.systemFont(ofSize: 12.0)))
+        }
         UIView.commitAnimations()
     }
     
@@ -81,6 +89,11 @@ extension JoinPublicRoomViewController: UICollectionViewDataSource, UICollection
         guard let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { return }
         
         Sounds.shared.play(sound: .buttonClick)
+        
+        UIView.beginAnimations(nil, context: nil)
+        categoriesLabel.frame.height
+        self.presentingViewController?.presentedViewController?.preferredContentSize = CGSize(width: 250, height: 280)
+        UIView.commitAnimations()
         
         cell.toggleSelection()
     }

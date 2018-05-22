@@ -6,7 +6,6 @@ class RoomViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var separatorView: UIView!
-    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var privateKeyLabel: UILabel!
     @IBOutlet weak var lockImageView: UIImageView!
     @IBOutlet weak var emptyTableViewLabel: UILabel!
@@ -20,15 +19,7 @@ class RoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shadowView.isHidden = true
-        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .black), NSAttributedStringKey.foregroundColor: UIColor.white]
-        NotificationCenter.default.addObserver(self, selector: #selector(loadQuestions), name: Notification.Name(Constants.Notifications.receivedNotification), object: nil)
-        
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        refreshControl.tintColor = .white
-//        tableView.addSubview(refreshControl)
         
         tableView.register(UINib(nibName: "QuestionTableViewCell", bundle: nil), forCellReuseIdentifier: "QuestionTableViewCell")
         
@@ -46,7 +37,13 @@ class RoomViewController: UIViewController {
         privateKeyLabel.isUserInteractionEnabled = true
         privateKeyLabel.addGestureRecognizer(longPressGesture)
         
-        loadQuestions()
+        guard let room = room else { return }
+        
+        QTClient.shared.registerForRoomChange(room: room) { (room) in
+            self.room = room
+            self.loadQuestions()
+        }
+        
     }
     
     @objc func longPressAction() {
@@ -57,44 +54,21 @@ class RoomViewController: UIViewController {
         self.present(popup, animated: true, completion: nil)
     }
     
-    @objc func refresh() {
-        guard let roomUid = room?.uid else { return }
-        
-        QTClient.shared.loadRoom(with: roomUid) { (room) in
-            self.room = room
-            self.loadQuestions()
-        }
-    }
-    
     @objc private func loadQuestions() {
-        guard let room = room, let uid = room.uid , let currentUserUid = Auth.auth().currentUser?.uid else { return }
-        self.questions = []
+        guard let room = room, let currentUserUid = Auth.auth().currentUser?.uid else { return }
         
-        QTClient.shared.loadRoom(with: uid) { (room) in
+        QTClient.shared.loadQuestions(for: room) { (questions) in
+            self.questions = []
             
-            for (index, roomQuestion) in room.roomQuestions.enumerated() {
-                QTClient.shared.loadQuestion(with: roomQuestion.id, category: roomQuestion.category, date: roomQuestion.timestamp) { (question) in
-                    if question.date > room.personTimeIntervalJoined[currentUserUid] ?? Date() && question.date < Date() {
-                        question.myAnswer = roomQuestion.answers[currentUserUid]
-                        question.myPoints = roomQuestion.points[currentUserUid]
-                        question.peopleAnswers = roomQuestion.answers
-                        self.questions.append(question)
-                    }
-                    
-                    if index == room.roomQuestions.count - 1 {
-                        self.questions.sort { $0.date > $1.date }
-                        self.tableView.reloadData()
-                        self.refreshControl.endRefreshing()
-                    }
+            for question in questions {
+                if question.date > room.personTimeIntervalJoined[currentUserUid] ?? Date() && question.date < Date() {
+                    self.questions.append(question)
                 }
             }
             
-            if room.roomQuestions.count == 0 {
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-            }
+            self.questions.sort { $0.date > $1.date }
+            self.tableView.reloadData()
         }
-        
     }
 
     @IBAction func peopleAction(_ sender: Any) {
@@ -131,12 +105,10 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         
         let questionDetailVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
         questionDetailVC.question = questions[indexPath.row]
-        questionDetailVC.delegate = self
 
         let questionVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionViewController.self)
         questionVC.question = questions[indexPath.row]
         questionVC.room = room
-        questionVC.delegate = self
         
         let navVC: UINavigationController
         if questions[indexPath.row].myPoints == nil {
@@ -148,19 +120,7 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         navVC.setNavigationBarHidden(true, animated: false)
         navVC.modalPresentationStyle = .overCurrentContext
         
-        present(navVC, animated: false) {
-            self.shadowView.isHidden = false
-        }
+        present(navVC, animated: false, completion: nil)
         
-    }
-}
-
-extension RoomViewController: QuestionViewControllerDelegate {
-    func questionViewControllerAnsweredQuestion() {
-        refresh()
-    }
-    
-    func questionViewControllerWillDismiss() {
-        shadowView.isHidden = true
     }
 }

@@ -12,6 +12,8 @@ class PublicSearchViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "SearchRoomTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchRoomTableViewCell")
+        
+        self.rooms.sort { $0.name.lowercased() < $1.name.lowercased() }
     }
 
 }

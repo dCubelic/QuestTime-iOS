@@ -1,6 +1,6 @@
 import Foundation
 
-class Person {
+public class Person {
     var uid: String
     var displayName: String
     var points: Int

@@ -14,6 +14,7 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var emptyTableViewLabel: UILabel!
     @IBOutlet weak var headerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
     var rooms: [Room] = []
     
     var audioPlayer: AVAudioPlayer?
@@ -27,7 +28,6 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
         
         underlineView.layer.cornerRadius = 2
         tableView.register(UINib(nibName: "RoomTableViewCell", bundle: nil), forCellReuseIdentifier: "RoomTableViewCell")
-        
         loadUserRooms()
 //        setupNavigationButtons()
     }
@@ -94,17 +94,12 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
     
     private func calculateNumberOfQuestionsLeftToday() -> Int {
         var number = 0
-        
         rooms.forEach { number += $0.roomQuestions.filter { $0.timestamp > Date() }.count }
         return number
     }
     
-    @objc func test() {
-        print("test")
-    }
-    
     @IBAction func addRoomAction(_ sender: Any) {
-        guard let button = sender as? UIBarButtonItem else { return }
+        guard let button = sender as? UIButton else { return }
         Sounds.shared.play(sound: .buttonClick)
         
         let addRoomVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: AddRoomPopupViewController.self)
@@ -114,10 +109,12 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
         
         navVC.modalPresentationStyle = .popover
         guard let popover = navVC.popoverPresentationController else { return }
+        popover.permittedArrowDirections = .up
         popover.backgroundColor = .qtGray
         popover.delegate = self
-        popover.barButtonItem = button
-        popover.permittedArrowDirections = .up
+//        popover.barButtonItem = button
+        popover.sourceView = button
+        popover.sourceRect = button.bounds
         
         present(navVC, animated: true, completion: nil)
     }
@@ -132,10 +129,10 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
         
         settingsVC.modalPresentationStyle = .popover
         guard let popover = settingsVC.popoverPresentationController else { return }
+        popover.permittedArrowDirections = .up
         popover.backgroundColor = .qtGray
         popover.delegate = self
         popover.barButtonItem = button
-        popover.permittedArrowDirections = .up
         
         present(settingsVC, animated: true, completion: nil)
     }
@@ -204,7 +201,7 @@ extension RoomsViewController: UIScrollViewDelegate {
             if tableView.contentSize.height + 160 + view.safeAreaInsets.top < view.frame.height {
                 headerViewHeightConstraint.constant = 160
                 questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100, weight: .black)
-                questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
+                questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
                 return
             }
         } else {
@@ -212,7 +209,7 @@ extension RoomsViewController: UIScrollViewDelegate {
             if tableView.contentSize.height + 160 + nbh < view.frame.height {
                 headerViewHeightConstraint.constant = 160
                 questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: 100, weight: .black)
-                questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: 20, weight: .black)
+                questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
                 return
             }
         }
@@ -225,7 +222,7 @@ extension RoomsViewController: UIScrollViewDelegate {
             
             headerViewHeightConstraint.constant = height
             questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: max(50, 0.625*height), weight: .black)
-            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: max(10, 0.125*height) , weight: .black)
+            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: max(10, 0.125*height) , weight: .regular)
             
             if headerView.frame.height > 80 {
                 resetScrollBounds(scrollView: scrollView)
@@ -239,7 +236,7 @@ extension RoomsViewController: UIScrollViewDelegate {
             
             headerViewHeightConstraint.constant = height
             questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: min(100, 0.625*height), weight: .black)
-            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: min(20, 0.125*height) , weight: .black)
+            questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: min(20, 0.125*height) , weight: .regular)
             
             if headerView.frame.height < 160 {
                 resetScrollBounds(scrollView: scrollView)

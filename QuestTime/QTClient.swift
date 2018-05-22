@@ -15,7 +15,7 @@ public class QTClient {
     let rooms = Database.database().reference(withPath: "rooms")
     let users = Database.database().reference(withPath: "users")
     let questions = Database.database().reference(withPath: "questions")
-
+    
     public func loadQuestion(with id: String, category: String, date: Date, completion: @escaping (Question) -> Void ) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
@@ -83,6 +83,40 @@ public class QTClient {
         }
     }
     
+    public func loadQuestions(for room: Room, completion: @escaping ([Question]) -> Void) {
+        guard let currentUserUid = Auth.auth().currentUser?.uid else { return }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        self.questions.observe(.value) { (snapshot) in
+            var questions: [Question] = []
+            
+            for roomQuestion in room.roomQuestions {
+                let questionSnapshot = snapshot.childSnapshot(forPath: roomQuestion.category).childSnapshot(forPath: roomQuestion.id)
+                if let question = Question(with: questionSnapshot) {
+                    question.date = roomQuestion.timestamp
+                    question.myAnswer = roomQuestion.answers[currentUserUid]
+                    question.myPoints = roomQuestion.points[currentUserUid]
+                    question.peopleAnswers = roomQuestion.answers
+                    questions.append(question)
+                }
+            }
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            completion(questions)
+        }
+    }
+    
+    public func registerForRoomChange(room: Room, completion: @escaping (Room) -> Void) {
+        guard let roomUid = room.uid else { return }
+        
+        rooms.child(roomUid).observe(.value) { (snapshot) in
+            if let room = Room(with: snapshot) {
+                completion(room)
+            }
+        }
+    }
+    
     public func joinPrivateRoom(userUid: String, privateKey: String, completion: @escaping (QTError?) -> Void) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
@@ -116,7 +150,7 @@ public class QTClient {
         users.child(userUid).child("rooms").child(roomUid).setValue(true)
         
         Messaging.messaging().subscribe(toTopic: roomUid)
-    
+        
         completion()
     }
     
@@ -184,7 +218,25 @@ public class QTClient {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             completion()
         }
+        
+    }
+    
+    public func people(for room: Room, completion: @escaping ([Person]) -> Void) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
+        users.observe(.value) { (snapshot) in
+            var people: [Person] = []
+            
+            for personUid in room.peopleUIDs {
+                let userSnapshot = snapshot.childSnapshot(forPath: personUid)
+                guard let snapshotDict = userSnapshot.value as? [String: Any], let displayName = snapshotDict["username"] as? String else { return }
+                
+                people.append(Person(uid: personUid, displayName: displayName, points: room.points[personUid] ?? 0))
+            }
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            completion(people)
+        }
     }
     
     public func displayName(for userUid: String, completion: @escaping (String) -> Void) {
@@ -214,7 +266,7 @@ public class QTClient {
                     })
                 }
             }
-
+            
             Messaging.messaging().subscribe(toTopic: ref.key)
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in

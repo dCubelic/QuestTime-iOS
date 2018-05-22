@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        NotificationCenter.default.post(name: Notification.Name(Constants.Notifications.receivedNotification), object: nil)
+//        NotificationCenter.default.post(name: Notification.Name(Constants.Notifications.receivedNotification), object: nil)
         
         if let roomId = userInfo["roomId"] as? String {
             QTClient.shared.loadRoom(with: roomId) { (room) in
