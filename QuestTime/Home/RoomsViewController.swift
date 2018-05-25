@@ -15,6 +15,7 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var headerViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
+    
     var rooms: [Room] = []
     
     var audioPlayer: AVAudioPlayer?
@@ -193,10 +194,10 @@ extension RoomsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension RoomsViewController: UIScrollViewDelegate {
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
-        
+
         if #available(iOS 11.0, *) {
             if tableView.contentSize.height + 160 + view.safeAreaInsets.top < view.frame.height {
                 headerViewHeightConstraint.constant = 160
@@ -213,38 +214,30 @@ extension RoomsViewController: UIScrollViewDelegate {
                 return
             }
         }
-        
+
         //Scroll up
         if y > 0 {
-            UIView.beginAnimations(nil, context: nil)
-            
             let height = max(80, headerView.frame.height - y)
-            
+
             headerViewHeightConstraint.constant = height
             questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: max(50, 0.625*height), weight: .black)
             questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: max(10, 0.125*height) , weight: .regular)
-            
+
             if headerView.frame.height > 80 {
                 resetScrollBounds(scrollView: scrollView)
             }
-            
-            UIView.commitAnimations()
         } else { //Scroll down
-            UIView.beginAnimations(nil, context: nil)
-            
             let height = min(160, headerView.frame.height - y)
-            
+
             headerViewHeightConstraint.constant = height
             questionsLeftTodayNumberLabel.font = UIFont.systemFont(ofSize: min(100, 0.625*height), weight: .black)
             questionsLeftTodayLabel.font = UIFont.systemFont(ofSize: min(20, 0.125*height) , weight: .regular)
-            
+
             if headerView.frame.height < 160 {
                 resetScrollBounds(scrollView: scrollView)
             }
-            
-            UIView.commitAnimations()
         }
-        
+
     }
     
     private func resetScrollBounds(scrollView: UIScrollView) {

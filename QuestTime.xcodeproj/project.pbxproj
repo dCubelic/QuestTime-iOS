@@ -182,11 +182,9 @@
 				B41DA01F206AE4C9008E960C /* RoomsViewController.swift */,
 				B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */,
 				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
-				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
-				B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */,
-				B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */,
-				B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */,
 				B4AC13F2207BA93900DF8A92 /* Room.swift */,
+				B4A9D53F20B88C140023C5C4 /* Popups */,
+				B4A9D54020B88C380023C5C4 /* Join Public Room */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -244,6 +242,27 @@
 			path = Question;
 			sourceTree = "<group>";
 		};
+		B4A9D53F20B88C140023C5C4 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
+				B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */,
+				B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */,
+				B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		B4A9D54020B88C380023C5C4 /* Join Public Room */ = {
+			isa = PBXGroup;
+			children = (
+				B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */,
+				B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */,
+				B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */,
+			);
+			path = "Join Public Room";
+			sourceTree = "<group>";
+		};
 		B4B51EFA204C29A100414BB1 = {
 			isa = PBXGroup;
 			children = (
@@ -266,14 +285,11 @@
 		B4B51F05204C29A100414BB1 /* QuestTime */ = {
 			isa = PBXGroup;
 			children = (
-				B4AFA645209B6D8B00D6086E /* QuestTime.entitlements */,
 				B4B51F12204C29A100414BB1 /* Info.plist */,
+				B4AFA645209B6D8B00D6086E /* QuestTime.entitlements */,
 				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
 				B4D3A46F2076D14A008278B5 /* Window.swift */,
 				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
-				B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */,
-				B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */,
-				B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */,
 				B478162020A072A000BF88A7 /* QTClient.swift */,
 				B445863320725DDE00C829EA /* Login */,
 				B445863420725DEE00C829EA /* Home */,
