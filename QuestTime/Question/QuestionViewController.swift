@@ -2,7 +2,6 @@ import UIKit
 import FirebaseAuth
 
 protocol QuestionViewControllerDelegate: class {
-    func questionViewControllerWillDismiss()
     func questionViewControllerAnsweredQuestion()
 }
 
@@ -79,7 +78,6 @@ class QuestionViewController: UIViewController {
     }
     
     @objc func tapAction() {
-        delegate?.questionViewControllerWillDismiss()
         dismiss(animated: false, completion: nil)
     }
     
@@ -100,7 +98,11 @@ class QuestionViewController: UIViewController {
         transition.type = "flip"
         transition.subtype = kCATransitionFromRight
         
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
+        
         QTClient.shared.setAnswer(for: room, question: question, userUid: userUid) {
+            loadingVC.remove()
             self.delegate?.questionViewControllerAnsweredQuestion()
             
             self.navigationController?.view.layer.add(transition, forKey: kCATransition)

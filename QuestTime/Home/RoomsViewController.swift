@@ -60,6 +60,9 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
     @objc private func loadUserRooms() {
         guard let userUid = Auth.auth().currentUser?.uid else { return }
         
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
+        
         QTClient.shared.loadRoomsForUser(with: userUid) { (rooms) in
             self.rooms = rooms
             self.rooms.sort(by: { (room, room2) -> Bool in
@@ -71,8 +74,10 @@ class RoomsViewController: UIViewController, UIPopoverPresentationControllerDele
                 }
                 return room.name.lowercased() < room2.name.lowercased()
             })
-            self.tableView.reloadData()
             
+            
+            loadingVC.remove()
+            self.tableView.reloadData()
             self.registerForTopics()
             
             self.questionsLeftTodayNumberLabel.text = String(self.calculateNumberOfQuestionsLeftToday())

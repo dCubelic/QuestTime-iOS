@@ -33,7 +33,11 @@ class PeopleViewController: UIViewController {
         
         guard let room = room else { return }
         
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
+        
         QTClient.shared.registerForRoomChange(room: room) { (room) in
+            loadingVC.remove()
             self.room = room
             self.loadUsers()
         }
@@ -41,6 +45,9 @@ class PeopleViewController: UIViewController {
     
     private func loadUsers() {
         guard let room = room else { return }
+        
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
         
         QTClient.shared.people(for: room) { (people) in
             self.users = people
@@ -50,6 +57,8 @@ class PeopleViewController: UIViewController {
                 }
                 return person.points > person2.points
             })
+            
+            loadingVC.remove()
             self.tableView.reloadData()
             self.setupFirstPlaces()
         }

@@ -108,14 +108,12 @@ class QuestionDetailViewController: UIViewController {
     }
     
     @objc func tapAction() {
-        delegate?.questionViewControllerWillDismiss()
         dismiss(animated: false, completion: nil)
     }
     
     @IBAction func closeAction(_ sender: Any) {
         Sounds.shared.play(sound: .buttonClick)
         
-        delegate?.questionViewControllerWillDismiss()
         dismiss(animated: false, completion: nil)
     }
 }

@@ -3,7 +3,7 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class RoomViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var privateKeyLabel: UILabel!
@@ -57,6 +57,9 @@ class RoomViewController: UIViewController {
     @objc private func loadQuestions() {
         guard let room = room, let currentUserUid = Auth.auth().currentUser?.uid else { return }
         
+        let loadingVC = LoadingViewController()
+        add(loadingVC)
+        
         QTClient.shared.loadQuestions(for: room) { (questions) in
             self.questions = []
             
@@ -66,18 +69,21 @@ class RoomViewController: UIViewController {
                 }
             }
             
+            loadingVC.remove()
             self.questions.sort { $0.date > $1.date }
             self.tableView.reloadData()
         }
     }
-
+    
     @IBAction func peopleAction(_ sender: Any) {
+        navigationController?.navigationItem.rightBarButtonItem?.isEnabled = false
         Sounds.shared.play(sound: .buttonClick)
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(ofType: PeopleViewController.self)
         vc.room = room
         
         navigationController?.pushViewController(vc, animated: true)
+        navigationController?.navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }
 
@@ -105,8 +111,9 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         
         let questionDetailVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionDetailViewController.self)
         questionDetailVC.question = questions[indexPath.row]
-
+        
         let questionVC = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateViewController(ofType: QuestionViewController.self)
+        questionVC.delegate = self
         questionVC.question = questions[indexPath.row]
         questionVC.room = room
         
@@ -122,5 +129,11 @@ extension RoomViewController: UITableViewDelegate, UITableViewDataSource {
         
         present(navVC, animated: false, completion: nil)
         
+    }
+}
+
+extension RoomViewController: QuestionViewControllerDelegate {
+    func questionViewControllerAnsweredQuestion() {
+        loadQuestions()
     }
 }

@@ -10,6 +10,8 @@
 		4C8839D23A6E648354BEDA8F /* Pods_QuestTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */; };
 		B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4032F03205880E2007EFE96 /* LoginViewController.swift */; };
 		B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408FEDF206A8D8100E76A56 /* QTTextField.swift */; };
+		B40AC2B120BBF93400DB0AF0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AC2B020BBF93400DB0AF0 /* LoadingViewController.swift */; };
+		B40AC2B320BBF9CE00DB0AF0 /* UIViewController+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AC2B220BBF9CE00DB0AF0 /* UIViewController+QT.swift */; };
 		B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA01F206AE4C9008E960C /* RoomsViewController.swift */; };
 		B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */; };
 		B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */; };
@@ -62,6 +64,8 @@
 		865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.debug.xcconfig"; sourceTree = "<group>"; };
 		B4032F03205880E2007EFE96 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B408FEDF206A8D8100E76A56 /* QTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTTextField.swift; sourceTree = "<group>"; };
+		B40AC2B020BBF93400DB0AF0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		B40AC2B220BBF9CE00DB0AF0 /* UIViewController+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+QT.swift"; sourceTree = "<group>"; };
 		B41DA01F206AE4C9008E960C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
 		B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				B4656C222059428A0081BB6F /* Constants.swift */,
 				B408FEDF206A8D8100E76A56 /* QTTextField.swift */,
 				B4F0FA3820A5E575005E4E79 /* Sounds.swift */,
+				B40AC2B020BBF93400DB0AF0 /* LoadingViewController.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				B4E05B77207E45D40016A28B /* String+QT.swift */,
 				B46EAC982080B76500745842 /* UIColor+QT.swift */,
 				B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */,
+				B40AC2B220BBF9CE00DB0AF0 /* UIViewController+QT.swift */,
 			);
 			path = "Swift Extensions";
 			sourceTree = "<group>";
@@ -455,7 +461,9 @@
 				B4D3A4702076D14A008278B5 /* Window.swift in Sources */,
 				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
 				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
+				B40AC2B120BBF93400DB0AF0 /* LoadingViewController.swift in Sources */,
 				B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */,
+				B40AC2B320BBF9CE00DB0AF0 /* UIViewController+QT.swift in Sources */,
 				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
 				B4F0FA3920A5E575005E4E79 /* Sounds.swift in Sources */,
 				B43AFCB120A6D4C30062C0B4 /* UIView+QT.swift in Sources */,
