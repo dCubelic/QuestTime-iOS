@@ -3,13 +3,15 @@ import FirebaseAuth
 
 class RoomTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var leaveView: UIView!
+    @IBOutlet weak var leaveImageView: UIImageView!
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var roomNameLabel: UILabel!
     @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var difficultyView: UIView!
     @IBOutlet weak var peopleLabel: UILabel!
     @IBOutlet weak var unansweredView: UIView!
-    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var firstCategoryImageView: UIImageView!
     @IBOutlet weak var secondCategoryImageView: UIImageView!
     @IBOutlet weak var thirdCategoryImageView: UIImageView!
@@ -20,6 +22,17 @@ class RoomTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        scrollView.isUserInteractionEnabled = false
+        contentView.addGestureRecognizer(scrollView.panGestureRecognizer)
+
+        setupUI()
+    }
+    
+    @IBAction func leaveAction(_ sender: Any) {
+        print("test")
+    }
+    
+    private func setupUI() {
         contentView.backgroundColor = .clear
         backgroundColor = .clear
         
@@ -34,15 +47,21 @@ class RoomTableViewCell: UITableViewCell {
         difficultyView.layer.cornerRadius = 5
         difficultyView.layer.masksToBounds = true
         
-//        shadowView.layer.masksToBounds = false
-//        shadowView.layer.shadowOffset = CGSize.zero
-//        shadowView.layer.shadowColor = UIColor.black.cgColor
-//        shadowView.layer.shadowOpacity = 0.23
-//        shadowView.layer.shadowRadius = 4
+        leaveView.layer.cornerRadius = 20
+        leaveView.layer.masksToBounds = true
+        
+        leaveView.backgroundColor = .qtRed
+        leaveImageView.tintColor = .white
         
         unansweredView.backgroundColor = .qtRed
-
+        
         hideUnansweredView()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        scrollView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WIg-ed-mPi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WIg-ed-mPi">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -204,12 +204,12 @@
                         <constraints>
                             <constraint firstItem="qbT-k3-ul4" firstAttribute="centerY" secondItem="rtt-bX-D0f" secondAttribute="centerY" constant="-100" id="3em-9y-pbh"/>
                             <constraint firstItem="qbT-k3-ul4" firstAttribute="centerX" secondItem="rtt-bX-D0f" secondAttribute="centerX" id="A5X-nx-pph"/>
+                            <constraint firstAttribute="bottom" secondItem="rtt-bX-D0f" secondAttribute="bottom" id="F6d-GC-Bm7"/>
                             <constraint firstItem="YrM-z1-eNZ" firstAttribute="centerX" secondItem="M7h-dh-7v3" secondAttribute="centerX" id="MfK-3G-A9d"/>
                             <constraint firstItem="qbT-k3-ul4" firstAttribute="leading" secondItem="M7h-dh-7v3" secondAttribute="leading" constant="20" id="TcF-zN-om3"/>
                             <constraint firstItem="9J6-j5-8W7" firstAttribute="centerX" secondItem="M7h-dh-7v3" secondAttribute="centerX" id="YbD-bL-RBS"/>
                             <constraint firstItem="YrM-z1-eNZ" firstAttribute="top" secondItem="9J6-j5-8W7" secondAttribute="bottom" constant="8" id="bAG-RM-W3r"/>
                             <constraint firstItem="rtt-bX-D0f" firstAttribute="leading" secondItem="M7h-dh-7v3" secondAttribute="leading" id="bSh-4O-7nd"/>
-                            <constraint firstItem="YyM-S3-H7u" firstAttribute="bottom" secondItem="rtt-bX-D0f" secondAttribute="bottom" id="exa-em-4uZ"/>
                             <constraint firstItem="rtt-bX-D0f" firstAttribute="top" secondItem="YrM-z1-eNZ" secondAttribute="bottom" constant="4" id="grD-CI-5en"/>
                             <constraint firstItem="9J6-j5-8W7" firstAttribute="top" secondItem="YyM-S3-H7u" secondAttribute="top" id="lky-dT-RD3"/>
                             <constraint firstItem="YyM-S3-H7u" firstAttribute="trailing" secondItem="rtt-bX-D0f" secondAttribute="trailing" id="vg7-ho-kLn"/>
@@ -799,7 +799,7 @@
         <scene sceneID="svI-v2-BfW">
             <objects>
                 <viewController storyboardIdentifier="CreateRoomViewController" id="TNr-wU-qBU" customClass="CreateRoomViewController" customModule="QuestTime" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oZW-2O-pl9" customClass="GradientView" customModule="QuestTime" customModuleProvider="target">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="oZW-2O-pl9" customClass="GradientView" customModule="QuestTime" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

@@ -21,7 +21,7 @@ class LoadingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
             self?.view.backgroundColor = UIColor.black.withAlphaComponent(0.15)
             self?.activityIndicator.startAnimating()
         }
