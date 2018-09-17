@@ -7,39 +7,310 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C8839D23A6E648354BEDA8F /* Pods_QuestTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */; };
+		B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4032F03205880E2007EFE96 /* LoginViewController.swift */; };
+		B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B408FEDF206A8D8100E76A56 /* QTTextField.swift */; };
+		B40AC2B120BBF93400DB0AF0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AC2B020BBF93400DB0AF0 /* LoadingViewController.swift */; };
+		B40AC2B320BBF9CE00DB0AF0 /* UIViewController+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40AC2B220BBF9CE00DB0AF0 /* UIViewController+QT.swift */; };
+		B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA01F206AE4C9008E960C /* RoomsViewController.swift */; };
+		B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */; };
+		B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */; };
+		B43384662077A408004272DC /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384652077A408004272DC /* QuestionViewController.swift */; };
+		B43384682077B09F004272DC /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43384672077B09F004272DC /* QuestionDetailViewController.swift */; };
+		B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43ABAD2207BAD2100D7B5F8 /* Person.swift */; };
+		B43AFCB120A6D4C30062C0B4 /* UIView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */; };
+		B43AFCB520A75E630062C0B4 /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = B43AFCB420A75E5E0062C0B4 /* notification.caf */; };
+		B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD96206F899400FC6662 /* RoomViewController.swift */; };
+		B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */; };
+		B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */; };
+		B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45E0665206FD02500B8950E /* CreateRoomViewController.swift */; };
+		B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */; };
+		B45E066B206FD1E000B8950E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */; };
+		B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C1E205941120081BB6F /* RegisterViewController.swift */; };
+		B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C20205942800081BB6F /* UIStoryboard+QT.swift */; };
+		B4656C232059428B0081BB6F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4656C222059428A0081BB6F /* Constants.swift */; };
+		B467E4032080F92C00729729 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B467E4022080F92C00729729 /* GoogleService-Info.plist */; };
+		B46EAC992080B76500745842 /* UIColor+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46EAC982080B76500745842 /* UIColor+QT.swift */; };
+		B475705B210A3410003FF546 /* QuestTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B475705A210A3410003FF546 /* QuestTimeUITests.swift */; };
+		B4757065210A359E003FF546 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4757062210A3591003FF546 /* SnapshotHelper.swift */; };
+		B478162120A072A100BF88A7 /* QTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B478162020A072A000BF88A7 /* QTClient.swift */; };
+		B4859D2420A8DF8D0066FC68 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4859D2320A8DF8D0066FC68 /* ForgotPasswordViewController.swift */; };
+		B4A4D77920A3365C00D51FBC /* JoinPrivateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */; };
+		B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */; };
+		B4AC13F3207BA93900DF8A92 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC13F2207BA93900DF8A92 /* Room.swift */; };
+		B4AC13F5207BAA5100DF8A92 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AC13F4207BAA5100DF8A92 /* Question.swift */; };
+		B4B1F3DE206B9C080040A4CD /* UITableView+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */; };
 		B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F06204C29A100414BB1 /* AppDelegate.swift */; };
-		B4B51F09204C29A100414BB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B51F08204C29A100414BB1 /* ViewController.swift */; };
 		B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0A204C29A100414BB1 /* Main.storyboard */; };
 		B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0D204C29A100414BB1 /* Assets.xcassets */; };
 		B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4B51F0F204C29A100414BB1 /* LaunchScreen.storyboard */; };
+		B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C449F620505C6B00DFDB1D /* GradientView.swift */; };
+		B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */; };
+		B4CD05FE20711FD7008A9F6C /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */; };
+		B4CD06062071201E008A9F6C /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */; };
+		B4CD06072071201E008A9F6C /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */; };
+		B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */; };
+		B4D3A4702076D14A008278B5 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D3A46F2076D14A008278B5 /* Window.swift */; };
+		B4D3A4722076D3F1008278B5 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4D3A4712076D3F1008278B5 /* Login.storyboard */; };
+		B4D662C720A488B500A9170B /* JoinPublicRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */; };
+		B4D662C920A48F4300A9170B /* PublicSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */; };
+		B4D662CC20A4904300A9170B /* SearchRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */; };
+		B4D662CD20A4904300A9170B /* SearchRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */; };
+		B4E05B78207E45D40016A28B /* String+QT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E05B77207E45D40016A28B /* String+QT.swift */; };
+		B4F0FA3620A5E309005E4E79 /* buttonClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B4F0FA3520A5E308005E4E79 /* buttonClick.mp3 */; };
+		B4F0FA3920A5E575005E4E79 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F0FA3820A5E575005E4E79 /* Sounds.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B475705D210A3410003FF546 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4B51EFB204C29A100414BB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4B51F02204C29A100414BB1;
+			remoteInfo = QuestTime;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.release.xcconfig"; sourceTree = "<group>"; };
+		865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuestTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime.debug.xcconfig"; sourceTree = "<group>"; };
+		B4032F03205880E2007EFE96 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B408FEDF206A8D8100E76A56 /* QTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTTextField.swift; sourceTree = "<group>"; };
+		B40AC2B020BBF93400DB0AF0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		B40AC2B220BBF9CE00DB0AF0 /* UIViewController+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+QT.swift"; sourceTree = "<group>"; };
+		B41DA01F206AE4C9008E960C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
+		B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomTableViewCell.xib; sourceTree = "<group>"; };
+		B43384652077A408004272DC /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		B43384672077B09F004272DC /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
+		B43ABAD2207BAD2100D7B5F8 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+QT.swift"; sourceTree = "<group>"; };
+		B43AFCB420A75E5E0062C0B4 /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
+		B443AD96206F899400FC6662 /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableViewCell.xib; sourceTree = "<group>"; };
+		B45E0665206FD02500B8950E /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
+		B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+QT.swift"; sourceTree = "<group>"; };
+		B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B4656C1E205941120081BB6F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B4656C20205942800081BB6F /* UIStoryboard+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+QT.swift"; sourceTree = "<group>"; };
+		B4656C222059428A0081BB6F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B467E4022080F92C00729729 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B46EAC982080B76500745842 /* UIColor+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+QT.swift"; sourceTree = "<group>"; };
+		B4757058210A3410003FF546 /* QuestTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuestTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B475705A210A3410003FF546 /* QuestTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTimeUITests.swift; sourceTree = "<group>"; };
+		B475705C210A3410003FF546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4757062210A3591003FF546 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = "QuestTime/Supporting Files/SnapshotHelper.swift"; sourceTree = SOURCE_ROOT; };
+		B478162020A072A000BF88A7 /* QTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QTClient.swift; sourceTree = "<group>"; };
+		B4859D2320A8DF8D0066FC68 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPrivateRoomViewController.swift; sourceTree = "<group>"; };
+		B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B4AC13F2207BA93900DF8A92 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		B4AC13F4207BAA5100DF8A92 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		B4AFA645209B6D8B00D6086E /* QuestTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuestTime.entitlements; sourceTree = "<group>"; };
+		B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+QT.swift"; sourceTree = "<group>"; };
 		B4B51F03204C29A100414BB1 /* QuestTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4B51F06204C29A100414BB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4B51F08204C29A100414BB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B4B51F0B204C29A100414BB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4B51F0D204C29A100414BB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4B51F10204C29A100414BB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4B51F12204C29A100414BB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4C449F620505C6B00DFDB1D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineLabel.swift; sourceTree = "<group>"; };
+		B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
+		B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
+		B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomPopupViewController.swift; sourceTree = "<group>"; };
+		B4D3A46F2076D14A008278B5 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		B4D3A4712076D3F1008278B5 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPublicRoomViewController.swift; sourceTree = "<group>"; };
+		B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicSearchViewController.swift; sourceTree = "<group>"; };
+		B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoomTableViewCell.swift; sourceTree = "<group>"; };
+		B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRoomTableViewCell.xib; sourceTree = "<group>"; };
+		B4E05B77207E45D40016A28B /* String+QT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QT.swift"; sourceTree = "<group>"; };
+		B4F0FA3520A5E308005E4E79 /* buttonClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClick.mp3; sourceTree = "<group>"; };
+		B4F0FA3820A5E575005E4E79 /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
+		FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuestTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B4B51F00204C29A100414BB1 /* Frameworks */ = {
+		B4757055210A3410003FF546 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B4B51F00204C29A100414BB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C8839D23A6E648354BEDA8F /* Pods_QuestTime.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A93B633319EFE011E7D330B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */,
+				801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		768DBC0EFC7DDFF1BC9651EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB74511FEA05EA0252D74BE1 /* Pods_QuestTime.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4032F01205880B4007EFE96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4757062210A3591003FF546 /* SnapshotHelper.swift */,
+				B467E4022080F92C00729729 /* GoogleService-Info.plist */,
+				B4B51F0D204C29A100414BB1 /* Assets.xcassets */,
+				B4B51F0F204C29A100414BB1 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4032F02205880D0007EFE96 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B445863820725E2C00C829EA /* Swift Extensions */,
+				B4C449F620505C6B00DFDB1D /* GradientView.swift */,
+				B4C449FA20506C8100DFDB1D /* OutlineLabel.swift */,
+				B4656C222059428A0081BB6F /* Constants.swift */,
+				B408FEDF206A8D8100E76A56 /* QTTextField.swift */,
+				B4F0FA3820A5E575005E4E79 /* Sounds.swift */,
+				B40AC2B020BBF93400DB0AF0 /* LoadingViewController.swift */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		B445863320725DDE00C829EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B4D3A4712076D3F1008278B5 /* Login.storyboard */,
+				B4032F03205880E2007EFE96 /* LoginViewController.swift */,
+				B4656C1E205941120081BB6F /* RegisterViewController.swift */,
+				B4859D2320A8DF8D0066FC68 /* ForgotPasswordViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B445863420725DEE00C829EA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B41DA01F206AE4C9008E960C /* RoomsViewController.swift */,
+				B41DA021206AE4FB008E960C /* RoomTableViewCell.swift */,
+				B41DA022206AE4FB008E960C /* RoomTableViewCell.xib */,
+				B4AC13F2207BA93900DF8A92 /* Room.swift */,
+				B4A9D53F20B88C140023C5C4 /* Popups */,
+				B4A9D54020B88C380023C5C4 /* Join Public Room */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B445863520725DF700C829EA /* Room Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B443AD96206F899400FC6662 /* RoomViewController.swift */,
+				B4AC13F4207BAA5100DF8A92 /* Question.swift */,
+				B443AD9A206F8F2000FC6662 /* QuestionTableViewCell.swift */,
+				B443AD9B206F8F2000FC6662 /* QuestionTableViewCell.xib */,
+			);
+			path = "Room Detail";
+			sourceTree = "<group>";
+		};
+		B445863620725E0200C829EA /* Create Room */ = {
+			isa = PBXGroup;
+			children = (
+				B45E0665206FD02500B8950E /* CreateRoomViewController.swift */,
+				B45E0669206FD1E000B8950E /* CategoryCollectionViewCell.swift */,
+			);
+			path = "Create Room";
+			sourceTree = "<group>";
+		};
+		B445863720725E0A00C829EA /* People */ = {
+			isa = PBXGroup;
+			children = (
+				B4CD05FD20711FD7008A9F6C /* PeopleViewController.swift */,
+				B4CD06042071201E008A9F6C /* PersonTableViewCell.swift */,
+				B4CD06052071201E008A9F6C /* PersonTableViewCell.xib */,
+				B43ABAD2207BAD2100D7B5F8 /* Person.swift */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		B445863820725E2C00C829EA /* Swift Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B4656C20205942800081BB6F /* UIStoryboard+QT.swift */,
+				B4B1F3DD206B9C080040A4CD /* UITableView+QT.swift */,
+				B45E0667206FD17F00B8950E /* UICollectionView+QT.swift */,
+				B4E05B77207E45D40016A28B /* String+QT.swift */,
+				B46EAC982080B76500745842 /* UIColor+QT.swift */,
+				B43AFCB020A6D4C30062C0B4 /* UIView+QT.swift */,
+				B40AC2B220BBF9CE00DB0AF0 /* UIViewController+QT.swift */,
+			);
+			path = "Swift Extensions";
+			sourceTree = "<group>";
+		};
+		B4757059210A3410003FF546 /* QuestTimeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B475705A210A3410003FF546 /* QuestTimeUITests.swift */,
+				B475705C210A3410003FF546 /* Info.plist */,
+			);
+			path = QuestTimeUITests;
+			sourceTree = "<group>";
+		};
+		B492AD2620A1CE550014BC48 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				B43384652077A408004272DC /* QuestionViewController.swift */,
+				B43384672077B09F004272DC /* QuestionDetailViewController.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		B4A9D53F20B88C140023C5C4 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				B4A9453820769AD400FDDCB8 /* SettingsViewController.swift */,
+				B4D3A46D2076CBFD008278B5 /* AddRoomPopupViewController.swift */,
+				B4A4D77820A3365C00D51FBC /* JoinPrivateRoomViewController.swift */,
+				B4D662C620A488B500A9170B /* JoinPublicRoomViewController.swift */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		B4A9D54020B88C380023C5C4 /* Join Public Room */ = {
+			isa = PBXGroup;
+			children = (
+				B4D662C820A48F4300A9170B /* PublicSearchViewController.swift */,
+				B4D662CA20A4904300A9170B /* SearchRoomTableViewCell.swift */,
+				B4D662CB20A4904300A9170B /* SearchRoomTableViewCell.xib */,
+			);
+			path = "Join Public Room";
+			sourceTree = "<group>";
+		};
 		B4B51EFA204C29A100414BB1 = {
 			isa = PBXGroup;
 			children = (
+				B43AFCB420A75E5E0062C0B4 /* notification.caf */,
 				B4B51F05204C29A100414BB1 /* QuestTime */,
+				B4757059210A3410003FF546 /* QuestTimeUITests */,
 				B4B51F04204C29A100414BB1 /* Products */,
+				3A93B633319EFE011E7D330B /* Pods */,
+				768DBC0EFC7DDFF1BC9651EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				B4B51F03204C29A100414BB1 /* QuestTime.app */,
+				B4757058210A3410003FF546 /* QuestTimeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,26 +326,63 @@
 		B4B51F05204C29A100414BB1 /* QuestTime */ = {
 			isa = PBXGroup;
 			children = (
-				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
-				B4B51F08204C29A100414BB1 /* ViewController.swift */,
-				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
-				B4B51F0D204C29A100414BB1 /* Assets.xcassets */,
-				B4B51F0F204C29A100414BB1 /* LaunchScreen.storyboard */,
 				B4B51F12204C29A100414BB1 /* Info.plist */,
+				B4AFA645209B6D8B00D6086E /* QuestTime.entitlements */,
+				B4B51F06204C29A100414BB1 /* AppDelegate.swift */,
+				B4D3A46F2076D14A008278B5 /* Window.swift */,
+				B4B51F0A204C29A100414BB1 /* Main.storyboard */,
+				B478162020A072A000BF88A7 /* QTClient.swift */,
+				B445863320725DDE00C829EA /* Login */,
+				B445863420725DEE00C829EA /* Home */,
+				B445863520725DF700C829EA /* Room Detail */,
+				B445863620725E0200C829EA /* Create Room */,
+				B492AD2620A1CE550014BC48 /* Question */,
+				B445863720725E0A00C829EA /* People */,
+				B4032F02205880D0007EFE96 /* Helper Classes */,
+				B4F0FA3720A5E30E005E4E79 /* Resources */,
+				B4032F01205880B4007EFE96 /* Supporting Files */,
 			);
 			path = QuestTime;
+			sourceTree = "<group>";
+		};
+		B4F0FA3720A5E30E005E4E79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4F0FA3520A5E308005E4E79 /* buttonClick.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B4757057210A3410003FF546 /* QuestTimeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4757061210A3410003FF546 /* Build configuration list for PBXNativeTarget "QuestTimeUITests" */;
+			buildPhases = (
+				B4757054210A3410003FF546 /* Sources */,
+				B4757055210A3410003FF546 /* Frameworks */,
+				B4757056210A3410003FF546 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B475705E210A3410003FF546 /* PBXTargetDependency */,
+			);
+			name = QuestTimeUITests;
+			productName = QuestTimeUITests;
+			productReference = B4757058210A3410003FF546 /* QuestTimeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		B4B51F02204C29A100414BB1 /* QuestTime */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4B51F15204C29A100414BB1 /* Build configuration list for PBXNativeTarget "QuestTime" */;
 			buildPhases = (
+				23C17030B9054645B9242EB1 /* [CP] Check Pods Manifest.lock */,
 				B4B51EFF204C29A100414BB1 /* Sources */,
 				B4B51F00204C29A100414BB1 /* Frameworks */,
 				B4B51F01204C29A100414BB1 /* Resources */,
+				18C16F45E1092696C608AE67 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -90,13 +399,23 @@
 		B4B51EFB204C29A100414BB1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = BlabLab;
 				TargetAttributes = {
+					B4757057210A3410003FF546 = {
+						CreatedOnToolsVersion = 9.4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B4B51F02204C29A100414BB1;
+					};
 					B4B51F02204C29A100414BB1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -114,34 +433,150 @@
 			projectRoot = "";
 			targets = (
 				B4B51F02204C29A100414BB1 /* QuestTime */,
+				B4757057210A3410003FF546 /* QuestTimeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B4757056210A3410003FF546 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4B51F01204C29A100414BB1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43AFCB520A75E630062C0B4 /* notification.caf in Resources */,
+				B4D662CD20A4904300A9170B /* SearchRoomTableViewCell.xib in Resources */,
+				B41DA024206AE4FB008E960C /* RoomTableViewCell.xib in Resources */,
+				B4CD06072071201E008A9F6C /* PersonTableViewCell.xib in Resources */,
+				B467E4032080F92C00729729 /* GoogleService-Info.plist in Resources */,
 				B4B51F11204C29A100414BB1 /* LaunchScreen.storyboard in Resources */,
+				B443AD9D206F8F2000FC6662 /* QuestionTableViewCell.xib in Resources */,
 				B4B51F0E204C29A100414BB1 /* Assets.xcassets in Resources */,
 				B4B51F0C204C29A100414BB1 /* Main.storyboard in Resources */,
+				B4D3A4722076D3F1008278B5 /* Login.storyboard in Resources */,
+				B4F0FA3620A5E309005E4E79 /* buttonClick.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18C16F45E1092696C608AE67 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuestTime/Pods-QuestTime-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23C17030B9054645B9242EB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QuestTime-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		B4757054210A3410003FF546 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B475705B210A3410003FF546 /* QuestTimeUITests.swift in Sources */,
+				B4757065210A359E003FF546 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4B51EFF204C29A100414BB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4B51F09204C29A100414BB1 /* ViewController.swift in Sources */,
+				B478162120A072A100BF88A7 /* QTClient.swift in Sources */,
+				B46EAC992080B76500745842 /* UIColor+QT.swift in Sources */,
+				B4AC13F5207BAA5100DF8A92 /* Question.swift in Sources */,
+				B45E066B206FD1E000B8950E /* CategoryCollectionViewCell.swift in Sources */,
+				B4032F04205880E2007EFE96 /* LoginViewController.swift in Sources */,
+				B4AC13F3207BA93900DF8A92 /* Room.swift in Sources */,
+				B4D3A4702076D14A008278B5 /* Window.swift in Sources */,
+				B443AD9C206F8F2000FC6662 /* QuestionTableViewCell.swift in Sources */,
+				B4656C1F205941120081BB6F /* RegisterViewController.swift in Sources */,
+				B40AC2B120BBF93400DB0AF0 /* LoadingViewController.swift in Sources */,
+				B4D3A46E2076CBFD008278B5 /* AddRoomPopupViewController.swift in Sources */,
+				B40AC2B320BBF9CE00DB0AF0 /* UIViewController+QT.swift in Sources */,
+				B45E0668206FD17F00B8950E /* UICollectionView+QT.swift in Sources */,
+				B4F0FA3920A5E575005E4E79 /* Sounds.swift in Sources */,
+				B43AFCB120A6D4C30062C0B4 /* UIView+QT.swift in Sources */,
+				B4A9453920769AD400FDDCB8 /* SettingsViewController.swift in Sources */,
+				B43ABAD3207BAD2100D7B5F8 /* Person.swift in Sources */,
+				B4A4D77920A3365C00D51FBC /* JoinPrivateRoomViewController.swift in Sources */,
+				B45E0666206FD02500B8950E /* CreateRoomViewController.swift in Sources */,
 				B4B51F07204C29A100414BB1 /* AppDelegate.swift in Sources */,
+				B43384662077A408004272DC /* QuestionViewController.swift in Sources */,
+				B443AD97206F899400FC6662 /* RoomViewController.swift in Sources */,
+				B4C449F720505C6B00DFDB1D /* GradientView.swift in Sources */,
+				B41DA023206AE4FB008E960C /* RoomTableViewCell.swift in Sources */,
+				B4CD05FE20711FD7008A9F6C /* PeopleViewController.swift in Sources */,
+				B408FEE0206A8D8100E76A56 /* QTTextField.swift in Sources */,
+				B4D662CC20A4904300A9170B /* SearchRoomTableViewCell.swift in Sources */,
+				B4CD06062071201E008A9F6C /* PersonTableViewCell.swift in Sources */,
+				B4D662C720A488B500A9170B /* JoinPublicRoomViewController.swift in Sources */,
+				B43384682077B09F004272DC /* QuestionDetailViewController.swift in Sources */,
+				B41DA020206AE4C9008E960C /* RoomsViewController.swift in Sources */,
+				B4C449FB20506C8100DFDB1D /* OutlineLabel.swift in Sources */,
+				B4656C21205942800081BB6F /* UIStoryboard+QT.swift in Sources */,
+				B4E05B78207E45D40016A28B /* String+QT.swift in Sources */,
+				B4859D2420A8DF8D0066FC68 /* ForgotPasswordViewController.swift in Sources */,
+				B4B1F3DE206B9C080040A4CD /* UITableView+QT.swift in Sources */,
+				B4D662C920A48F4300A9170B /* PublicSearchViewController.swift in Sources */,
+				B4656C232059428B0081BB6F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B475705E210A3410003FF546 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4B51F02204C29A100414BB1 /* QuestTime */;
+			targetProxy = B475705D210A3410003FF546 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B4B51F0A204C29A100414BB1 /* Main.storyboard */ = {
@@ -163,6 +598,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B475705F210A3410003FF546 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5J7U5C6D83;
+				INFOPLIST_FILE = QuestTimeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cubelic.dominik.QuestTimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuestTime;
+			};
+			name = Debug;
+		};
+		B4757060210A3410003FF546 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5J7U5C6D83;
+				INFOPLIST_FILE = QuestTimeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cubelic.dominik.QuestTimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuestTime;
+			};
+			name = Release;
+		};
 		B4B51F13204C29A100414BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -177,6 +646,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -184,6 +654,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -211,7 +682,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -234,6 +705,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -241,6 +713,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -262,7 +735,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -272,11 +745,15 @@
 		};
 		B4B51F16204C29A100414BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 865E8483962684C54E61DAB9 /* Pods-QuestTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QuestTime/QuestTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J7U5C6D83;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = QuestTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlabLab.QuestTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,11 +764,15 @@
 		};
 		B4B51F17204C29A100414BB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 801C320CC39EE704113BE32D /* Pods-QuestTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = QuestTime/QuestTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5J7U5C6D83;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = QuestTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlabLab.QuestTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,6 +784,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B4757061210A3410003FF546 /* Build configuration list for PBXNativeTarget "QuestTimeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B475705F210A3410003FF546 /* Debug */,
+				B4757060210A3410003FF546 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B4B51EFE204C29A100414BB1 /* Build configuration list for PBXProject "QuestTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
